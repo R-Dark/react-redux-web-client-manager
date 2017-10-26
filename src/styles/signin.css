@@ -1,0 +1,89 @@
+.login-icon {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 11%;
+}
+
+#login-jumbotron {
+  margin-top: 9%;
+  position: relative;
+  min-height: 500px;
+  background-size: 100%;
+  padding: 10px;
+  background-image: url('')
+}
+
+.jumbotron-content {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0px 15px;
+  width: 25%;
+  height: 100%;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.66);
+  border-radius: 5px;
+  padding-top: 6%;
+}
+
+.jumbotron-content h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 1.75em;
+  margin-bottom: 0.5em;
+}
+
+.jumbotron .btn {
+  padding: 5px 5%;
+}
+
+@media(min-width: 992px) {
+  .jumbotron .btn {
+    padding: 5px 10%;
+  }
+}
+
+@media(max-width: 991px) {
+  .jumbotron-content {
+    position: absolute;
+    height: 100%;
+  }
+
+  .jumbotron-lg-only {
+    display: none;
+  }
+}
+
+@media(max-width: 768px) {
+  .jumbotron {
+    background-size: 100% 100%;
+  }
+
+  .jumbotron-content {
+    top: 0;
+    height: 100%;
+    width: 37%;
+  }
+
+  .jumbotron .btn {
+    font-size: 0.85em;
+    padding: 8px 5%;
+    max-width: 65px;
+  }
+}
+
+@media(min-device-width: 320px) and (max-device-width: 568px) {
+  .jumbotron {
+    background: #3667A6;
+    min-height: 275px;
+  }
+
+  .jumbotron-content {
+    width: 100%;
+    height: 100%;
+  }
+
+  .jumbotron .img-credit {
+    display: none;
+  }
+}
