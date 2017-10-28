@@ -4,6 +4,7 @@ import * as actions from '../../actions'
 import { Button } from 'reactstrap';
 
 const SignInForm = props => {
+
   const { handleSubmit } = props
   return (
     <form onSubmit={handleSubmit}>
@@ -36,6 +37,9 @@ const SignInForm = props => {
     </form>
   )
 }
+
+
+
 
 export default reduxForm({
   form: 'signin' // a unique identifier for this form

@@ -2,26 +2,11 @@ import firebase from 'firebase'
 import history from './history'
 
 import {
-  EMAIL_CHANGED,
-  PASSWORD_CHANGED,
-  LOGIN_USER_SUCCESS,
-  LOGIN_USER_FAIL,
-  SIGNIN_USER
+  SIGNIN_USER,
+  UNAUTH_USER,
+  AUTH_USER,
+  AUTH_ERROR
 } from './types';
-
-export const emailChanged = (text) => {
-  return {
-    type: EMAIL_CHANGED,
-    payload: text
-  }
-}
-
-export const passwordChanged = (text) => {
-  return {
-    type: PASSWORD_CHANGED,
-    payload: text
-  }
-}
 
 export const signinUser = ({ email, password }) => {
   return (dispatch) => {
@@ -29,20 +14,25 @@ export const signinUser = ({ email, password }) => {
 
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then(user => loginUserSuccess(dispatch, user))
-    .catch(() => loginUserFail(dispatch));
+    .catch(() => {
+      dispatch(authError('Login Failed'))
+    });
   };
 };
 
-const loginUserFail = (dispatch) => {
-  dispatch({ type: LOGIN_USER_FAIL })
-}
-
-
 const loginUserSuccess = (dispatch, user) => {
   dispatch({
-    type: LOGIN_USER_SUCCESS,
+    type: AUTH_USER,
     payload: user
   });
 
  history.push('/brain')
 };
+
+
+export function authError(error) {
+  return {
+    type: AUTH_ERROR,
+    payload: error
+  }
+}

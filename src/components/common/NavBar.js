@@ -1,22 +1,48 @@
 import React, { Component } from 'react';
 // import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { connect } from 'react-redux'
+import { NavLink, Link } from 'react-router-dom'
 
 
 class NavBar extends Component {
+
+  renderLinks() {
+    if (this.props.authenticated) {
+      return (
+        <li className='nav-item'>
+        <Link className='nav-link' to='/signout'>Sign Out</Link>
+      </li>
+    )
+    } else {
+      return (
+        <li className='nav-item'>
+          <Link className='nav-link' to='/signin'>Sign In</Link>
+        </li>
+      )
+    }
+  }
+
   render() {
     return(
       <nav className='navbar navbar-light' style={{ backgroundColor: '#e9ebef'}} >
+        <Link to='/' className='navbar-brand'>
+          Bellatorum
+        </Link>
         <ul className='nav navbar-nav'>
-          <li className='nav-item'>
-            Sign In
-          </li>
+          {this.renderLinks()}
         </ul>
       </nav>
     )
   }
 }
 
-export default NavBar;
+function mapStateToProps(state) {
+  return {
+    authenticated: state.auth.authenticated
+  }
+}
+
+export default connect(mapStateToProps, {})(NavBar);
 
 
 
