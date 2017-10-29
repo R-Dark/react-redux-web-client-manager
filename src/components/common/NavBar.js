@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-// import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { connect } from 'react-redux'
 import { NavLink, Link } from 'react-router-dom'
+
 
 
 class NavBar extends Component {
@@ -16,7 +16,7 @@ class NavBar extends Component {
     } else {
       return (
         <li className='nav-item'>
-          <Link className='nav-link' to='/signin'>Sign In</Link>
+          <Link className='nav-link' to='/signin'>Login</Link>
         </li>
       )
     }
@@ -26,7 +26,7 @@ class NavBar extends Component {
     return(
       <nav className='navbar navbar-light' style={{ backgroundColor: '#e9ebef'}} >
         <Link to='/' className='navbar-brand'>
-          Bellatorum
+          the Brain
         </Link>
         <ul className='nav navbar-nav'>
           {this.renderLinks()}

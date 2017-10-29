@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { Router, Route } from "react-router-dom";
 import firebase from 'firebase'
+import '../styles/index.css';
 import history from '../actions/history'
+import RequireAuth from './auth/RequireAuth'
 import SignIn from './auth/SignIn'
+import SignOut from './auth/SignOut'
 import Home from './Home'
 import Brain from './Brain'
-import '../styles/index.css';
 import Layout from './common/Layout'
+
 
 
 class App extends Component {
@@ -26,9 +29,10 @@ class App extends Component {
     return (
       <Router history={history}>
           <Layout>
-            <Route path='/' exact component={Home} />
+            <Route path='/' exact component={RequireAuth(Home)} />
             <Route path='/signin' component={SignIn} />
-            <Route path='/brain' component={Brain} />
+            <Route path='/signout' component={SignOut} />
+            <Route path='/brain' component={RequireAuth(Brain)} />
           </Layout>
       </Router>
     );

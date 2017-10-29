@@ -26,7 +26,7 @@ const loginUserSuccess = (dispatch, user) => {
     payload: user
   });
 
- history.push('/brain')
+ history.push('/')
 };
 
 
@@ -35,4 +35,9 @@ export function authError(error) {
     type: AUTH_ERROR,
     payload: error
   }
+}
+
+export function signoutUser() {
+  localStorage.removeItem('idToken')
+  return { type: UNAUTH_USER }
 }
