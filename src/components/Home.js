@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import {Helmet} from "react-helmet";
 
 class Home extends Component {
+  componentWillMount() {
+    console.log(localStorage)
+  }
+
+  
   render() {
     return(
 

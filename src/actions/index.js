@@ -21,12 +21,11 @@ export const signinUser = ({ email, password }) => {
 };
 
 const loginUserSuccess = (dispatch, user) => {
-  dispatch({
-    type: AUTH_USER,
-    payload: user
-  });
+  dispatch({ type: AUTH_USER, payload: user });
+  localStorage.setItem('isUser', 'yes')
 
- history.push('/')
+
+  history.push('/')
 };
 
 
@@ -38,6 +37,6 @@ export function authError(error) {
 }
 
 export function signoutUser() {
-  localStorage.removeItem('idToken')
+  localStorage.removeItem('isUser')
   return { type: UNAUTH_USER }
 }

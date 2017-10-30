@@ -1,5 +1,4 @@
 import {
-  SIGNIN_USER,
   AUTH_USER,
   UNAUTH_USER,
   AUTH_ERROR
