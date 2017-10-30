@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { signoutUser } from '../../actions'
 import BellatorumLogo from '../images/Bellatorum_Login_Logo.png'
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import { Button } from 'reactstrap';
 
 

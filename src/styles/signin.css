@@ -13,6 +13,10 @@
   background-image: url('../components/images/houston-skyline.png')
 }
 
+#login-jumbotron .btn {
+  padding: 5px 5%;
+}
+
 #auth-fail-alert {
   margin-top: 15px;
   text-align: center;
@@ -20,7 +24,7 @@
   color: #fff;
   border: none;
   font-size: 19px;
-  padding: 6px;
+  padding: 7px;
 }
 
 .jumbotron-content {
@@ -43,11 +47,11 @@
   margin-bottom: 0.5em;
 }
 
-.jumbotron .btn {
+/*.jumbotron .btn {
   padding: 5px 5%;
-}
+}*/
 
-@media(min-width: 992px) {
+/*@media(min-width: 992px) {
   .jumbotron .btn {
     padding: 5px 10%;
   }
@@ -96,4 +100,4 @@
   .jumbotron .img-credit {
     display: none;
   }
-}
+}*/

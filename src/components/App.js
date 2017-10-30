@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Router, Route } from "react-router-dom";
-import '../styles/index.css';
 import history from '../actions/history'
 import RequireAuth from './auth/RequireAuth'
 import SignIn from './auth/SignIn'

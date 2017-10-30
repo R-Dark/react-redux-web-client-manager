@@ -25,7 +25,7 @@ const config = {
 
 firebase.initializeApp(config);
 
-if (localStorage.isUser === 'yes') {
+if (localStorage.token) {
   store.dispatch({ type: AUTH_USER })
 }
 
