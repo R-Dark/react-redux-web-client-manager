@@ -1,103 +1,53 @@
 import React, { Component } from 'react'
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Jumbotron } from 'reactstrap';
+import ZipCodeButton from './ZipCodeButton'
+import StateButton from './StateButton'
 
 class MiddleRowButtons extends Component {
-  constructor(props) {
-      super(props);
-
-      this.toggle = this.toggle.bind(this);
-      this.state = {
-        dropdownOpen: false
-      };
-    }
-
-    toggle() {
-      this.setState({
-        dropdownOpen: !this.state.dropdownOpen
-      });
-    }
-
     render() {
       return (
-      <div style={styles.outterDivStyles}>
-          <div style={styles.buttonDivStyle}>
-            <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-              <DropdownToggle caret color="primary" >
-                Acreage
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem header>Header</DropdownItem>
-                <DropdownItem disabled>Action</DropdownItem>
-                <DropdownItem>Another Action</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Another Action</DropdownItem>
-              </DropdownMenu>
-            </ButtonDropdown>
-            <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-              <DropdownToggle caret  color="primary">
-                Acreage
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem header>Header</DropdownItem>
-                <DropdownItem disabled>Action</DropdownItem>
-                <DropdownItem>Another Action</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Another Action</DropdownItem>
-              </DropdownMenu>
-            </ButtonDropdown>
-            <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-              <DropdownToggle caret color="primary" >
-                Acreage
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem header>Header</DropdownItem>
-                <DropdownItem disabled>Action</DropdownItem>
-                <DropdownItem>Another Action</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Another Action</DropdownItem>
-              </DropdownMenu>
-            </ButtonDropdown>
-            <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-              <DropdownToggle caret color="primary" >
-                Acreage
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem header>Header</DropdownItem>
-                <DropdownItem disabled>Action</DropdownItem>
-                <DropdownItem>Another Action</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Another Action</DropdownItem>
-              </DropdownMenu>
-            </ButtonDropdown>
-            <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-              <DropdownToggle caret color="primary" >
-                Acreage
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem header>Header</DropdownItem>
-                <DropdownItem disabled>Action</DropdownItem>
-                <DropdownItem>Another Action</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Another Action</DropdownItem>
-              </DropdownMenu>
-            </ButtonDropdown>
+        <div style={ styles.mainDivStyles }>
+          <div style={styles.zipcodeGroupStyles}>
+            <div style={ styles.zipcodeLabelStyles }>
+             <h5>Zip Code:</h5>
+            </div>
+            <ZipCodeButton />
           </div>
-      </div>
+          <div style={styles.stateGroupStyles}>
+            <div style={ styles.stateIDLabelStyles }>
+             <h5>State:</h5>
+            </div>
+            <StateButton />
+          </div>
+        </div>
       );
     }
   }
 
+
   const styles = {
-    buttonDivStyle: {
-      flex: 1,
+    mainDivStyles: {
       display: 'flex',
-      justifyContent: 'space-evenly',
-      paddingBottom: 20,
-      marginLeft: -160
+      justifyContent: 'flex-start',
+      paddingBottom: 9,
+      color: '#171717'
     },
-    outterDivStyles: {
+    zipcodeGroupStyles: {
       display: 'flex',
-      justifyContent: 'center',
+      paddingRight: 40
+    },
+    zipcodeLabelStyles: {
+      display: 'flex',
+      alignItems: 'center',
+      paddingRight: 10
+    },
+    stateGroupStyles: {
+      display: 'flex',
+      paddingRight: 40
+    },
+    stateIDLabelStyles: {
+      display: 'flex',
+      alignItems: 'center',
+      paddingRight: 10
     }
   };
 

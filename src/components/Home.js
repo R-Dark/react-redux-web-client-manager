@@ -46,8 +46,8 @@ const styles = {
     paddingBottom: 15,
     width: '98%',
     height: '100%',
-    paddingLeft: 15,
-    paddingRight: 15
+    paddingLeft: 20,
+    paddingRight: 20
   },
   mainDivStyles: {
     display: 'flex',

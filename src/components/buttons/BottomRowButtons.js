@@ -1,102 +1,77 @@
 import React, { Component } from 'react'
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Jumbotron } from 'reactstrap';
+import OrderByButton from './OrderByButton'
+import MaxResultsButton from './MaxResultsButton'
+import SearchButton from './SearchButton'
+import BatchButton from './BatchButton'
+import RunReportButton from './RunReportButton'
+
 
 class BottomRowButtons extends Component {
-  constructor(props) {
-      super(props);
-
-      this.toggle = this.toggle.bind(this);
-      this.state = {
-        dropdownOpen: false
-      };
-    }
-
-    toggle() {
-      this.setState({
-        dropdownOpen: !this.state.dropdownOpen
-      });
-    }
-
     render() {
       return (
-      <div style={styles.outterDivStyles}>
-          <div style={styles.buttonDivStyle}>
-            <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-              <DropdownToggle caret color="primary" >
-                Acreage
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem header>Header</DropdownItem>
-                <DropdownItem disabled>Action</DropdownItem>
-                <DropdownItem>Another Action</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Another Action</DropdownItem>
-              </DropdownMenu>
-            </ButtonDropdown>
-            <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-              <DropdownToggle caret  color="primary">
-                Acreage
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem header>Header</DropdownItem>
-                <DropdownItem disabled>Action</DropdownItem>
-                <DropdownItem>Another Action</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Another Action</DropdownItem>
-              </DropdownMenu>
-            </ButtonDropdown>
-            <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-              <DropdownToggle caret color="primary" >
-                Acreage
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem header>Header</DropdownItem>
-                <DropdownItem disabled>Action</DropdownItem>
-                <DropdownItem>Another Action</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Another Action</DropdownItem>
-              </DropdownMenu>
-            </ButtonDropdown>
-            <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-              <DropdownToggle caret color="primary" >
-                Acreage
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem header>Header</DropdownItem>
-                <DropdownItem disabled>Action</DropdownItem>
-                <DropdownItem>Another Action</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Another Action</DropdownItem>
-              </DropdownMenu>
-            </ButtonDropdown>
-            <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-              <DropdownToggle caret color="primary" >
-                Acreage
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem header>Header</DropdownItem>
-                <DropdownItem disabled>Action</DropdownItem>
-                <DropdownItem>Another Action</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Another Action</DropdownItem>
-              </DropdownMenu>
-            </ButtonDropdown>
+        <div style={ styles.mainDivStyles }>
+          <div style={styles.orderByGroupStyles}>
+            <div style={ styles.orderByLabelStyles }>
+             <h5>Order By:</h5>
+            </div>
+            <OrderByButton />
           </div>
-      </div>
+          <div style={styles.maxGroupStyles}>
+            <div style={ styles.maxLabelStyles }>
+             <h5>Max Results:</h5>
+            </div>
+            <MaxResultsButton />
+          </div>
+          <div style={styles.searchGroupStyles}>
+            <SearchButton />
+          </div>
+          <div style={styles.batchGroupStyles}>
+            <BatchButton />
+          </div>
+          <div style={styles.runReportGroupStyles}>
+            <RunReportButton />
+          </div>
+        </div>
       );
     }
   }
 
+
   const styles = {
-    buttonDivStyle: {
-      flex: 1,
+    mainDivStyles: {
       display: 'flex',
-      justifyContent: 'space-evenly',
-      marginLeft: -160
+      justifyContent: 'flex-start',
+      color: '#171717'
     },
-    outterDivStyles: {
+    orderByGroupStyles: {
       display: 'flex',
-      justifyContent: 'center'
+      paddingRight: 40
+    },
+    orderByLabelStyles: {
+      display: 'flex',
+      alignItems: 'center',
+      paddingRight: 10
+    },
+    maxGroupStyles: {
+      display: 'flex',
+      paddingRight: 40
+    },
+    maxLabelStyles: {
+      display: 'flex',
+      alignItems: 'center'
+    },
+    searchGroupStyles: {
+      display: 'flex',
+      paddingRight: 40
+    },
+    batchGroupStyles: {
+      display: 'flex',
+      paddingRight: 40
+    },
+    runReportGroupStyles: {
+      display: 'flex',
+      paddingRight: 40
     }
   };
+
 export default BottomRowButtons

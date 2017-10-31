@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 import * as actions from '../../actions'
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Jumbotron } from 'reactstrap';
 
-class RunButton extends Component {
+class OrderByButton extends Component {
   constructor(props) {
       super(props);
 
@@ -24,25 +24,12 @@ class RunButton extends Component {
         <div>
         <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
           <DropdownToggle caret color="primary">
-            All
+            Last Modfied
           </DropdownToggle>
           <DropdownMenu>
-            <DropdownItem>1</DropdownItem>
+            <DropdownItem>Highest</DropdownItem>
             <DropdownItem divider />
-            <DropdownItem>2</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>3</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>4</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>5</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>6</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>7</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>8</DropdownItem>
-            <DropdownItem divider />
+            <DropdownItem>Lowest</DropdownItem>
           </DropdownMenu>
         </ButtonDropdown>
         </div>
@@ -52,5 +39,5 @@ class RunButton extends Component {
 
 
 export default reduxForm({
-  form: 'run' // a unique identifier for this form
-}, null, actions)(RunButton)
+  form: 'orderby' // a unique identifier for this form
+}, null, actions)(OrderByButton)
