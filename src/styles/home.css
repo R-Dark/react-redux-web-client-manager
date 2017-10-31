@@ -1,0 +1,5 @@
+#home-button-jumbotron {
+  position: relative;
+  background-size: 100%;
+  background-image: url('../components/images/main-buttons-background.png')
+}

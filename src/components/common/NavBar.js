@@ -24,7 +24,7 @@ class NavBar extends Component {
 
   render() {
     return(
-      <nav className='navbar navbar-light' style={{ backgroundColor: '#e9ebef'}} >
+      <nav className='navbar navbar-light' style={{ backgroundColor: '#e9ecef'}} >
         <Link to='/' className='navbar-brand'>
           the Brain
         </Link>

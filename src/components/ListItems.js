@@ -4,7 +4,7 @@ import { ListGroup, ListGroupItem } from 'reactstrap';
 class ListItems extends Component {
   render() {
     return(
-      <div>
+      <div style={ styles.listDivStyles}>
         <h5>Clients:</h5>
         <ListGroup>
           <ListGroupItem>Cras justo odio</ListGroupItem>
@@ -17,5 +17,12 @@ class ListItems extends Component {
     )
   }
 }
+
+const styles = {
+  listDivStyles: {
+    marginRight: 15,
+    marginLeft: 15
+  }
+};
 
 export default ListItems
