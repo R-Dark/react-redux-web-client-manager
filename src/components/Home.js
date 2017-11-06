@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import '../styles/home.css';
 import { clientsFetch } from '../actions'
 import ListItems from './ListItems'
+import TableItems from './TableItems'
 import RunButton from './buttons/RunButton'
 import TopRowButtons from './buttons/TopRowButtons'
 import MiddleRowButtons from './buttons/MiddleRowButtons'
@@ -32,7 +33,7 @@ class Home extends Component {
             <BottomRowButtons />
           </Jumbotron>
         </div>
-            <ListItems />
+            <TableItems />
        </div>
     )
   }
