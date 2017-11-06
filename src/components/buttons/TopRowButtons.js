@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import RunButton from './RunButton'
 import SequenceIDButton from './SequenceIDButton'
-import OwnerNameButton from './OwnerNameButton'
 import StatusButton from './StatusButton'
 import BuyerNameButton from './BuyerNameButton'
 
@@ -18,18 +17,6 @@ class TopRowButtons extends Component {
             </div>
             <RunButton />
           </div>
-          <div style={styles.sequenceIDGroupStyles}>
-            <div style={ styles.sequenceIDLabelStyles }>
-             <h5>Sequence ID:</h5>
-            </div>
-            <SequenceIDButton />
-          </div>
-          <div style={styles.ownerNameGroupStyles}>
-            <div style={ styles.ownerNameLabelStyles }>
-             <h5>Owner:</h5>
-            </div>
-            <OwnerNameButton />
-          </div>
           <div style={styles.buyerNameGroupStyles}>
             <div style={ styles.buyerNameLabelStyles }>
              <h5>Buyer:</h5>
@@ -41,6 +28,12 @@ class TopRowButtons extends Component {
              <h5>Status:</h5>
             </div>
             <StatusButton />
+          </div>
+          <div style={styles.sequenceIDGroupStyles}>
+            <div style={ styles.sequenceIDLabelStyles }>
+             <h5>Sequence:</h5>
+            </div>
+            <SequenceIDButton />
           </div>
         </div>
       );
@@ -73,15 +66,6 @@ class TopRowButtons extends Component {
       alignItems: 'center',
       paddingRight: 10
     },
-    ownerNameGroupStyles: {
-      display: 'flex',
-      paddingRight: 40
-    },
-    ownerNameLabelStyles: {
-      display: 'flex',
-      alignItems: 'center',
-      paddingRight: 10
-    },
     buyerNameGroupStyles: {
       display: 'flex',
       paddingRight: 40
@@ -92,7 +76,8 @@ class TopRowButtons extends Component {
       paddingRight: 10
     },
     statusGroupStyles: {
-      display: 'flex'
+      display: 'flex',
+      paddingRight: 40
     },
     statusNameLabelStyles: {
       display: 'flex',

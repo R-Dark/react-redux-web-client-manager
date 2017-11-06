@@ -33,8 +33,7 @@ class Home extends Component {
           </Jumbotron>
         </div>
             <ListItems />
-
-      </div>
+       </div>
     )
   }
 }
@@ -42,8 +41,8 @@ class Home extends Component {
 const styles = {
   jumboStyles: {
     marginTop: 17,
-    paddingTop: 15,
-    paddingBottom: 15,
+    paddingTop: 17,
+    paddingBottom: 1,
     width: '98%',
     height: '100%',
     paddingLeft: 20,
@@ -56,6 +55,7 @@ const styles = {
   outterDivStyles: {
     display: 'flex',
     justifyContent: 'center',
+    marginBottom: -14
   }
 };
 

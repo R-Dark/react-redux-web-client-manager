@@ -10,26 +10,30 @@ class BottomRowButtons extends Component {
     render() {
       return (
         <div style={ styles.mainDivStyles }>
-          <div style={styles.orderByGroupStyles}>
-            <div style={ styles.orderByLabelStyles }>
-             <h5>Order By:</h5>
+          <div style={ styles.twoButtonGroupStyles }>
+            <div style={ styles.orderByGroupStyles }>
+              <div style={ styles.orderByLabelStyles }>
+               <h5>Order:</h5>
+              </div>
+              <OrderByButton />
             </div>
-            <OrderByButton />
-          </div>
-          <div style={styles.maxGroupStyles}>
-            <div style={ styles.maxLabelStyles }>
-             <h5>Max Results:</h5>
+            <div style={styles.maxGroupStyles}>
+              <div style={ styles.maxLabelStyles }>
+               <h5>Max:</h5>
+              </div>
+              <MaxResultsButton />
             </div>
-            <MaxResultsButton />
           </div>
-          <div style={styles.searchGroupStyles}>
-            <SearchButton />
-          </div>
-          <div style={styles.batchGroupStyles}>
-            <BatchButton />
-          </div>
-          <div style={styles.runReportGroupStyles}>
-            <RunReportButton />
+          <div style={styles.threeButtonGroupStyles}>
+            <div style={styles.searchGroupStyles}>
+              <SearchButton />
+            </div>
+            <div style={styles.batchGroupStyles}>
+              <BatchButton />
+            </div>
+            <div style={styles.runReportGroupStyles}>
+              <RunReportButton />
+            </div>
           </div>
         </div>
       );
@@ -40,7 +44,7 @@ class BottomRowButtons extends Component {
   const styles = {
     mainDivStyles: {
       display: 'flex',
-      justifyContent: 'flex-start',
+      justifyContent: 'space-between',
       color: '#171717'
     },
     orderByGroupStyles: {
@@ -58,7 +62,8 @@ class BottomRowButtons extends Component {
     },
     maxLabelStyles: {
       display: 'flex',
-      alignItems: 'center'
+      alignItems: 'center',
+      paddingRight: 10
     },
     searchGroupStyles: {
       display: 'flex',
@@ -69,8 +74,13 @@ class BottomRowButtons extends Component {
       paddingRight: 40
     },
     runReportGroupStyles: {
-      display: 'flex',
-      paddingRight: 40
+      display: 'flex'
+    },
+    threeButtonGroupStyles: {
+      display: 'flex'
+    },
+    twoButtonGroupStyles: {
+      display: 'flex'
     }
   };
 

@@ -27,9 +27,9 @@ class OrderByButton extends Component {
             Last Modfied
           </DropdownToggle>
           <DropdownMenu>
-            <DropdownItem>Highest</DropdownItem>
+            <DropdownItem>Highest to Lowest</DropdownItem>
             <DropdownItem divider />
-            <DropdownItem>Lowest</DropdownItem>
+            <DropdownItem>Lowest to Highest</DropdownItem>
           </DropdownMenu>
         </ButtonDropdown>
         </div>

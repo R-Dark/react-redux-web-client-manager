@@ -1,27 +1,51 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import * as actions from '../../actions'
+import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Jumbotron } from 'reactstrap';
 
+class MaxResultsButton extends Component {
+  constructor(props) {
+      super(props);
 
-const MaxResultsButton = props => {
+      this.toggle = this.toggle.bind(this);
+      this.state = {
+        dropdownOpen: false
+      };
+    }
 
-  const { handleSubmit } = props
-  return (
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
-        <Field
-          name="maxresults"
-          component="input"
-          type="number"
-          placeholder="Max Results"
-          className= "form-control"
-        />
-      </div>
-    </form>
-  )
-}
+    toggle() {
+      this.setState({
+        dropdownOpen: !this.state.dropdownOpen
+      });
+    }
+
+    render() {
+      return (
+        <div>
+        <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+          <DropdownToggle caret color="primary">
+            All
+          </DropdownToggle>
+          <DropdownMenu>
+            <DropdownItem>10</DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem>50</DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem>100</DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem>200</DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem>500</DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem>1000</DropdownItem>
+          </DropdownMenu>
+        </ButtonDropdown>
+        </div>
+      );
+    }
+  }
 
 
 export default reduxForm({
-  form: 'maxresults' // a unique identifier for this form
+  form: 'orderby' // a unique identifier for this form
 }, null, actions)(MaxResultsButton)

@@ -1,22 +1,30 @@
 import React, { Component } from 'react'
 import ZipCodeButton from './ZipCodeButton'
 import StateButton from './StateButton'
+import OwnerNameButton from './OwnerNameButton'
+
 
 class MiddleRowButtons extends Component {
     render() {
       return (
         <div style={ styles.mainDivStyles }>
-          <div style={styles.zipcodeGroupStyles}>
-            <div style={ styles.zipcodeLabelStyles }>
-             <h5>Zip Code:</h5>
+          <div style={styles.ownerNameGroupStyles}>
+            <div style={ styles.ownerNameLabelStyles }>
+             <h5>Owner:</h5>
             </div>
-            <ZipCodeButton />
+            <OwnerNameButton />
           </div>
           <div style={styles.stateGroupStyles}>
             <div style={ styles.stateIDLabelStyles }>
              <h5>State:</h5>
             </div>
             <StateButton />
+          </div>
+          <div style={styles.zipcodeGroupStyles}>
+            <div style={ styles.zipcodeLabelStyles }>
+             <h5>Zip:</h5>
+            </div>
+            <ZipCodeButton />
           </div>
         </div>
       );
@@ -45,6 +53,15 @@ class MiddleRowButtons extends Component {
       paddingRight: 40
     },
     stateIDLabelStyles: {
+      display: 'flex',
+      alignItems: 'center',
+      paddingRight: 10
+    },
+    ownerNameGroupStyles: {
+      display: 'flex',
+      paddingRight: 40
+    },
+    ownerNameLabelStyles: {
       display: 'flex',
       alignItems: 'center',
       paddingRight: 10
