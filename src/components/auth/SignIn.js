@@ -27,7 +27,7 @@ class SignIn extends Component {
     return (
           <div className="container" id='login-main'>
             <Helmet>
-              <title>Sign In</title>
+              <title>Login</title>
             </Helmet>
             <div className="jumbotron" id='login-jumbotron'>
               <div className="jumbotron-content">

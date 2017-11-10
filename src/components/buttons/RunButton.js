@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Field, reduxForm } from 'redux-form'
+import { reduxForm } from 'redux-form'
 import * as actions from '../../actions'
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Jumbotron } from 'reactstrap';
+import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 class RunButton extends Component {
   constructor(props) {

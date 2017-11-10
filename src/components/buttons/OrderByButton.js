@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Field, reduxForm } from 'redux-form'
+import { reduxForm } from 'redux-form'
 import * as actions from '../../actions'
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Jumbotron } from 'reactstrap';
+import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 class OrderByButton extends Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class OrderByButton extends Component {
         <div>
         <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
           <DropdownToggle caret color="primary">
-            Last Modfied
+            Last Modified
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem>Highest to Lowest</DropdownItem>

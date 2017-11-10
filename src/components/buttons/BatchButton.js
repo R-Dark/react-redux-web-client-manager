@@ -1,5 +1,5 @@
 import React from 'react'
-import { Field, reduxForm } from 'redux-form'
+import { reduxForm } from 'redux-form'
 import * as actions from '../../actions'
 import { Button } from 'reactstrap';
 

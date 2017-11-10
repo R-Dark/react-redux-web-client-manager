@@ -1,12 +1,11 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
+import firebase from 'firebase'
 import {Helmet} from "react-helmet";
 import { connect } from 'react-redux'
 import '../styles/home.css';
 import { clientsFetch } from '../actions'
-import ListItems from './ListItems'
 import TableItems from './TableItems'
-import RunButton from './buttons/RunButton'
 import TopRowButtons from './buttons/TopRowButtons'
 import MiddleRowButtons from './buttons/MiddleRowButtons'
 import BottomRowButtons from './buttons/BottomRowButtons'
@@ -14,8 +13,9 @@ import { Jumbotron } from 'reactstrap';
 
 class Home extends Component {
   componentWillMount() {
-    this.props.clientsFetch();
-    console.log(this.props.clients)
+    // this.props.clientsFetch();
+    // console.log(this.props.clients)
+    firebase.database().ref('location/state').set('arkansas')
   }
 
 
@@ -69,3 +69,22 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { clientsFetch } )(Home)
+
+
+// {
+//   "rules": {
+// 		"users": {
+//       "$uid": {
+//         ".read": "$uid === auth.uid",
+//         ".write": "$uid === auth.uid"
+//       }
+//     }
+//   }
+// }
+
+// {
+//       "rules": {
+//         ".read": true,
+//         ".write": true
+//       }
+// }

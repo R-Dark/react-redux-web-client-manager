@@ -14,6 +14,7 @@ class App extends Component {
   render() {
     return (
       <Router history={history}>
+        
           <Layout>
             <Route path='/' exact component={RequireAuth(Home)} />
             <Route path='/signin' component={SignIn} />

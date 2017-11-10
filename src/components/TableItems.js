@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ListGroup, ListGroupItem, Jumbotron, Table } from 'reactstrap';
+import { Jumbotron, Table } from 'reactstrap';
 
 class TableItems extends Component {
   render() {
@@ -10,7 +10,7 @@ class TableItems extends Component {
               <h4>Search Results</h4>
             </div>
             <div style={ styles.listInnerDivStyles }>
-            <Table striped>
+            <Table striped bordered hover size="sm" responsive>
               <thead>
                 <tr>
                   <th>Run#</th>

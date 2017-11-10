@@ -6,7 +6,6 @@ import {
 } from './types';
 
 export const clientsFetch = () => {
-  const { currentUser } = firebase.auth()
 
   return (dispatch) => {
     firebase.database().ref(`/96/abstract`)
