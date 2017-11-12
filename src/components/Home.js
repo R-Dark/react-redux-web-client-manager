@@ -4,20 +4,26 @@ import firebase from 'firebase'
 import {Helmet} from "react-helmet";
 import { connect } from 'react-redux'
 import '../styles/home.css';
-import { clientsFetch } from '../actions'
-import TableItems from './TableItems'
+import { clientsFetch } from '../actions/ClientActions'
+import TableItem from './TableItem'
 import TopRowButtons from './buttons/TopRowButtons'
 import MiddleRowButtons from './buttons/MiddleRowButtons'
 import BottomRowButtons from './buttons/BottomRowButtons'
 import { Jumbotron } from 'reactstrap';
+import TableRow from './TableRow';
 
 class Home extends Component {
   componentWillMount() {
-    // this.props.clientsFetch();
-    // console.log(this.props.clients)
-    firebase.database().ref('location/state').set('arkansas')
+    this.props.clientsFetch();
   }
 
+
+  renderTableRow() {
+    if (this.props.clients) {
+      return this.props.clients.map(itemData => <TableRow itemData={itemData} />)
+    }
+
+  }
 
   render() {
     return(
@@ -33,7 +39,9 @@ class Home extends Component {
             <BottomRowButtons />
           </Jumbotron>
         </div>
-            <TableItems />
+            <TableItem>
+              {this.renderTableRow()}
+            </ TableItem>
        </div>
     )
   }
@@ -61,11 +69,9 @@ const styles = {
 };
 
 const mapStateToProps = state => {
-  const clients = _.map(state.clients, (val, uid) => {
-    return { ...val, uid }
-  })
-
-  return { clients }
+  return {
+    clients: state.clients.items
+  }
 }
 
 export default connect(mapStateToProps, { clientsFetch } )(Home)

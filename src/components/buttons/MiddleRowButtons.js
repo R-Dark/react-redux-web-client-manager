@@ -5,6 +5,11 @@ import OwnerNameButton from './OwnerNameButton'
 
 
 class MiddleRowButtons extends Component {
+
+  onOwnerTextUpdate(text) {
+    console.log(text)
+  }
+
     render() {
       return (
         <div style={ styles.mainDivStyles }>
