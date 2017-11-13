@@ -1,7 +1,5 @@
-import _ from 'lodash'
 import React, { Component } from 'react'
-import firebase from 'firebase'
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import { connect } from 'react-redux'
 import '../styles/home.css';
 import { clientsFetch } from '../actions/ClientActions'
@@ -13,21 +11,31 @@ import { Jumbotron } from 'reactstrap';
 import TableRow from './TableRow';
 
 class Home extends Component {
+
+  constructor( props ) {
+    super( props );
+
+    this.keyCount = 0;
+    this.getKey = this.getKey.bind(this);
+  }
+
+  getKey(){
+    return this.keyCount++;
+  }
+
   componentWillMount() {
     this.props.clientsFetch();
   }
 
-
   renderTableRow() {
     if (this.props.clients) {
-      return this.props.clients.map(itemData => <TableRow itemData={itemData} />)
+      return this.props.clients.map(itemData => <TableRow key={this.getKey()} itemData={itemData} />)
     }
-
   }
 
   render() {
     return(
-       <div style={ styles.mainDivStyles}>
+       <div style={ styles.mainDivStyles }>
         <Helmet>
           <title>the Brain</title>
         </Helmet>
