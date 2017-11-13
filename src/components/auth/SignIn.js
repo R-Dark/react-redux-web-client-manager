@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {Helmet} from "react-helmet";
+import { Helmet} from "react-helmet";
 import { signinUser } from '../../actions'
 import BellatorumLogo from '../images/Bellatorum_Login_Logo.png'
 import '../../styles/signin.css';
