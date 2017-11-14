@@ -9,7 +9,7 @@ const SearchButton = props => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
-        <Button color="success">Search</Button>
+        <Button color="success" action="submit">Search</Button>
       </div>
     </form>
   )
