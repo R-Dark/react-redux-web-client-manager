@@ -62,7 +62,7 @@ class Home extends Component {
           </Jumbotron>
         </div>
             <TableItem>
-              {this.renderTableRow()}
+              {this.renderClientRow()}
             </ TableItem>
 
 
