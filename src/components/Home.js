@@ -33,19 +33,33 @@ class Home extends Component {
 
   renderTableRow() {
     if (this.props.clients) {
-      return this.props.clients.map(itemData => <TableRow key={this.getKey()} itemData={itemData} />)
+      return this.props.clients.map(
+        itemData => <TableRow key={this.getKey()}
+        itemData={itemData}
+        onClick={this.onRowPress}/>
+      )
     }
   }
 
-  handleFormSubmit = ({ ownername}) => {
-    this.props.searchClient({ ownername })
+  handleFormSubmit = ({ ownername, state, zip }) => {
+    console.log(state)
+    this.props.searchClient(ownername, state, zip)
   }
 
   renderClientRow() {
     if (this.props.client) {
-      return this.props.client.map(itemData => <TableRow key={this.getKey()} itemData={itemData} />)
+      console.log(this.props.client)
+      return this.props.client.map(
+        itemData => <TableRow key={this.getKey()}
+        itemData={itemData}
+        onClick={this.onRowPress.bind(this, itemData)}/>
+      )
     }
   }
+
+  onRowPress = (data) => {
+  console.log(data.ADDRESS)
+}
 
   render() {
     return(
@@ -109,6 +123,7 @@ const styles = {
 };
 
 const mapStateToProps = state => {
+  console.log(state)
   return {
     clients: state.clients.items,
     client: state.clients.clientItem

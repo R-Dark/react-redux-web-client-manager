@@ -18,30 +18,21 @@ export const clientsFetch = () => {
   }
 }
 
-export const searchClient = (ownername) => {
-
+export const searchClient = (ownername, state, zip) => {
+  console.log(ownername, state, zip)
   return (dispatch) => {
-    firebase.database().ref(`/7`)
-      .on('value', snapshot => {
-        console.log(snapshot.val())
-        console.log(ownername)
-        dispatch({ type: SEARCH_CLIENT, payload: snapshot.val() })
-      })
+    firebase.database()
+    .ref("/")
+      .orderByChild("OWNER")
+        .equalTo(ownername)
+          .on('value', snapshot => {
+            console.log(snapshot.val())
+            console.log(ownername)
+            dispatch({ type: SEARCH_CLIENT, payload: snapshot.val() })
+          })
 
+    }
   }
-}
 
-
-
-// export const searchClient = (ownername) => {
-//
-//   return (dispatch) => {
-//     firebase.database().ref(`/7`)
-//       .on('value', snapshot => {
-//         console.log(snapshot.val())
-//         console.log(ownername)
-//         dispatch({ type: SEARCH_CLIENT, payload: snapshot.val() })
-//       })
-//
-//   }
-// }
+// 'DAHER JENNIFER TRUST'
+// `${ownername}`
