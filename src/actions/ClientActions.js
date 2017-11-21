@@ -3,7 +3,8 @@ import firebase from 'firebase'
 
 import {
   CLIENTS_FETCH_SUCCESS,
-  SEARCH_CLIENT
+  SEARCH_CLIENT,
+  CLIENT_SELECTED
 } from './types';
 
 export const clientsFetch = () => {
@@ -19,20 +20,24 @@ export const clientsFetch = () => {
 }
 
 export const searchClient = (ownername, state, zip) => {
-  console.log(ownername, state, zip)
+  // console.log(ownername, state, zip)
   return (dispatch) => {
     firebase.database()
     .ref("/")
       .orderByChild("OWNER")
         .equalTo(ownername)
           .on('value', snapshot => {
-            console.log(snapshot.val())
-            console.log(ownername)
+            // console.log(snapshot.val())
+            // console.log(ownername)
             dispatch({ type: SEARCH_CLIENT, payload: snapshot.val() })
           })
 
     }
   }
 
-// 'DAHER JENNIFER TRUST'
-// `${ownername}`
+  export function selectClient(clientInfo) {
+    return {
+      type: CLIENT_SELECTED,
+      payload: clientInfo
+    };
+  }

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Helmet } from "react-helmet";
 import { connect } from 'react-redux'
 import '../styles/home.css';
-import { clientsFetch } from '../actions/ClientActions'
 import TableItem from './TableItem'
 import TopRowButtons from './buttons/TopRowButtons'
 import MiddleRowButtons from './buttons/MiddleRowButtons'
@@ -10,8 +9,9 @@ import BottomRowButtons from './buttons/BottomRowButtons'
 import { Jumbotron } from 'reactstrap';
 import TableRow from './TableRow';
 import SearchForm from './SearchForm';
+import SelectedClient from './SelectedClient';
 import BatchAndReportButtons from './BatchAndReportButtons';
-import { searchClient } from '../actions'
+import { searchClient, selectClient } from '../actions'
 
 
 class Home extends Component {
@@ -27,28 +27,14 @@ class Home extends Component {
     return this.keyCount++;
   }
 
-  componentWillMount() {
-    this.props.clientsFetch();
-  }
-
-  renderTableRow() {
-    if (this.props.clients) {
-      return this.props.clients.map(
-        itemData => <TableRow key={this.getKey()}
-        itemData={itemData}
-        onClick={this.onRowPress}/>
-      )
-    }
-  }
-
   handleFormSubmit = ({ ownername, state, zip }) => {
-    console.log(state)
+    // console.log(state)
     this.props.searchClient(ownername, state, zip)
   }
 
   renderClientRow() {
     if (this.props.client) {
-      console.log(this.props.client)
+      // console.log(this.props.client)
       return this.props.client.map(
         itemData => <TableRow key={this.getKey()}
         itemData={itemData}
@@ -57,8 +43,9 @@ class Home extends Component {
     }
   }
 
-  onRowPress = (data) => {
-  console.log(data.ADDRESS)
+  onRowPress = (clientInfo) => {
+    // console.log(clientInfo.OWNER)
+    this.props.selectClient(clientInfo)
 }
 
   render() {
@@ -78,12 +65,13 @@ class Home extends Component {
             <TableItem>
               {this.renderClientRow()}
             </ TableItem>
-
-
        <div>
+       <div>
+       <SelectedClient  {...this.props}/>
+       </div>
           <Jumbotron style={styles.jumboStyles2}>
             <SearchForm onSubmit={this.handleFormSubmit}/>
-            <BatchAndReportButtons />
+            <BatchAndReportButtons/>
           </Jumbotron>
        </div>
 
@@ -123,11 +111,26 @@ const styles = {
 };
 
 const mapStateToProps = state => {
-  console.log(state)
+  console.log(state.clientInfo)
   return {
     clients: state.clients.items,
     client: state.clients.clientItem
   }
 }
 
-export default connect(mapStateToProps, { clientsFetch, searchClient } )(Home)
+export default connect(mapStateToProps, { searchClient, selectClient } )(Home)
+
+// this will load and display all database objects at page loading
+// componentWillMount() {
+//   this.props.clientsFetch();
+// }
+//
+// renderTableRow() {
+//   if (this.props.clients) {
+//     return this.props.clients.map(
+//       itemData => <TableRow key={this.getKey()}
+//       itemData={itemData}
+//       onClick={this.onRowPress}/>
+//     )
+//   }
+// }

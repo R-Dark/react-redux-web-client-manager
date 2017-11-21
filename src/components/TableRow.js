@@ -3,7 +3,7 @@ import React from 'react'
 
 
 const TableRow = (props) => {
-  console.log(props)
+  // console.log(props)
     return(
       <tr onClick={props.onClick}>
           <td>1</td>

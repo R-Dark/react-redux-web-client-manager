@@ -1,4 +1,4 @@
-import { CLIENTS_FETCH_SUCCESS, SEARCH_CLIENT } from '../actions/types';
+import { CLIENTS_FETCH_SUCCESS, SEARCH_CLIENT, CLIENT_SELECTED } from '../actions/types';
 import _ from 'lodash';
 
 const INITIAL_STATE = {};
@@ -15,6 +15,8 @@ export default (state = INITIAL_STATE, action) => {
     const clientItem = _.map(action.payload, (val, uid) => {
       return { ...val, uid }
     })
+      return { ...state, clientItem };
+      case CLIENT_SELECTED:
       return { ...state, clientItem };
     default:
       return state;
