@@ -6,7 +6,7 @@ const INITIAL_STATE = {};
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
       case CLIENT_SELECTED:
-      return { ...state, clientItem };
+      return { ...state, clientInfo: action.payload };
     default:
       return state;
   }

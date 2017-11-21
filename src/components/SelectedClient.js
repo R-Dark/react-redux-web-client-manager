@@ -1,21 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { selectClient } from '../actions'
 //make sure action created flows through all reducers
 
 
-class SelectedClient extends Component {
-
-  componentWillMount() {
-    // console.log(this.props)
-  }
-  render() {
+const SelectedClient = (props) => {
     return (
       <div className="col-md-4">
-        <h3> Details for: </h3>
+        <h3>{props.selectedclient.OWNER}</h3>
       </div>
     );
-  }
 }
 
 

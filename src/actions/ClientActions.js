@@ -3,8 +3,7 @@ import firebase from 'firebase'
 
 import {
   CLIENTS_FETCH_SUCCESS,
-  SEARCH_CLIENT,
-  CLIENT_SELECTED
+  SEARCH_CLIENT
 } from './types';
 
 export const clientsFetch = () => {
@@ -33,11 +32,4 @@ export const searchClient = (ownername, state, zip) => {
           })
 
     }
-  }
-
-  export function selectClient(clientInfo) {
-    return {
-      type: CLIENT_SELECTED,
-      payload: clientInfo
-    };
   }

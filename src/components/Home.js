@@ -43,10 +43,20 @@ class Home extends Component {
     }
   }
 
+
   onRowPress = (clientInfo) => {
-    // console.log(clientInfo.OWNER)
     this.props.selectClient(clientInfo)
 }
+
+  renderSelectedClientRow = () => {
+    if (this.props.selectedclient) {
+      return (
+        <SelectedClient {...this.props}/>
+      )
+    }
+  }
+
+
 
   render() {
     return(
@@ -67,7 +77,8 @@ class Home extends Component {
             </ TableItem>
        <div>
        <div>
-       <SelectedClient  {...this.props}/>
+          {this.renderSelectedClientRow()}
+
        </div>
           <Jumbotron style={styles.jumboStyles2}>
             <SearchForm onSubmit={this.handleFormSubmit}/>
@@ -111,9 +122,10 @@ const styles = {
 };
 
 const mapStateToProps = state => {
-  console.log(state.clientInfo)
+  // console.log(state)
   return {
     clients: state.clients.items,
+    selectedclient: state.selectedclient.clientInfo,
     client: state.clients.clientItem
   }
 }
