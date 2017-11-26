@@ -52,7 +52,8 @@ const styles = {
     paddingTop: 13,
     paddingLeft: 5,
     paddingRight: 5,
-    paddingBottom: 1
+    paddingBottom: 10,
+    marginBottom: 250
   },
   listInnerDivStyles: {
     backgroundColor: '#fff'

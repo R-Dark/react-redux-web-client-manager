@@ -1,5 +1,11 @@
 #home-button-jumbotron {
   position: relative;
   background-size: 100%;
-  /*background-image: url('../components/images/home-header-logo.png')*/
+  background-image: url('../components/images/home-header-logo.png')
+}
+
+#placeholder-div {
+  background-image: url('../components/images/home-header-logo.png');
+  background-color: #e9ecef;
+  background-repeat: no-repeat;
 }

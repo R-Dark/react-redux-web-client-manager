@@ -10,7 +10,9 @@ import { Jumbotron } from 'reactstrap';
 import TableRow from './TableRow';
 import SearchForm from './SearchForm';
 import SelectedClient from './SelectedClient';
+import UpdateContact from './UpdateContact';
 import BatchAndReportButtons from './BatchAndReportButtons';
+import PlaceHolder from './buttons/PlaceHolder';
 import { searchClient, selectClient } from '../actions'
 
 
@@ -32,7 +34,7 @@ class Home extends Component {
     this.props.searchClient(ownername, state, zip)
   }
 
-  renderClientRow() {
+  renderClientRow () {
     if (this.props.client) {
       // console.log(this.props.client)
       return this.props.client.map(
@@ -51,7 +53,9 @@ class Home extends Component {
   renderSelectedClientRow = () => {
     if (this.props.selectedclient) {
       return (
-        <SelectedClient {...this.props}/>
+        <div>
+          <SelectedClient {...this.props}/>
+        </div>
       )
     }
   }
@@ -64,28 +68,22 @@ class Home extends Component {
         <Helmet>
           <title>the Brain</title>
         </Helmet>
+            <div style={styles.outterDivStyles}>
+              <Jumbotron style={styles.jumboStyles2} >
+                <SearchForm onSubmit={this.handleFormSubmit}/>
+                <BatchAndReportButtons/>
+              </Jumbotron>
+            </div>
+                <TableItem>
+                  {this.renderClientRow()}
+                </ TableItem>
+                
+           <div>
+           <div>
+              {this.renderSelectedClientRow()}
+           </div>
 
-        <div style={ styles.outterDivStyles }>
-          <Jumbotron style={styles.jumboStyles} id='home-button-jumbotron'>
-            <TopRowButtons />
-            <MiddleRowButtons />
-            <BottomRowButtons />
-          </Jumbotron>
-        </div>
-            <TableItem>
-              {this.renderClientRow()}
-            </ TableItem>
-       <div>
-       <div>
-          {this.renderSelectedClientRow()}
-
-       </div>
-          <Jumbotron style={styles.jumboStyles2}>
-            <SearchForm onSubmit={this.handleFormSubmit}/>
-            <BatchAndReportButtons/>
-          </Jumbotron>
-       </div>
-
+         </div>
 
        </div>
     )
@@ -107,17 +105,16 @@ const styles = {
     flexDirection: 'column'
   },
   outterDivStyles: {
-    display: 'flex',
-    justifyContent: 'center',
-    marginBottom: -14
+    marginTop: 15,
+    marginRight: 15,
+    marginLeft: 15
   },
   jumboStyles2: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around',
     paddingTop: 10,
-    paddingBottom: 10,
-
+    paddingBottom: 10
   }
 };
 
@@ -131,6 +128,15 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { searchClient, selectClient } )(Home)
+
+// <div style={ styles.outterDivStyles }>
+//   <Jumbotron style={styles.jumboStyles} id='home-button-jumbotron'>
+//     <TopRowButtons />
+//     <MiddleRowButtons />
+//     <BottomRowButtons />
+//   </Jumbotron>
+// </div>
+
 
 // this will load and display all database objects at page loading
 // componentWillMount() {

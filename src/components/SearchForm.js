@@ -13,7 +13,7 @@ const SearchForm = props => {
           <div>
             <UncontrolledButtonDropdown>
             <Label for="runDropdown">Run</Label>
-              <DropdownToggle caret color="primary">
+              <DropdownToggle caret color="info">
                 All
               </DropdownToggle>
               <DropdownMenu>
@@ -33,7 +33,7 @@ const SearchForm = props => {
           <div>
             <UncontrolledButtonDropdown>
             <Label for="buyerDropdown">Buyer</Label>
-              <DropdownToggle caret color="primary">
+              <DropdownToggle caret color="info">
                 All
               </DropdownToggle>
               <DropdownMenu>
@@ -46,7 +46,7 @@ const SearchForm = props => {
           <div>
             <UncontrolledButtonDropdown>
             <Label for="statusDropdown">Status</Label>
-              <DropdownToggle caret color="primary">
+              <DropdownToggle caret color="info">
                 All
               </DropdownToggle>
               <DropdownMenu>
@@ -56,8 +56,8 @@ const SearchForm = props => {
             </UncontrolledButtonDropdown>
           </div>
 
+          <Label for="sequenceid">Sequence ID</Label>
           <div className="form-group">
-            <Label for="sequenceid">Sequence ID</Label>
             <Field
               name="sequenceid"
               component="input"
@@ -70,8 +70,8 @@ const SearchForm = props => {
 
 
         <div style={ styles.MiddleRowButtons }>
+        <Label for="owner">Owner</Label>
           <div className="form-group">
-            <Label for="owner">Owner</Label>
               <Field
                 name="ownername"
                 component="input"
@@ -81,8 +81,8 @@ const SearchForm = props => {
               />
           </div>
 
+          <Label for="state">State</Label>
           <div className="form-group">
-            <Label for="state">State</Label>
               <Field
                 name="state"
                 component="input"
@@ -92,8 +92,8 @@ const SearchForm = props => {
               />
           </div>
 
+          <Label for="zip">Zip</Label>
           <div  className="form-group">
-            <Label for="zip">Zip</Label>
               <Field
                 name="zip"
                 component="input"
@@ -108,7 +108,7 @@ const SearchForm = props => {
           <div>
             <UncontrolledButtonDropdown>
               <Label for="orderDropdown">Order:</Label>
-                <DropdownToggle caret color="primary">
+                <DropdownToggle caret color="info">
                   Last Modified
                 </DropdownToggle>
                 <DropdownMenu>
@@ -122,7 +122,7 @@ const SearchForm = props => {
           <div>
             <UncontrolledButtonDropdown>
               <Label for="maxDropdown">Max:</Label>
-                <DropdownToggle caret color="primary">
+                <DropdownToggle caret color="info">
                   All
                 </DropdownToggle>
                 <DropdownMenu>
@@ -140,13 +140,11 @@ const SearchForm = props => {
                 </DropdownMenu>
             </UncontrolledButtonDropdown>
           </div>
+          <Button color="success" id='search-button' action="submit" block >
+            Search
+          </Button>
         </div>
 
-          <div>
-            <Button color="success" id='search-button' action="submit" block >
-              Search
-            </Button>
-          </div>
         </form>
       </div>
 
@@ -157,19 +155,24 @@ const SearchForm = props => {
    allButtons: {
      display: 'flex',
      flexDirection: 'row',
-     justifyContent: 'space-around'
+     justifyContent: 'space-around',
+     paddingTop: 5,
+     paddingBottom: 5
    },
    TopRowButtons: {
      display: 'flex',
-     flexDirection: 'row'
+     flexDirection: 'row',
+     justifyContent: 'space-around'
    },
    MiddleRowButtons: {
      display: 'flex',
-     flexDirection: 'row'
+     flexDirection: 'row',
+     justifyContent: 'space-around'
    },
    BottomRowButtons: {
      display: 'flex',
-     flexDirection: 'row'
+     flexDirection: 'row',
+     justifyContent: 'space-around'
    }
  };
 
