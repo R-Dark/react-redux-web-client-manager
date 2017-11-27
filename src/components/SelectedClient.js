@@ -5,6 +5,7 @@ import { selectClient } from '../actions'
 import UpdateContact from './UpdateContact';
 import StatusUpdate from './StatusUpdate';
 import OfferUpdate from './OfferUpdate';
+import AddClientNote from './AddClientNote';
 //make sure action created flows through all reducers
 
 
@@ -124,14 +125,16 @@ const SelectedClient = (props) => {
             </thead>
             <tbody style={ styles.tbodyStyles }>
               <tr>
-                  <td>{props.selectedclient.dipUpdateTimeStamp}</td>
+                  <td>Current</td>
                   <td>{props.selectedclient.DIP}</td>
                   <td>{props.selectedclient.modifiedBy}</td>
               </tr>
             </tbody>
             </Table>
           </div>
-          <StatusUpdate />
+
+            <StatusUpdate />
+      
         </Jumbotron>
 
         <Jumbotron style={ styles.offerJumboStyles }>
@@ -150,7 +153,7 @@ const SelectedClient = (props) => {
             </thead>
             <tbody style={ styles.tbodyStyles }>
               <tr>
-                  <td>{props.selectedclient.offerTimeStamp}</td>
+                  <td>Current</td>
                   <td>{props.selectedclient.currentOffer}</td>
                   <td>{props.selectedclient.modifiedBy}</td>
               </tr>
@@ -223,6 +226,7 @@ const SelectedClient = (props) => {
           </tbody>
           </Table>
         </div>
+        <AddClientNote />
       </Jumbotron>
 
       </div>
@@ -288,22 +292,32 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     alignContent: 'center',
-    paddingBottom: 5
+    paddingBottom: 5,
+    paddingLeft: 15
   },
   statusTitleStyles: {
     display: 'flex',
     justifyContent: 'space-between',
     alignContent: 'center',
-    paddingBottom: 5
+    paddingBottom: 5,
+    paddingLeft: 15
   },
   redOfferStatusStyles: {
     color: 'rgb(247, 11, 32)',
     paddingLeft: 10,
-    paddingRight: 15
+    paddingRight: 15,
+    fontWeight: 'bold'
   },
   statusOfferNumbersStyles: {
     display: 'flex',
     flexDirection: 'row'
+  },
+  clientDivStyles: {
+    backgroundColor: '#fff',
+    marginBottom: 15
+  },
+  statusUpdateFormStyles: {
+    marginBottom: 15
   }
 };
 

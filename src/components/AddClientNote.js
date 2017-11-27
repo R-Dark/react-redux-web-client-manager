@@ -4,16 +4,15 @@ import * as actions from '../actions'
 import { Label, Button } from 'reactstrap';
 
 
-const OfferUpdate = props => {
+const AddClientNote = props => {
     const { handleOfferUpdateSubmit } = props
     return (
     <div style={ styles.allButtons }>
     <form onSubmit={handleOfferUpdateSubmit} style={ styles.formUpdate }>
 
-    <Label for="offerUpdate" style={ styles.labelUpdate }>Update Offer:</Label>
           <div className="form-group">
             <Field
-              name="offerUpdate"
+              name="addClientNote"
               component="input"
               type="text"
               className= "form-control"
@@ -23,7 +22,7 @@ const OfferUpdate = props => {
 
           <div style={ styles.buttonUpdate }>
             <Button color="success" id='search-button' action="submit" block >
-              Update
+              Add Note
             </Button>
           </div>
         </form>
@@ -52,5 +51,5 @@ const OfferUpdate = props => {
  };
 
 export default reduxForm({
-  form: 'offerupdate' // a unique identifier for this form
-}, null, actions)(OfferUpdate)
+  form: 'addclientnote' // a unique identifier for this form
+}, null, actions)(AddClientNote)

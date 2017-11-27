@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import * as actions from '../actions'
-import { Label, Button } from 'reactstrap';
+import { Label, Button, UncontrolledButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 
 const StatusUpdate = props => {
@@ -10,18 +10,19 @@ const StatusUpdate = props => {
     <div style={ styles.allButtons }>
     <form onSubmit={handleStatusUpdateSubmit} style={ styles.formUpdate }>
 
-
-
-    <Label for="statusUpdate" style={ styles.labelUpdate }>Contact Name:</Label>
-          <div className="form-group">
-            <Field
-              name="statusUpdate"
-              component="input"
-              type="text"
-              className= "form-control"
-            />
-
-        </div>
+          <div>
+            <UncontrolledButtonDropdown>
+            <Label for="statusDropdown" style={ styles.searchLabel }>Status:</Label>
+              <DropdownToggle caret color="info">
+                All
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem>DIP</DropdownItem>
+                <DropdownItem>NO DEAL</DropdownItem>
+                <DropdownItem>BAD ADDRESS</DropdownItem>
+              </DropdownMenu>
+            </UncontrolledButtonDropdown>
+          </div>
 
           <div style={ styles.buttonUpdate }>
             <Button color="success" id='search-button' action="submit" block >
@@ -37,7 +38,9 @@ const StatusUpdate = props => {
  const styles = {
    allButtons: {
      display: 'flex',
-     justifyContent: 'space-around'
+     justifyContent: 'center',
+     marginTop: 30,
+     marginLeft: -45
    },
    formUpdate: {
      display: 'flex',
@@ -50,6 +53,9 @@ const StatusUpdate = props => {
    buttonUpdate: {
      paddingRight: 7,
      paddingLeft: 25
+   },
+   searchLabel: {
+     paddingRight: 10
    }
  };
 
