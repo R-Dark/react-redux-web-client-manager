@@ -12,9 +12,8 @@ const StatusUpdate = props => {
 
           <div>
             <UncontrolledButtonDropdown>
-            <Label for="statusDropdown" style={ styles.searchLabel }>Status:</Label>
               <DropdownToggle caret color="info">
-                All
+                Status
               </DropdownToggle>
               <DropdownMenu>
                 <DropdownItem>DIP</DropdownItem>
@@ -62,3 +61,5 @@ const StatusUpdate = props => {
 export default reduxForm({
   form: 'statusupdate' // a unique identifier for this form
 }, null, actions)(StatusUpdate)
+
+// <Label for="statusDropdown" style={ styles.searchLabel }>Status:</Label>

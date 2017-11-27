@@ -10,13 +10,13 @@ const OfferUpdate = props => {
     <div style={ styles.allButtons }>
     <form onSubmit={handleOfferUpdateSubmit} style={ styles.formUpdate }>
 
-    <Label for="offerUpdate" style={ styles.labelUpdate }>Update Offer:</Label>
           <div className="form-group">
             <Field
               name="offerUpdate"
               component="input"
               type="text"
               className= "form-control"
+              placeholder= "Enter Offer Amount"
             />
 
         </div>
@@ -54,3 +54,5 @@ const OfferUpdate = props => {
 export default reduxForm({
   form: 'offerupdate' // a unique identifier for this form
 }, null, actions)(OfferUpdate)
+
+// <Label for="offerUpdate" style={ styles.labelUpdate }>Update Offer:</Label>
