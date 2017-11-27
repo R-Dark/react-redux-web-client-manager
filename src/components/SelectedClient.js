@@ -162,7 +162,7 @@ const SelectedClient = (props) => {
             </tbody>
             </Table>
           </div>
-          <StatusUpdate />
+          <OfferUpdate />
         </Jumbotron>
 
 
