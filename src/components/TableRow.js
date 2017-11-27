@@ -11,8 +11,8 @@ const TableRow = (props) => {
           <td>Chris Bentley</td>
           <td>DIP</td>
           <td>2017-05-23</td>
-          <td>{props.itemData.OWNER}</td>
-          <td>{props.itemData.ADDRESS}</td>
+          <td>{props.itemData.Owner}</td>
+          <td>{props.itemData.Address}</td>
           <td>$36,600</td>
           <td>$47,700</td>
       </tr>

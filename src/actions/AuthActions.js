@@ -26,8 +26,8 @@ export const signinUser = ({ email, password }) => {
 const loginUserSuccess = (dispatch, user) => {
   const { currentUser } = firebase.auth()
   dispatch({ type: AUTH_USER, payload: user });
-  localStorage.setItem('token', currentUser.uid)
-
+  localStorage.setItem('token', currentUser.email)
+    // localStorage.setItem('token', currentUser.uid)
   history.push('/')
 };
 

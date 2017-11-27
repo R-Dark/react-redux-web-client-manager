@@ -12,7 +12,6 @@ import SearchForm from './SearchForm';
 import SelectedClient from './SelectedClient';
 import UpdateContact from './UpdateContact';
 import BatchAndReportButtons from './BatchAndReportButtons';
-import PlaceHolder from './buttons/PlaceHolder';
 import { searchClient, selectClient } from '../actions'
 
 
@@ -45,7 +44,6 @@ class Home extends Component {
     }
   }
 
-
   onRowPress = (clientInfo) => {
     this.props.selectClient(clientInfo)
 }
@@ -77,10 +75,9 @@ class Home extends Component {
                 <TableItem>
                   {this.renderClientRow()}
                 </ TableItem>
-                
            <div>
            <div>
-              {this.renderSelectedClientRow()}
+           {this.renderSelectedClientRow()}
            </div>
 
          </div>
@@ -111,7 +108,6 @@ const styles = {
   },
   jumboStyles2: {
     display: 'flex',
-    flexDirection: 'row',
     justifyContent: 'space-around',
     paddingTop: 10,
     paddingBottom: 10
@@ -119,7 +115,6 @@ const styles = {
 };
 
 const mapStateToProps = state => {
-  // console.log(state)
   return {
     clients: state.clients.items,
     selectedclient: state.selectedclient.clientInfo,

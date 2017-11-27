@@ -12,7 +12,7 @@ const SearchForm = props => {
       <div style={ styles.TopRowButtons }>
           <div>
             <UncontrolledButtonDropdown>
-            <Label for="runDropdown">Run</Label>
+            <Label for="runDropdown" style={ styles.firstSearchLabel }>Run:</Label>
               <DropdownToggle caret color="info">
                 All
               </DropdownToggle>
@@ -32,7 +32,7 @@ const SearchForm = props => {
 
           <div>
             <UncontrolledButtonDropdown>
-            <Label for="buyerDropdown">Buyer</Label>
+            <Label for="buyerDropdown" style={ styles.searchLabel }>Buyer:</Label>
               <DropdownToggle caret color="info">
                 All
               </DropdownToggle>
@@ -45,7 +45,7 @@ const SearchForm = props => {
 
           <div>
             <UncontrolledButtonDropdown>
-            <Label for="statusDropdown">Status</Label>
+            <Label for="statusDropdown" style={ styles.searchLabel }>Status:</Label>
               <DropdownToggle caret color="info">
                 All
               </DropdownToggle>
@@ -56,7 +56,7 @@ const SearchForm = props => {
             </UncontrolledButtonDropdown>
           </div>
 
-          <Label for="sequenceid">Sequence ID</Label>
+          <Label for="sequenceid" style={ styles.searchLabel }>Sequence ID:</Label>
           <div className="form-group">
             <Field
               name="sequenceid"
@@ -70,7 +70,7 @@ const SearchForm = props => {
 
 
         <div style={ styles.MiddleRowButtons }>
-        <Label for="owner">Owner</Label>
+        <Label for="owner" style={ styles.firstSearchLabel }>Owner:</Label>
           <div className="form-group">
               <Field
                 name="ownername"
@@ -81,7 +81,7 @@ const SearchForm = props => {
               />
           </div>
 
-          <Label for="state">State</Label>
+          <Label for="state" style={ styles.searchLabel }>State:</Label>
           <div className="form-group">
               <Field
                 name="state"
@@ -92,7 +92,7 @@ const SearchForm = props => {
               />
           </div>
 
-          <Label for="zip">Zip</Label>
+          <Label for="zip" style={ styles.searchLabel }>Zip:</Label>
           <div  className="form-group">
               <Field
                 name="zip"
@@ -107,7 +107,7 @@ const SearchForm = props => {
         <div style={ styles.BottomRowButtons }>
           <div>
             <UncontrolledButtonDropdown>
-              <Label for="orderDropdown">Order:</Label>
+              <Label for="orderDropdown" style={ styles.firstSearchLabel }>Order:</Label>
                 <DropdownToggle caret color="info">
                   Last Modified
                 </DropdownToggle>
@@ -121,7 +121,7 @@ const SearchForm = props => {
 
           <div>
             <UncontrolledButtonDropdown>
-              <Label for="maxDropdown">Max:</Label>
+              <Label for="maxDropdown" style={ styles.searchLabel }>Max:</Label>
                 <DropdownToggle caret color="info">
                   All
                 </DropdownToggle>
@@ -140,7 +140,7 @@ const SearchForm = props => {
                 </DropdownMenu>
             </UncontrolledButtonDropdown>
           </div>
-          <Button color="success" id='search-button' action="submit" block >
+          <Button color="success" block id='search-button' action="submit" style={ styles.searchButton } >
             Search
           </Button>
         </div>
@@ -153,26 +153,34 @@ const SearchForm = props => {
 
  const styles = {
    allButtons: {
-     display: 'flex',
-     flexDirection: 'row',
-     justifyContent: 'space-around',
-     paddingTop: 5,
-     paddingBottom: 5
+     padding: 10,
    },
    TopRowButtons: {
      display: 'flex',
      flexDirection: 'row',
-     justifyContent: 'space-around'
+     justifyContent: 'space-between'
    },
    MiddleRowButtons: {
      display: 'flex',
      flexDirection: 'row',
-     justifyContent: 'space-around'
+     justifyContent: 'space-between'
    },
    BottomRowButtons: {
      display: 'flex',
      flexDirection: 'row',
-     justifyContent: 'space-around'
+     justifyContent: 'space-between'
+   },
+   searchLabel: {
+     paddingRight: 10,
+     paddingLeft: 40,
+     marginTop: 7
+   },
+   firstSearchLabel: {
+     paddingRight: 10,
+     marginTop: 7
+   },
+   searchButton: {
+     marginLeft: 130
    }
  };
 

@@ -5,10 +5,10 @@ import { Label, Button } from 'reactstrap';
 
 
 const UpdateContact = props => {
-    const { handleUpdateSubmit } = props
+    const { handleContactUpdateSubmit } = props
     return (
     <div style={ styles.allButtons }>
-    <form onSubmit={handleUpdateSubmit} style={ styles.formUpdate }>
+    <form onSubmit={handleContactUpdateSubmit} style={ styles.formUpdate }>
 
 
 
@@ -77,8 +77,8 @@ const UpdateContact = props => {
      justifyContent: 'row'
    },
    labelUpdate: {
-     paddingRight: 7,
-     paddingLeft: 25
+     paddingRight: 5,
+     paddingLeft: 20
    },
    buttonUpdate: {
      paddingRight: 7,

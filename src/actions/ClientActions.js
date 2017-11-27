@@ -23,7 +23,7 @@ export const searchClient = (ownername, state, zip) => {
   return (dispatch) => {
     firebase.database()
     .ref("/")
-      .orderByChild("OWNER")
+      .orderByChild("Owner")
         .equalTo(ownername)
           .on('value', snapshot => {
             // console.log(snapshot.val())

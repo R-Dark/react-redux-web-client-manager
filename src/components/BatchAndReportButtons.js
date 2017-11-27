@@ -33,7 +33,9 @@ const BatchAndReportButtons = props => {
     BatchAndReportButtons: {
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-around'
+      justifyContent: 'space-around',
+      marginLeft: 100,
+      paddingRight: 50
     },
     Buttons: {
       paddingLeft: 50,
