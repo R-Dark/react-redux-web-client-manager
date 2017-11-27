@@ -6,6 +6,7 @@ import UpdateContact from './UpdateContact';
 import StatusUpdate from './StatusUpdate';
 import OfferUpdate from './OfferUpdate';
 import AddClientNote from './AddClientNote';
+import AssignTo from './AssignTo';
 //make sure action created flows through all reducers
 
 
@@ -132,9 +133,13 @@ const SelectedClient = (props) => {
             </tbody>
             </Table>
           </div>
-
+          <div style={ styles.statusButtonsStyles }>
             <StatusUpdate />
-      
+            <AssignTo />
+          </div>
+          <div style={ styles.assignedToStyles }>
+            <div style={ styles.statusOfferNumbersStyles }>Assigned To:<div style={ styles.redOfferStatusStyles }>Seth</div></div>
+          </div>
         </Jumbotron>
 
         <Jumbotron style={ styles.offerJumboStyles }>
@@ -277,7 +282,7 @@ const styles = {
     paddingBottom: 1,
     marginRight: 15,
     marginLeft: 15,
-    width: '60%'
+    width: '48%'
   },
   offerJumboStyles: {
     paddingTop: 10,
@@ -286,7 +291,7 @@ const styles = {
     paddingBottom: 1,
     marginRight: 15,
     marginLeft: 15,
-    width: '60%'
+    width: '48%'
   },
   offerTitleStyles: {
     display: 'flex',
@@ -318,6 +323,18 @@ const styles = {
   },
   statusUpdateFormStyles: {
     marginBottom: 15
+  },
+  statusButtonsStyles: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    marginBottom: 15,
+    marginTop: -30,
+    marginLeft: 50
+  },
+  assignedToStyles: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    paddingRight: 15
   }
 };
 

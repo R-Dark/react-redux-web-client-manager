@@ -78,7 +78,8 @@ const UpdateContact = props => {
    },
    labelUpdate: {
      paddingRight: 5,
-     paddingLeft: 20
+     paddingLeft: 20,
+     paddingTop: 6
    },
    buttonUpdate: {
      paddingRight: 7,
