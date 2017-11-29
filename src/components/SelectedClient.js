@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { Jumbotron, Table } from 'reactstrap';
-import { selectClient } from '../actions'
+import { selectClient, updateOffer } from '../actions'
 import UpdateContact from './UpdateContact';
 import StatusUpdate from './StatusUpdate';
 import OfferUpdate from './OfferUpdate';
@@ -10,7 +10,19 @@ import AssignTo from './AssignTo';
 //make sure action created flows through all reducers
 
 
-const SelectedClient = (props) => {
+class SelectedClient extends Component {
+
+  constructor(props){
+    super(props)
+  }
+
+
+  handleFormSubmit = ({offerUpdate}) => {
+    this.props.updateOffer({offerUpdate})
+  }
+
+
+  render(){
     return (
       <div style={ styles.mainDivStyles }>
 
@@ -38,17 +50,17 @@ const SelectedClient = (props) => {
           </thead>
           <tbody style={ styles.tbodyStyles }>
             <tr>
-                <td>{props.selectedclient.runID}</td>
-                <td>{props.selectedclient.sequenceID}</td>
-                <td>{props.selectedclient.ownerID}</td>
-                <td>{props.selectedclient.createdAt}</td>
-                <td>{props.selectedclient.Owner}</td>
-                <td>{props.selectedclient.Address}</td>
-                <td>{props.selectedclient.ownerID}</td>
-                <td>{props.selectedclient.Well}</td>
-                <td>{props.selectedclient.OPERATOR}</td>
-                <td>{props.selectedclient.blendedAvg}</td>
-                <td>{props.selectedclient.sectNo}</td>
+                <td>{this.props.selectedclient.runID}</td>
+                <td>{this.props.selectedclient.sequenceID}</td>
+                <td>{this.props.selectedclient.ownerID}</td>
+                <td>{this.props.selectedclient.createdAt}</td>
+                <td>{this.props.selectedclient.Owner}</td>
+                <td>{this.props.selectedclient.Address}</td>
+                <td>{this.props.selectedclient.ownerID}</td>
+                <td>{this.props.selectedclient.Well}</td>
+                <td>{this.props.selectedclient.OPERATOR}</td>
+                <td>{this.props.selectedclient.blendedAvg}</td>
+                <td>{this.props.selectedclient.sectNo}</td>
             </tr>
           </tbody>
           </Table>
@@ -85,23 +97,23 @@ const SelectedClient = (props) => {
           </thead>
           <tbody style={ styles.tbodyStyles }>
             <tr>
-                <td>{props.selectedclient.COUNTY}</td>
-                <td>{props.selectedclient.Well}</td>
-                <td>{props.selectedclient.OPERATOR}</td>
-                <td>{props.selectedclient.combineDLegal}</td>
-                <td>{props.selectedclient.INTEREST}</td>
-                <td>{props.selectedclient.TYPE}</td>
-                <td>{props.selectedclient.rateArea}</td>
-                <td>{props.selectedclient.VALUATION}</td>
-                <td>{props.selectedclient.valuationMethod}</td>
-                <td>{props.selectedclient.valuationRate}</td>
-                <td>{props.selectedclient.taxValue}</td>
-                <td>{props.selectedclient.acreageFinal}</td>
-                <td>{props.selectedclient.NRA}</td>
-                <td>{props.selectedclient.acreageSource}</td>
-                <td>{props.selectedclient.productionBOM}</td>
-                <td>{props.selectedclient.activePermit}</td>
-                <td>{props.selectedclient.rrcID}</td>
+                <td>{this.props.selectedclient.COUNTY}</td>
+                <td>{this.props.selectedclient.Well}</td>
+                <td>{this.props.selectedclient.OPERATOR}</td>
+                <td>{this.props.selectedclient.combineDLegal}</td>
+                <td>{this.props.selectedclient.INTEREST}</td>
+                <td>{this.props.selectedclient.TYPE}</td>
+                <td>{this.props.selectedclient.rateArea}</td>
+                <td>{this.props.selectedclient.VALUATION}</td>
+                <td>{this.props.selectedclient.valuationMethod}</td>
+                <td>{this.props.selectedclient.valuationRate}</td>
+                <td>{this.props.selectedclient.taxValue}</td>
+                <td>{this.props.selectedclient.acreageFinal}</td>
+                <td>{this.props.selectedclient.NRA}</td>
+                <td>{this.props.selectedclient.acreageSource}</td>
+                <td>{this.props.selectedclient.productionBOM}</td>
+                <td>{this.props.selectedclient.activePermit}</td>
+                <td>{this.props.selectedclient.rrcID}</td>
             </tr>
           </tbody>
           </Table>
@@ -113,7 +125,7 @@ const SelectedClient = (props) => {
         <Jumbotron style={ styles.statusJumboStyles }>
           <div style={ styles.statusTitleStyles }>
             <h5>Status History</h5>
-            <div style={ styles.statusOfferNumbersStyles }>Current Status:<div style={ styles.redOfferStatusStyles }>{props.selectedclient.DIP}</div></div>
+            <div style={ styles.statusOfferNumbersStyles }>Current Status:<div style={ styles.redOfferStatusStyles }>{this.props.selectedclient.DIP}</div></div>
           </div>
           <div style={ styles.clientDivStyles } >
             <Table bordered size="sm" responsive>
@@ -127,8 +139,8 @@ const SelectedClient = (props) => {
             <tbody style={ styles.tbodyStyles }>
               <tr>
                   <td>Current</td>
-                  <td>{props.selectedclient.DIP}</td>
-                  <td>{props.selectedclient.modifiedBy}</td>
+                  <td>{this.props.selectedclient.DIP}</td>
+                  <td>{this.props.selectedclient.modifiedBy}</td>
               </tr>
             </tbody>
             </Table>
@@ -145,7 +157,7 @@ const SelectedClient = (props) => {
         <Jumbotron style={ styles.offerJumboStyles }>
           <div style={ styles.offerTitleStyles }>
             <h5>Offer History</h5>
-            <div style={ styles.statusOfferNumbersStyles }>Offer Status:<div style={ styles.redOfferStatusStyles }>${props.selectedclient.currentOffer}</div></div>
+            <div style={ styles.statusOfferNumbersStyles }>Offer Status:<div style={ styles.redOfferStatusStyles }>${this.props.selectedclient.offerUpdate}</div></div>
           </div>
           <div style={ styles.clientDivStyles } >
             <Table bordered size="sm" responsive>
@@ -159,18 +171,18 @@ const SelectedClient = (props) => {
             <tbody style={ styles.tbodyStyles }>
               <tr>
                   <td>Current</td>
-                  <td>{props.selectedclient.currentOffer}</td>
-                  <td>{props.selectedclient.modifiedBy}</td>
+                  <td>{this.props.selectedclient.currentOffer}</td>
+                  <td>{this.props.selectedclient.modifiedBy}</td>
               </tr>
               <tr>
                   <td>Original</td>
-                  <td>{props.selectedclient.originalOffer}</td>
+                  <td>{this.props.selectedclient.originalOffer}</td>
                   <td>Letter</td>
               </tr>
             </tbody>
             </Table>
           </div>
-          <OfferUpdate />
+          <OfferUpdate onSubmit={this.handleFormSubmit}/>
         </Jumbotron>
 
 
@@ -195,12 +207,12 @@ const SelectedClient = (props) => {
           </thead>
           <tbody style={ styles.tbodyStyles }>
             <tr>
-                <td>{props.selectedclient.ownerID}</td>
-                <td>{props.selectedclient.modifiedBy}</td>
-                <td>{props.selectedclient.Owner}</td>
-                <td>{props.selectedclient.phoneNumber}</td>
-                <td>{props.selectedclient.emailAddress}</td>
-                <td>{props.selectedclient.NOTES}</td>
+                <td>{this.props.selectedclient.ownerID}</td>
+                <td>{this.props.selectedclient.modifiedBy}</td>
+                <td>{this.props.selectedclient.Owner}</td>
+                <td>{this.props.selectedclient.phoneNumber}</td>
+                <td>{this.props.selectedclient.emailAddress}</td>
+                <td>{this.props.selectedclient.NOTES}</td>
             </tr>
           </tbody>
           </Table>
@@ -224,25 +236,26 @@ const SelectedClient = (props) => {
           </thead>
           <tbody style={ styles.tbodyStyles }>
             <tr>
-                <td>{props.selectedclient.noteCreateTimeStamp}</td>
-                <td>{props.selectedclient.NOTES}</td>
-                <td>{props.selectedclient.modifiedBy}</td>
+                <td>{this.props.selectedclient.noteCreateTimeStamp}</td>
+                <td>{this.props.selectedclient.NOTES}</td>
+                <td>{this.props.selectedclient.modifiedBy}</td>
             </tr>
           </tbody>
           </Table>
         </div>
-        <AddClientNote />
+        <AddClientNote onSubmit={this.handleClientNoteSubmit}/>
       </Jumbotron>
 
       </div>
     );
+
+}
 }
 
-
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
-    // clientInfo: state.clients.clientInfo
-  };
+    offerUpdate: state.offerUpdate
+  }
 }
 
 const styles = {
@@ -338,7 +351,7 @@ const styles = {
   }
 };
 
-export default connect(mapStateToProps, { selectClient })(SelectedClient);
+export default connect(mapStateToProps, { selectClient, updateOffer })(SelectedClient);
 
 
 // <h4 className="title">{this.props.clientInfo.OWNER}</h4>

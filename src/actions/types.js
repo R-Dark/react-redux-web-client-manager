@@ -5,4 +5,6 @@ export const AUTH_ERROR = 'auth_error'
 
 export const CLIENTS_FETCH_SUCCESS = 'clients_fetch_success'
 export const SEARCH_CLIENT = 'search_client'
+
 export const CLIENT_SELECTED = 'client_selected'
+export const UPDATE_OFFER_SUCCESS = 'update_offer_success'

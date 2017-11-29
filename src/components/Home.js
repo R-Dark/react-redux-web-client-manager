@@ -3,14 +3,10 @@ import { Helmet } from "react-helmet";
 import { connect } from 'react-redux'
 import '../styles/home.css';
 import TableItem from './TableItem'
-import TopRowButtons from './buttons/TopRowButtons'
-import MiddleRowButtons from './buttons/MiddleRowButtons'
-import BottomRowButtons from './buttons/BottomRowButtons'
 import { Jumbotron } from 'reactstrap';
 import TableRow from './TableRow';
 import SearchForm from './SearchForm';
 import SelectedClient from './SelectedClient';
-import UpdateContact from './UpdateContact';
 import BatchAndReportButtons from './BatchAndReportButtons';
 import { searchClient, selectClient } from '../actions'
 

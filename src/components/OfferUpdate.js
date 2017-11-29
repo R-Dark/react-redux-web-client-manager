@@ -1,14 +1,14 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import * as actions from '../actions'
-import { Label, Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 
 const OfferUpdate = props => {
-    const { handleOfferUpdateSubmit } = props
+    const { handleSubmit } = props
     return (
     <div style={ styles.allButtons }>
-    <form onSubmit={handleOfferUpdateSubmit} style={ styles.formUpdate }>
+    <form onSubmit={handleSubmit} style={ styles.formUpdate }>
 
           <div className="form-group">
             <Field
