@@ -1,27 +1,23 @@
 import React from 'react'
-import { reduxForm } from 'redux-form'
+import { reduxForm, Field } from 'redux-form'
 import * as actions from '../actions'
-import { Button, UncontrolledButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 
 const StatusUpdate = props => {
-    const { handleStatusUpdateSubmit } = props
+    const { handleSubmit } = props
     return (
     <div style={ styles.allButtons }>
-    <form onSubmit={handleStatusUpdateSubmit} style={ styles.formUpdate }>
+    <form onSubmit={handleSubmit} style={ styles.formUpdate }>
 
-          <div>
-            <UncontrolledButtonDropdown>
-              <DropdownToggle caret color="info">
-                Status
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem>DIP</DropdownItem>
-                <DropdownItem>NO DEAL</DropdownItem>
-                <DropdownItem>BAD ADDRESS</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledButtonDropdown>
-          </div>
+    <div>
+    <Field name="statusUpdate" component="select">
+      <option></option>
+      <option value="DIP">DIP</option>
+      <option value="No Deal">No Deal</option>
+      <option value="Bad Address">Bad Address</option>
+    </Field>
+  </div>
 
           <div style={ styles.buttonUpdate }>
             <Button color="success" id='search-button' action="submit" block >

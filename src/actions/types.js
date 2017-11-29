@@ -8,3 +8,4 @@ export const SEARCH_CLIENT = 'search_client'
 
 export const CLIENT_SELECTED = 'client_selected'
 export const UPDATE_OFFER_SUCCESS = 'update_offer_success'
+export const UPDATE_STATUS_SUCCESS = 'update_status_success'

@@ -2,7 +2,8 @@ import firebase from 'firebase'
 
 import {
   CLIENT_SELECTED,
-  UPDATE_OFFER_SUCCESS
+  UPDATE_OFFER_SUCCESS,
+  UPDATE_STATUS_SUCCESS
 } from './types';
 
 
@@ -23,29 +24,12 @@ export const updateOffer = ( offerUpdate ) => {
   }
 }
 
-// export const updateOffer = (offerUpdate) => {
-//   // console.log(ownername, state, zip)
-//   return (dispatch) => {
-//     firebase.database()
-//     .ref("/")
-//       .orderByChild("Owner")
-//         .equalTo(ownername)
-//           .on('value', snapshot => {
-//             // console.log(snapshot.val())
-//             // console.log(ownername)
-//             dispatch({ type: SEARCH_CLIENT, payload: snapshot.val() })
-//           })
-//
-//     }
-//   }
-
-
-
-// export const selectClient = (clientInfo) => {
-//
-//   return (dispatch) => {
-//         dispatch({ type: CLIENT_SELECTED, payload: clientInfo })
-//       })
-//
-//   }
-// }
+export const updateStatus = ( statusUpdate ) => {
+  return (dispatch) => {
+    firebase.database().ref(`7`)
+      .update( statusUpdate )
+      .then(() => {
+        dispatch({ type: UPDATE_STATUS_SUCCESS })
+    })
+  }
+}

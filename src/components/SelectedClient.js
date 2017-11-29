@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { Jumbotron, Table } from 'reactstrap';
-import { selectClient, updateOffer } from '../actions'
+import { selectClient, updateOffer, updateStatus } from '../actions'
 import UpdateContact from './UpdateContact';
 import StatusUpdate from './StatusUpdate';
 import OfferUpdate from './OfferUpdate';
@@ -17,9 +17,16 @@ class SelectedClient extends Component {
   }
 
 
-  handleFormSubmit = ({offerUpdate}) => {
-    this.props.updateOffer({offerUpdate})
+  handleFormSubmit = ({offerUpdate, statusUpdate}) => {
+      if (offerUpdate) {
+        this.props.updateOffer({offerUpdate})
+    } else if (statusUpdate) {
+        console.log(statusUpdate)
+        this.props.updateStatus({statusUpdate})
+    }
   }
+
+
 
 
   render(){
@@ -125,7 +132,7 @@ class SelectedClient extends Component {
         <Jumbotron style={ styles.statusJumboStyles }>
           <div style={ styles.statusTitleStyles }>
             <h5>Status History</h5>
-            <div style={ styles.statusOfferNumbersStyles }>Current Status:<div style={ styles.redOfferStatusStyles }>{this.props.selectedclient.DIP}</div></div>
+            <div style={ styles.statusOfferNumbersStyles }>Current Status:<div style={ styles.redOfferStatusStyles }>{this.props.selectedclient.statusUpdate}</div></div>
           </div>
           <div style={ styles.clientDivStyles } >
             <Table bordered size="sm" responsive>
@@ -146,7 +153,7 @@ class SelectedClient extends Component {
             </Table>
           </div>
           <div style={ styles.statusButtonsStyles }>
-            <StatusUpdate />
+            <StatusUpdate onSubmit={this.handleFormSubmit}/>
             <AssignTo />
           </div>
           <div style={ styles.assignedToStyles }>
@@ -351,7 +358,7 @@ const styles = {
   }
 };
 
-export default connect(mapStateToProps, { selectClient, updateOffer })(SelectedClient);
+export default connect(mapStateToProps, { selectClient, updateOffer, updateStatus })(SelectedClient);
 
 
 // <h4 className="title">{this.props.clientInfo.OWNER}</h4>
