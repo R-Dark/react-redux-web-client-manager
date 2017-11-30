@@ -63,7 +63,7 @@ class Home extends Component {
           <title>the Brain</title>
         </Helmet>
             <div style={styles.outterDivStyles}>
-              <Jumbotron style={styles.jumboStyles2} >
+              <Jumbotron style={styles.jumboStyles2} id='main-div-styles'>
                 <SearchForm onSubmit={this.handleFormSubmit}/>
                 <BatchAndReportButtons/>
               </Jumbotron>
@@ -98,7 +98,7 @@ const styles = {
     flexDirection: 'column'
   },
   outterDivStyles: {
-    marginTop: 15,
+    marginTop: 20,
     marginRight: 15,
     marginLeft: 15
   },
@@ -106,7 +106,10 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-around',
     paddingTop: 10,
-    paddingBottom: 10
+    paddingBottom: 10,
+    borderStyle: 'solid',
+    borderWidth: 2,
+    borderColor: 'rgb(215, 215, 215)'
   }
 };
 

@@ -37,7 +37,6 @@ class SelectedClient extends Component {
 
   renderOfferStatus = () => {
     if (this.props.offerUpdate) {
-      // console.log(this.props.offerUpdate)
       return <div style={ styles.statusOfferNumbersStyles }>Offer Status:<div style={ styles.redOfferStatusStyles }>${this.props.offerUpdate.offerUpdate}</div></div>
     } else {
       return <div style={ styles.statusOfferNumbersStyles }>Offer Status:<div style={ styles.redOfferStatusStyles }>${this.props.selectedclient.offerUpdate}</div></div>
@@ -286,9 +285,6 @@ const mapStateToProps = (state) => {
 }
 
 const styles = {
-  mainDivStyles: {
-
-  },
   listTitleStyles: {
     display: 'flex',
     justifyContent: 'center',
@@ -300,7 +296,11 @@ const styles = {
     paddingRight: 5,
     paddingBottom: 1,
     marginRight: 15,
-    marginLeft: 15
+    marginLeft: 15,
+    marginTop: -10,
+    borderStyle: 'solid',
+    borderWidth: 2,
+    borderColor: 'rgb(215, 215, 215)'
   },
   clientTitleStyles: {
     display: 'flex',
@@ -322,7 +322,11 @@ const styles = {
     paddingBottom: 1,
     marginRight: 15,
     marginLeft: 15,
-    width: '48%'
+    marginTop: -10,
+    width: '48%',
+    borderStyle: 'solid',
+    borderWidth: 2,
+    borderColor: 'rgb(215, 215, 215)'
   },
   offerJumboStyles: {
     paddingTop: 10,
@@ -331,7 +335,11 @@ const styles = {
     paddingBottom: 1,
     marginRight: 15,
     marginLeft: 15,
-    width: '48%'
+    marginTop: -10,
+    width: '48%',
+    borderStyle: 'solid',
+    borderWidth: 2,
+    borderColor: 'rgb(215, 215, 215)'
   },
   offerTitleStyles: {
     display: 'flex',

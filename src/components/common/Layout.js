@@ -8,10 +8,12 @@ class Layout extends Component {
       <div>
         <NavBar />
           <div>{this.props.children}</div>
-        <Footer />
+
       </div>
     )
   }
 }
 
 export default Layout;
+
+// <Footer />

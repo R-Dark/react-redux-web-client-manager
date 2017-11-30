@@ -54,7 +54,10 @@ const styles = {
     paddingLeft: 5,
     paddingRight: 5,
     paddingBottom: 10,
-    marginBottom: 250
+    borderStyle: 'solid',
+    borderWidth: 2,
+    borderColor: 'rgb(215, 215, 215)',
+    marginTop: -10
   },
   listInnerDivStyles: {
     backgroundColor: '#fff'
