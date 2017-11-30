@@ -35,6 +35,15 @@ class SelectedClient extends Component {
     }
   }
 
+  renderCurrentStatus2 = () => {
+    if (this.props.currentStatus) {
+      return <div>{this.props.currentStatus.statusUpdate}</div>
+    } else {
+      return <div>{this.props.selectedclient.statusUpdate}</div>
+    }
+  }
+
+
   renderOfferStatus = () => {
     if (this.props.offerUpdate) {
       return <div style={ styles.statusOfferNumbersStyles }>Offer Status:<div style={ styles.redOfferStatusStyles }>${this.props.offerUpdate.offerUpdate}</div></div>
@@ -42,6 +51,8 @@ class SelectedClient extends Component {
       return <div style={ styles.statusOfferNumbersStyles }>Offer Status:<div style={ styles.redOfferStatusStyles }>${this.props.selectedclient.offerUpdate}</div></div>
     }
   }
+
+
 
 
 
@@ -163,7 +174,7 @@ class SelectedClient extends Component {
             <tbody style={ styles.tbodyStyles }>
               <tr>
                   <td>Current</td>
-                  <td>{this.props.selectedclient.DIP}</td>
+                  <td>{this.renderCurrentStatus2()}</td>
                   <td>{this.props.selectedclient.modifiedBy}</td>
               </tr>
             </tbody>
