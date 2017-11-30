@@ -14,22 +14,22 @@ export function selectClient(clientInfo) {
   };
 }
 
-export const updateOffer = ( offerUpdate ) => {
+export const updateOffer = ( offerUpdate, id ) => {
   return (dispatch) => {
-    firebase.database().ref(`7`)
+    firebase.database().ref(id)
       .update( offerUpdate )
       .then(() => {
-        dispatch({ type: UPDATE_OFFER_SUCCESS })
+        dispatch({ type: UPDATE_OFFER_SUCCESS, payload: offerUpdate })
     })
   }
 }
 
-export const updateStatus = ( statusUpdate ) => {
+export const updateStatus = ( statusUpdate, id ) => {
   return (dispatch) => {
-    firebase.database().ref(`7`)
+    firebase.database().ref(id)
       .update( statusUpdate )
       .then(() => {
-        dispatch({ type: UPDATE_STATUS_SUCCESS })
+        dispatch({ type: UPDATE_STATUS_SUCCESS, payload: statusUpdate })
     })
   }
 }

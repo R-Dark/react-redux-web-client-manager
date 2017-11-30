@@ -18,11 +18,29 @@ class SelectedClient extends Component {
 
 
   handleFormSubmit = ({offerUpdate, statusUpdate}) => {
+    // console.log(this.props.selectedclient)
+    let id = this.props.selectedclient.uid
       if (offerUpdate) {
-        this.props.updateOffer({offerUpdate})
+        this.props.updateOffer({offerUpdate}, id)
     } else if (statusUpdate) {
-        console.log(statusUpdate)
-        this.props.updateStatus({statusUpdate})
+        this.props.updateStatus({statusUpdate}, id)
+    }
+  }
+
+  renderCurrentStatus = () => {
+    if (this.props.currentStatus) {
+      return <div style={ styles.statusOfferNumbersStyles }>Current Status:<div style={ styles.redOfferStatusStyles }>{this.props.currentStatus.statusUpdate}</div></div>
+    } else {
+      return <div style={ styles.statusOfferNumbersStyles }>Current Status:<div style={ styles.redOfferStatusStyles }>{this.props.selectedclient.statusUpdate}</div></div>
+    }
+  }
+
+  renderOfferStatus = () => {
+    if (this.props.offerUpdate) {
+      // console.log(this.props.offerUpdate)
+      return <div style={ styles.statusOfferNumbersStyles }>Offer Status:<div style={ styles.redOfferStatusStyles }>${this.props.offerUpdate.offerUpdate}</div></div>
+    } else {
+      return <div style={ styles.statusOfferNumbersStyles }>Offer Status:<div style={ styles.redOfferStatusStyles }>${this.props.selectedclient.offerUpdate}</div></div>
     }
   }
 
@@ -132,7 +150,7 @@ class SelectedClient extends Component {
         <Jumbotron style={ styles.statusJumboStyles }>
           <div style={ styles.statusTitleStyles }>
             <h5>Status History</h5>
-            <div style={ styles.statusOfferNumbersStyles }>Current Status:<div style={ styles.redOfferStatusStyles }>{this.props.selectedclient.statusUpdate}</div></div>
+            {this.renderCurrentStatus()}
           </div>
           <div style={ styles.clientDivStyles } >
             <Table bordered size="sm" responsive>
@@ -164,7 +182,7 @@ class SelectedClient extends Component {
         <Jumbotron style={ styles.offerJumboStyles }>
           <div style={ styles.offerTitleStyles }>
             <h5>Offer History</h5>
-            <div style={ styles.statusOfferNumbersStyles }>Offer Status:<div style={ styles.redOfferStatusStyles }>${this.props.selectedclient.offerUpdate}</div></div>
+            {this.renderOfferStatus()}
           </div>
           <div style={ styles.clientDivStyles } >
             <Table bordered size="sm" responsive>
@@ -260,14 +278,16 @@ class SelectedClient extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
-    offerUpdate: state.offerUpdate
+    currentStatus: state.selectedclient.status,
+    offerUpdate: state.selectedclient.offer
   }
 }
 
 const styles = {
   mainDivStyles: {
-    marginTop: -218
+
   },
   listTitleStyles: {
     display: 'flex',

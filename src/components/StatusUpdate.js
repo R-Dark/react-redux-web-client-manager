@@ -12,7 +12,7 @@ const StatusUpdate = props => {
 
     <div>
     <Field name="statusUpdate" component="select">
-      <option></option>
+      <option>Status</option>
       <option value="DIP">DIP</option>
       <option value="No Deal">No Deal</option>
       <option value="Bad Address">Bad Address</option>

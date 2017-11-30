@@ -7,9 +7,9 @@ export default (state = INITIAL_STATE, action) => {
       case CLIENT_SELECTED:
         return { ...state, clientInfo: action.payload }
       case UPDATE_OFFER_SUCCESS:
-        return { ...state };
+        return { ...state, offer: action.payload };
       case UPDATE_STATUS_SUCCESS:
-        return { ...state };
+        return { ...state, status: action.payload };
     default:
       return state;
   }
