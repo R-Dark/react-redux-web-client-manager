@@ -46,14 +46,20 @@ class SelectedClient extends Component {
 
   renderOfferStatus = () => {
     if (this.props.offerUpdate) {
-      return <div style={ styles.statusOfferNumbersStyles }>Offer Status:<div style={ styles.redOfferStatusStyles }>${this.props.offerUpdate.offerUpdate}</div></div>
+      return <div style={ styles.statusOfferNumbersStyles }>Current Offer:<div style={ styles.redOfferStatusStyles }>{this.props.offerUpdate.offerUpdate}</div></div>
     } else {
-      return <div style={ styles.statusOfferNumbersStyles }>Offer Status:<div style={ styles.redOfferStatusStyles }>${this.props.selectedclient.offerUpdate}</div></div>
+      return <div style={ styles.statusOfferNumbersStyles }>Current Offer:<div style={ styles.redOfferStatusStyles }>{this.props.selectedclient.offerUpdate}</div></div>
     }
   }
 
 
-
+  renderOfferStatus2 = () => {
+    if (this.props.offerUpdate) {
+      return <div style={ styles.statusOfferNumbersStyles }>{this.props.offerUpdate.offerUpdate}</div>
+    } else {
+      return <div style={ styles.statusOfferNumbersStyles }>{this.props.selectedclient.offerUpdate}</div>
+    }
+  }
 
 
 
@@ -161,6 +167,7 @@ class SelectedClient extends Component {
           <div style={ styles.statusTitleStyles }>
             <h5>Status History</h5>
             {this.renderCurrentStatus()}
+            <div style={ styles.statusOfferNumbersStyles }>Assigned To:<div style={ styles.redOfferStatusStyles }>Seth</div></div>
           </div>
           <div style={ styles.clientDivStyles } >
             <Table bordered size="sm" responsive>
@@ -185,13 +192,13 @@ class SelectedClient extends Component {
             <AssignTo />
           </div>
           <div style={ styles.assignedToStyles }>
-            <div style={ styles.statusOfferNumbersStyles }>Assigned To:<div style={ styles.redOfferStatusStyles }>Seth</div></div>
           </div>
         </Jumbotron>
 
         <Jumbotron style={ styles.offerJumboStyles }>
           <div style={ styles.offerTitleStyles }>
             <h5>Offer History</h5>
+            <div style={ styles.statusOfferNumbersStyles }>Price Per Acre:<div style={ styles.redOfferStatusStyles }>$3,000</div></div>
             {this.renderOfferStatus()}
           </div>
           <div style={ styles.clientDivStyles } >
@@ -206,7 +213,7 @@ class SelectedClient extends Component {
             <tbody style={ styles.tbodyStyles }>
               <tr>
                   <td>Current</td>
-                  <td>{this.props.selectedclient.currentOffer}</td>
+                  <td>{this.renderOfferStatus2()}</td>
                   <td>{this.props.selectedclient.modifiedBy}</td>
               </tr>
               <tr>
@@ -315,8 +322,7 @@ const styles = {
   },
   clientTitleStyles: {
     display: 'flex',
-    justifyContent: 'center',
-    paddingBottom: 5
+    justifyContent: 'center'
   },
   tbodyStyles: {
     fontSize: 15
@@ -392,8 +398,7 @@ const styles = {
   },
   assignedToStyles: {
     display: 'flex',
-    justifyContent: 'flex-end',
-    paddingRight: 15
+    justifyContent: 'flex-end'
   }
 };
 

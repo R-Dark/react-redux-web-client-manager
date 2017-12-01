@@ -10,9 +10,9 @@ const StatusUpdate = props => {
     <div style={ styles.allButtons }>
     <form onSubmit={handleSubmit} style={ styles.formUpdate }>
 
-    <div>
+    <div style={ styles.dropdownUpdate }>
     <Field name="statusUpdate" component="select">
-      <option>Status</option>
+      <option>Select Status</option>
       <option value="DIP">DIP</option>
       <option value="No Deal">No Deal</option>
       <option value="Bad Address">Bad Address</option>
@@ -41,9 +41,8 @@ const StatusUpdate = props => {
      display: 'flex',
      justifyContent: 'row'
    },
-   labelUpdate: {
-     paddingRight: 5,
-     paddingLeft: 20
+   dropdownUpdate: {
+
    },
    buttonUpdate: {
      paddingRight: 7,

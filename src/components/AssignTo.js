@@ -1,28 +1,24 @@
 import React from 'react'
-import { reduxForm } from 'redux-form'
+import { reduxForm, Field } from 'redux-form'
 import * as actions from '../actions'
-import { Button, UncontrolledButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 
-const AssignTo = props => {
-    const { handleAssignToSubmit } = props
+const StatusUpdate = props => {
+    const { handleSubmit } = props
     return (
     <div style={ styles.allButtons }>
-    <form onSubmit={handleAssignToSubmit} style={ styles.formUpdate }>
+    <form onSubmit={handleSubmit} style={ styles.formUpdate }>
 
-          <div>
-            <UncontrolledButtonDropdown>
-              <DropdownToggle caret color="info">
-                Select Closer
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem>Isack</DropdownItem>
-                <DropdownItem>Seth</DropdownItem>
-                <DropdownItem>Bill</DropdownItem>
-                <DropdownItem>Joe</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledButtonDropdown>
-          </div>
+    <div style={ styles.dropdownUpdate }>
+    <Field name="assignTo" component="select">
+      <option>Select Closer</option>
+      <option value="Isack">Isack</option>
+      <option value="Seth">Seth</option>
+      <option value="Joe">Joe</option>
+      <option value="Bill">Bill</option>
+    </Field>
+  </div>
 
           <div style={ styles.buttonUpdate }>
             <Button color="success" id='search-button' action="submit" block >
@@ -46,9 +42,8 @@ const AssignTo = props => {
      display: 'flex',
      justifyContent: 'row'
    },
-   labelUpdate: {
-     paddingRight: 5,
-     paddingLeft: 20
+   dropdownUpdate: {
+
    },
    buttonUpdate: {
      paddingRight: 7,
@@ -60,7 +55,7 @@ const AssignTo = props => {
  };
 
 export default reduxForm({
-  form: 'assignto' // a unique identifier for this form
-}, null, actions)(AssignTo)
+  form: 'statusupdate' // a unique identifier for this form
+}, null, actions)(StatusUpdate)
 
 // <Label for="statusDropdown" style={ styles.searchLabel }>Status:</Label>

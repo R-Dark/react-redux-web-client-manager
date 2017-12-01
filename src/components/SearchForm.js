@@ -109,7 +109,7 @@ const SearchForm = props => {
             <UncontrolledButtonDropdown>
               <Label for="orderDropdown" style={ styles.firstSearchLabel }>Order:</Label>
                 <DropdownToggle caret color="info">
-                  Last Modified
+                  All
                 </DropdownToggle>
                 <DropdownMenu>
                 <DropdownItem>Highest to Lowest</DropdownItem>
@@ -137,6 +137,23 @@ const SearchForm = props => {
                 <DropdownItem>500</DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>1000</DropdownItem>
+                </DropdownMenu>
+            </UncontrolledButtonDropdown>
+          </div>
+          <div>
+            <UncontrolledButtonDropdown>
+              <Label for="assignedTo" style={ styles.searchLabel }>Assignment:</Label>
+                <DropdownToggle caret color="info">
+                  All
+                </DropdownToggle>
+                <DropdownMenu>
+                <DropdownItem>Isack</DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>Seth</DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>Joe</DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>Bill</DropdownItem>
                 </DropdownMenu>
             </UncontrolledButtonDropdown>
           </div>
@@ -180,7 +197,8 @@ const SearchForm = props => {
      marginTop: 7
    },
    searchButton: {
-     marginLeft: 130
+     width: 191,
+     marginLeft: 50
    }
  };
 
