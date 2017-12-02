@@ -11,49 +11,33 @@ const SearchForm = props => {
     <form onSubmit={handleSubmit}>
       <div style={ styles.TopRowButtons }>
           <div>
-            <UncontrolledButtonDropdown>
-            <Label for="runDropdown" style={ styles.firstSearchLabel }>Run:</Label>
-              <DropdownToggle caret color="info">
-                All
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem>1</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>2</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>3</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>4</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>5</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledButtonDropdown>
+            <Label for="runNumber" style={ styles.firstSearchLabel }>Run:</Label>
+            <Field name="runNumber" component="select">
+              <option>All</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </Field>
           </div>
 
           <div>
-            <UncontrolledButtonDropdown>
-            <Label for="buyerDropdown" style={ styles.searchLabel }>Buyer:</Label>
-              <DropdownToggle caret color="info">
-                All
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem>Chris Bentley</DropdownItem>
-                <DropdownItem>Isack Kohn</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledButtonDropdown>
+            <Label for="buyerName" style={ styles.searchLabel }>Buyer:</Label>
+            <Field name="buyerName" component="select">
+              <option>All</option>
+              <option value="Chris">Chris</option>
+              <option value="Isack">Isack</option>
+            </Field>
           </div>
 
           <div>
-            <UncontrolledButtonDropdown>
             <Label for="statusDropdown" style={ styles.searchLabel }>Status:</Label>
-              <DropdownToggle caret color="info">
-                All
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem>DIP</DropdownItem>
-                <DropdownItem>BAD ADDRESS</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledButtonDropdown>
+            <Field name="runNumber" component="select">
+              <option>All</option>
+              <option value="DIP">DIP</option>
+              <option value="No Deal">No Deal</option>
+              <option value="Bad Address">Bad Address</option>
+            </Field>
           </div>
 
           <Label for="sequenceid" style={ styles.searchLabel }>Sequence ID:</Label>
@@ -106,56 +90,33 @@ const SearchForm = props => {
 
         <div style={ styles.BottomRowButtons }>
           <div>
-            <UncontrolledButtonDropdown>
-              <Label for="orderDropdown" style={ styles.firstSearchLabel }>Order:</Label>
-                <DropdownToggle caret color="info">
-                  All
-                </DropdownToggle>
-                <DropdownMenu>
-                <DropdownItem>Highest to Lowest</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Lowest to Highest</DropdownItem>
-                </DropdownMenu>
-            </UncontrolledButtonDropdown>
+              <Label for="orderBy" style={ styles.firstSearchLabel }>Order:</Label>
+              <Field name="orderBy" component="select">
+                <option>All</option>
+                <option value="Last Modified">Last Modified</option>
+                <option value="Highest to Lowest">Highest to Lowest</option>
+                <option value="Lowest to Highest">Lowest to Highest</option>
+              </Field>
           </div>
 
           <div>
-            <UncontrolledButtonDropdown>
-              <Label for="maxDropdown" style={ styles.searchLabel }>Max:</Label>
-                <DropdownToggle caret color="info">
-                  All
-                </DropdownToggle>
-                <DropdownMenu>
-                <DropdownItem>10</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>50</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>100</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>200</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>500</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>1000</DropdownItem>
-                </DropdownMenu>
-            </UncontrolledButtonDropdown>
+              <Label for="maxResults" style={ styles.searchLabel }>Max:</Label>
+              <Field name="maxResults" component="select">
+                <option>All</option>
+                <option value="100">100</option>
+                <option value="50">50</option>
+                <option value="25">25</option>
+              </Field>
           </div>
           <div>
-            <UncontrolledButtonDropdown>
               <Label for="assignedTo" style={ styles.searchLabel }>Assignment:</Label>
-                <DropdownToggle caret color="info">
-                  All
-                </DropdownToggle>
-                <DropdownMenu>
-                <DropdownItem>Isack</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Seth</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Joe</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Bill</DropdownItem>
-                </DropdownMenu>
-            </UncontrolledButtonDropdown>
+              <Field name="assignedTo" component="select">
+                <option>All</option>
+                <option value="Chris">100</option>
+                <option value="Isack">50</option>
+                <option value="Joe">Joe</option>
+                <option value="Bill">Bill</option>
+              </Field>
           </div>
           <Button color="success" block id='search-button' action="submit" style={ styles.searchButton } >
             Search

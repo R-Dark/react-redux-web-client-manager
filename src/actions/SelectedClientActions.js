@@ -1,4 +1,5 @@
 import firebase from 'firebase'
+import {reset} from 'redux-form';
 
 import {
   CLIENT_SELECTED,
@@ -26,6 +27,7 @@ export const updateOffer = ( offerUpdate, id ) => {
       .update( offerUpdate )
       .then(() => {
         dispatch({ type: UPDATE_OFFER_SUCCESS, payload: offerUpdate })
+        dispatch(reset('offerupdate'));
     })
   }
 }
@@ -36,6 +38,7 @@ export const updateStatus = ( statusUpdate, id ) => {
       .update( statusUpdate )
       .then(() => {
         dispatch({ type: UPDATE_STATUS_SUCCESS, payload: statusUpdate })
+        dispatch(reset('statusupdate'));
     })
   }
 }
@@ -46,6 +49,7 @@ export const updateAssignment = ( assignTo, id ) => {
       .update( assignTo )
       .then(() => {
         dispatch({ type: UPDATE_ASSIGNMENT_SUCCESS, payload: assignTo })
+        dispatch(reset('assignmentupdate'));
     })
   }
 }
@@ -56,6 +60,7 @@ export const updateContactName = ( contactName, id ) => {
       .update( contactName )
       .then(() => {
         dispatch({ type: UPDATE_CONTACTNAME_SUCCESS, payload: contactName })
+        dispatch(reset('updatecontact'));
     })
   }
 }
@@ -66,6 +71,7 @@ export const updatePhoneNumber = ( phoneNumber, id ) => {
       .update( phoneNumber )
       .then(() => {
         dispatch({ type: UPDATE_PHONENUMBER_SUCCESS, payload: phoneNumber })
+        dispatch(reset('updatecontact'));
     })
   }
 }
@@ -76,6 +82,7 @@ export const updateContactEmail = ( contactEmail, id ) => {
       .update( contactEmail )
       .then(() => {
         dispatch({ type: UPDATE_EMAIL_SUCCESS, payload: contactEmail })
+        dispatch(reset('updatecontact'));
     })
   }
 }
@@ -86,6 +93,7 @@ export const updateContactNote = ( contactNote, id ) => {
       .update( contactNote )
       .then(() => {
         dispatch({ type: UPDATE_CONTACTNOTE_SUCCESS, payload: contactNote })
+        dispatch(reset('updatecontact'));
     })
   }
 }
@@ -97,6 +105,7 @@ export const updateClientNote = ( clientNote, id ) => {
       .update( clientNote )
       .then(() => {
         dispatch({ type: UPDATE_CLIENTNOTE_SUCCESS, payload: clientNote })
+        dispatch(reset('addclientnote'));
     })
   }
 }
