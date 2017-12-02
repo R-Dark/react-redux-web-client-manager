@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { Jumbotron, Table } from 'reactstrap';
-import { selectClient, updateOffer, updateStatus } from '../actions'
+import { selectClient, updateOffer, updateStatus, updateAssignment, updateContactName, updatePhoneNumber, updateContactEmail, updateContactNote, updateClientNote } from '../actions'
 import UpdateContact from './UpdateContact';
 import StatusUpdate from './StatusUpdate';
 import OfferUpdate from './OfferUpdate';
@@ -17,15 +17,28 @@ class SelectedClient extends Component {
   }
 
 
-  handleFormSubmit = ({offerUpdate, statusUpdate}) => {
+  handleFormSubmit = ({offerUpdate, statusUpdate, assignTo, contactName, phoneNumber, contactEmail, contactNote, clientNote}) => {
     // console.log(this.props.selectedclient)
     let id = this.props.selectedclient.uid
       if (offerUpdate) {
         this.props.updateOffer({offerUpdate}, id)
     } else if (statusUpdate) {
         this.props.updateStatus({statusUpdate}, id)
+    } else if (assignTo) {
+        this.props.updateAssignment({assignTo}, id)
+    } else if (contactName) {
+        this.props.updateContactName({contactName}, id)
+    }else if (phoneNumber) {
+        this.props.updatePhoneNumber({phoneNumber}, id)
+    }else if (contactEmail) {
+        this.props.updateContactEmail({contactEmail}, id)
+    }else if (contactNote) {
+        this.props.updateContactNote({contactNote}, id)
+    }else if (clientNote) {
+        this.props.updateClientNote({clientNote}, id)
     }
   }
+
 
   renderCurrentStatus = () => {
     if (this.props.currentStatus) {
@@ -58,6 +71,54 @@ class SelectedClient extends Component {
       return <div style={ styles.statusOfferNumbersStyles }>{this.props.offerUpdate.offerUpdate}</div>
     } else {
       return <div style={ styles.statusOfferNumbersStyles }>{this.props.selectedclient.offerUpdate}</div>
+    }
+  }
+
+  renderAssignTo = () => {
+    if (this.props.currentAssignment) {
+      return <div style={ styles.statusOfferNumbersStyles }>Assignment:<div style={ styles.redOfferStatusStyles }>{this.props.currentAssignment.assignTo}</div></div>
+    } else {
+      return <div style={ styles.statusOfferNumbersStyles }>Assignment:<div style={ styles.redOfferStatusStyles }>{this.props.selectedclient.assignTo}</div></div>
+    }
+  }
+
+  renderContactName = () => {
+    if (this.props.contactName) {
+      return <div style={ styles.statusOfferNumbersStyles }>{this.props.contactName.contactName}</div>
+    } else {
+      return <div style={ styles.statusOfferNumbersStyles }>{this.props.selectedclient.contactName}</div>
+    }
+  }
+
+  renderPhoneNumber = () => {
+    if (this.props.phoneNumber) {
+      return <div style={ styles.statusOfferNumbersStyles }>{this.props.phoneNumber.phoneNumber}</div>
+    } else {
+      return <div style={ styles.statusOfferNumbersStyles }>{this.props.selectedclient.phoneNumber}</div>
+    }
+  }
+
+  renderContactEmail = () => {
+    if (this.props.contactEmail) {
+      return <div style={ styles.statusOfferNumbersStyles }>{this.props.contactEmail.contactEmail}</div>
+    } else {
+      return <div style={ styles.statusOfferNumbersStyles }>{this.props.selectedclient.contactEmail}</div>
+    }
+  }
+
+  renderContactNote = () => {
+    if (this.props.contactNote) {
+      return <div style={ styles.statusOfferNumbersStyles }>{this.props.contactNote.contactNote}</div>
+    } else {
+      return <div style={ styles.statusOfferNumbersStyles }>{this.props.selectedclient.contactNote}</div>
+    }
+  }
+
+  renderClientNote = () => {
+    if (this.props.clientNote) {
+      return <div style={ styles.statusOfferNumbersStyles }>{this.props.clientNote.clientNote}</div>
+    } else {
+      return <div style={ styles.statusOfferNumbersStyles }>{this.props.selectedclient.clientNote}</div>
     }
   }
 
@@ -167,7 +228,7 @@ class SelectedClient extends Component {
           <div style={ styles.statusTitleStyles }>
             <h5>Status History</h5>
             {this.renderCurrentStatus()}
-            <div style={ styles.statusOfferNumbersStyles }>Assigned To:<div style={ styles.redOfferStatusStyles }>Seth</div></div>
+            {this.renderAssignTo()}
           </div>
           <div style={ styles.clientDivStyles } >
             <Table bordered size="sm" responsive>
@@ -189,7 +250,7 @@ class SelectedClient extends Component {
           </div>
           <div style={ styles.statusButtonsStyles }>
             <StatusUpdate onSubmit={this.handleFormSubmit}/>
-            <AssignTo />
+            <AssignTo onSubmit={this.handleFormSubmit}/>
           </div>
           <div style={ styles.assignedToStyles }>
           </div>
@@ -251,21 +312,21 @@ class SelectedClient extends Component {
             <tr>
                 <td>{this.props.selectedclient.ownerID}</td>
                 <td>{this.props.selectedclient.modifiedBy}</td>
-                <td>{this.props.selectedclient.Owner}</td>
-                <td>{this.props.selectedclient.phoneNumber}</td>
-                <td>{this.props.selectedclient.emailAddress}</td>
-                <td>{this.props.selectedclient.NOTES}</td>
+                <td>{this.renderContactName()}</td>
+                <td>{this.renderPhoneNumber()}</td>
+                <td>{this.renderContactEmail()}</td>
+                <td>{this.renderContactNote()}</td>
             </tr>
           </tbody>
           </Table>
         </div>
-        <UpdateContact />
+        <UpdateContact onSubmit={this.handleFormSubmit}/>
       </Jumbotron>
 
 
       <Jumbotron style={ styles.clientJumboStyles }>
         <div style={ styles.clientTitleStyles }>
-          <h5>Notes</h5>
+          <h5>General Notes</h5>
         </div>
         <div style={ styles.clientDivStyles } >
           <Table bordered size="sm" responsive>
@@ -279,13 +340,13 @@ class SelectedClient extends Component {
           <tbody style={ styles.tbodyStyles }>
             <tr>
                 <td>{this.props.selectedclient.noteCreateTimeStamp}</td>
-                <td>{this.props.selectedclient.NOTES}</td>
+                <td>{this.renderClientNote()}</td>
                 <td>{this.props.selectedclient.modifiedBy}</td>
             </tr>
           </tbody>
           </Table>
         </div>
-        <AddClientNote onSubmit={this.handleClientNoteSubmit}/>
+        <AddClientNote  onSubmit={this.handleFormSubmit}/>
       </Jumbotron>
 
       </div>
@@ -295,10 +356,16 @@ class SelectedClient extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
+  // console.log(state)
   return {
     currentStatus: state.selectedclient.status,
-    offerUpdate: state.selectedclient.offer
+    offerUpdate: state.selectedclient.offer,
+    currentAssignment: state.selectedclient.assignment,
+    contactName: state.selectedclient.name,
+    phoneNumber: state.selectedclient.phone,
+    contactEmail: state.selectedclient.email,
+    contactNote: state.selectedclient.contactNote,
+    clientNote: state.selectedclient.clientNote
   }
 }
 
@@ -402,7 +469,7 @@ const styles = {
   }
 };
 
-export default connect(mapStateToProps, { selectClient, updateOffer, updateStatus })(SelectedClient);
+export default connect(mapStateToProps, { selectClient, updateOffer, updateStatus, updateAssignment, updateContactName, updatePhoneNumber, updateContactEmail, updateContactNote, updateClientNote })(SelectedClient);
 
 
 // <h4 className="title">{this.props.clientInfo.OWNER}</h4>

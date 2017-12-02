@@ -1,4 +1,4 @@
-import { CLIENT_SELECTED, UPDATE_OFFER_SUCCESS, UPDATE_STATUS_SUCCESS } from '../actions/types';
+import { CLIENT_SELECTED, UPDATE_OFFER_SUCCESS, UPDATE_STATUS_SUCCESS, UPDATE_ASSIGNMENT_SUCCESS, UPDATE_CONTACTNAME_SUCCESS, UPDATE_PHONENUMBER_SUCCESS, UPDATE_EMAIL_SUCCESS, UPDATE_CONTACTNOTE_SUCCESS, UPDATE_CLIENTNOTE_SUCCESS } from '../actions/types';
 
 const INITIAL_STATE = {};
 
@@ -10,11 +10,22 @@ export default (state = INITIAL_STATE, action) => {
         return { ...state, offer: action.payload };
       case UPDATE_STATUS_SUCCESS:
         return { ...state, status: action.payload };
+      case UPDATE_ASSIGNMENT_SUCCESS:
+        return { ...state, assignment: action.payload };
+      case UPDATE_CONTACTNAME_SUCCESS:
+        return { ...state, name: action.payload };
+      case UPDATE_PHONENUMBER_SUCCESS:
+        return { ...state, phone: action.payload };
+      case UPDATE_EMAIL_SUCCESS:
+        return { ...state, email: action.payload };
+      case UPDATE_CONTACTNOTE_SUCCESS:
+        return { ...state, contactNote: action.payload };
+      case UPDATE_CLIENTNOTE_SUCCESS:
+        return { ...state, clientNote: action.payload };
     default:
       return state;
   }
 }
-
 
 // switch (action.type) {
 //     case offerUpdate:

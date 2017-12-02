@@ -197,7 +197,7 @@ const SearchForm = props => {
      marginTop: 7
    },
    searchButton: {
-     width: 191,
+     width: 192,
      marginLeft: 50
    }
  };

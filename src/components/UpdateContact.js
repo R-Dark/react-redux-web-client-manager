@@ -5,17 +5,17 @@ import { Label, Button } from 'reactstrap';
 
 
 const UpdateContact = props => {
-    const { handleContactUpdateSubmit } = props
+    const { handleSubmit } = props
     return (
     <div style={ styles.allButtons }>
-    <form onSubmit={handleContactUpdateSubmit} style={ styles.formUpdate }>
+    <form onSubmit={handleSubmit} style={ styles.formUpdate }>
 
 
 
     <Label for="contactNameUpdate" style={ styles.labelUpdate }>Contact Name:</Label>
           <div className="form-group">
             <Field
-              name="contactNameUpdate"
+              name="contactName"
               component="input"
               type="text"
               className= "form-control"
@@ -28,7 +28,7 @@ const UpdateContact = props => {
         <Label for="phoneNumberUpdate" style={ styles.labelUpdate }>Phone Number:</Label>
           <div className="form-group">
               <Field
-                name="phoneNumberUpdate"
+                name="phoneNumber"
                 component="input"
                 type="text"
                 className= "form-control"
@@ -38,7 +38,7 @@ const UpdateContact = props => {
           <Label for="emailUpdate" style={ styles.labelUpdate }>Email Address:</Label>
           <div className="form-group">
               <Field
-                name="emailUpdate"
+                name="contactEmail"
                 component="input"
                 type="text"
                 className= "form-control"
@@ -48,7 +48,7 @@ const UpdateContact = props => {
           <Label for="noteUpdate" style={ styles.labelUpdate }>Note:</Label>
           <div  className="form-group">
               <Field
-                name="noteUpdate"
+                name="contactNote"
                 component="input"
                 type="text"
                 className= "form-control"

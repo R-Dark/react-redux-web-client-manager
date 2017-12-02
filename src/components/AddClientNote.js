@@ -5,14 +5,14 @@ import { Button } from 'reactstrap';
 
 
 const AddClientNote = props => {
-    const { handleClientNoteSubmit } = props
+    const { handleSubmit } = props
     return (
     <div style={ styles.allButtons }>
-    <form onSubmit={handleClientNoteSubmit} style={ styles.formUpdate }>
+    <form onSubmit={handleSubmit} style={ styles.formUpdate }>
 
           <div className="form-group">
             <Field
-              name="addClientNote"
+              name="clientNote"
               component="input"
               type="text"
               className= "form-control"
