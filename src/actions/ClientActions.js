@@ -1,5 +1,5 @@
 import firebase from 'firebase'
-
+import {reset} from 'redux-form';
 
 import {
   CLIENTS_FETCH_SUCCESS,
@@ -29,7 +29,7 @@ export const searchClient = (ownername, state, zip) => {
             // console.log(snapshot.val())
             // console.log(ownername)
             dispatch({ type: SEARCH_CLIENT, payload: snapshot.val() })
-          })
-
-    }
+            dispatch(reset('searchform'));
+        })
+     }
   }
