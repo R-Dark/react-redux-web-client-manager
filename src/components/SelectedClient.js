@@ -280,7 +280,7 @@ class SelectedClient extends Component {
               <tr>
                   <td>Original</td>
                   <td>{this.props.selectedclient.originalOffer}</td>
-                  <td>Letter</td>
+                  <td> </td>
               </tr>
             </tbody>
             </Table>
@@ -385,7 +385,7 @@ const styles = {
     marginTop: -10,
     borderStyle: 'solid',
     borderWidth: 2,
-    borderColor: 'rgb(215, 215, 215)'
+    borderColor: '#ced4da'
   },
   clientTitleStyles: {
     display: 'flex',
@@ -410,7 +410,7 @@ const styles = {
     width: '48%',
     borderStyle: 'solid',
     borderWidth: 2,
-    borderColor: 'rgb(215, 215, 215)'
+    borderColor: '#ced4da'
   },
   offerJumboStyles: {
     paddingTop: 10,
@@ -423,7 +423,7 @@ const styles = {
     width: '48%',
     borderStyle: 'solid',
     borderWidth: 2,
-    borderColor: 'rgb(215, 215, 215)'
+    borderColor: '#ced4da'
   },
   offerTitleStyles: {
     display: 'flex',

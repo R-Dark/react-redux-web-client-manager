@@ -31,7 +31,7 @@ class NavBar extends Component {
           borderTop: 'none',
           borderLeft: 'none',
           borderRight: 'none',
-          borderColor: 'rgb(215, 215, 215)'}} >
+          borderColor: '#ced4da'}} >
         <Link to='/' className='navbar-brand'>
           the Brain
         </Link>
