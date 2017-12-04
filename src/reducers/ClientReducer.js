@@ -1,4 +1,4 @@
-import { CLIENTS_FETCH_SUCCESS, SEARCH_CLIENT } from '../actions/types';
+import { CLIENTS_FETCH_SUCCESS, SEARCH_CLIENT, NONE_SELECTED } from '../actions/types';
 import _ from 'lodash';
 
 const INITIAL_STATE = {};
@@ -16,6 +16,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...val, uid }
     })
       return { ...state, clientItem };
+    case NONE_SELECTED:
+      return { ...state };
     default:
       return state;
   }

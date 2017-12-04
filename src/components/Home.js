@@ -8,7 +8,7 @@ import TableRow from './TableRow';
 import SearchForm from './SearchForm';
 import SelectedClient from './SelectedClient';
 import BatchAndReportButtons from './BatchAndReportButtons';
-import { searchClient, selectClient } from '../actions'
+import { searchClient, selectClient, noneSelected } from '../actions'
 
 
 class Home extends Component {
@@ -24,10 +24,23 @@ class Home extends Component {
     return this.keyCount++;
   }
 
-  handleFormSubmit = ({ ownername, state, zip }) => {
-    // console.log(state)
-    this.props.searchClient(ownername, state, zip)
+  handleFormSubmit = ({ ownername, state }) => {
+    if (ownername) {
+      this.props.searchClient(ownername)
+    } else if (state) {
+        this.props.searchClient(state)
+    } else {
+      this.props.noneSelected()
+    }
   }
+
+
+
+
+
+  // handleFormSubmit = ({ ownername, state }) => {
+  //   this.props.searchClient(ownername, state)
+  // }
 
   renderClientRow () {
     if (this.props.client) {
@@ -58,7 +71,7 @@ class Home extends Component {
 
   render() {
     return(
-       <div style={ styles.mainDivStyles }>
+       <div style={ styles.mainDivStyles } id='main-div-styles'>
         <Helmet>
           <title>the Brain</title>
         </Helmet>
@@ -121,7 +134,7 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { searchClient, selectClient } )(Home)
+export default connect(mapStateToProps, { searchClient, selectClient, noneSelected } )(Home)
 
 // <div style={ styles.outterDivStyles }>
 //   <Jumbotron style={styles.jumboStyles} id='home-button-jumbotron'>

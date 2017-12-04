@@ -3,7 +3,8 @@ import {reset} from 'redux-form';
 
 import {
   CLIENTS_FETCH_SUCCESS,
-  SEARCH_CLIENT
+  SEARCH_CLIENT,
+  NONE_SELECTED
 } from './types';
 
 export const clientsFetch = () => {
@@ -18,7 +19,7 @@ export const clientsFetch = () => {
   }
 }
 
-export const searchClient = (ownername, state, zip) => {
+export const searchClient = (ownername, state) => {
   // console.log(ownername, state, zip)
   return (dispatch) => {
     firebase.database()
@@ -29,7 +30,14 @@ export const searchClient = (ownername, state, zip) => {
             // console.log(snapshot.val())
             // console.log(ownername)
             dispatch({ type: SEARCH_CLIENT, payload: snapshot.val() })
+            console.log(snapshot.val())
             dispatch(reset('searchform'));
         })
      }
+  }
+
+  export function noneSelected() {
+    return {
+      type: NONE_SELECTED
+    };
   }
