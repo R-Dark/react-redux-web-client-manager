@@ -32,7 +32,7 @@ const SearchForm = props => {
 
           <div>
             <Label for="statusDropdown" style={ styles.searchLabel }>Status:</Label>
-            <Field name="runNumber" component="select">
+            <Field name="statusDropdown" component="select">
               <option>All</option>
               <option value="DIP">DIP</option>
               <option value="No Deal">No Deal</option>
@@ -66,14 +66,22 @@ const SearchForm = props => {
           </div>
 
           <Label for="state" style={ styles.searchLabel }>State:</Label>
-          <div className="form-group">
-              <Field
-                name="state"
-                component="input"
-                type="text"
-                placeholder="Enter State"
-                className= "form-control"
-              />
+          <div className="form-group" style={ styles.stateDropdown }>
+              <Field name="state" component="select">
+                <option>All</option>
+                <option value="TX">TX</option>
+                <option value="AL">AL</option>
+                <option value="AK">AK</option>
+                <option value="AZ">AZ</option>
+                <option value="AR">AR</option>
+                <option value="CA">CA</option>
+                <option value="CO">CO</option>
+                <option value="CT">CT</option>
+                <option value="DE">DE</option>
+                <option value="FL">FL</option>
+                <option value="GA">GA</option>
+                <option value="HI">HI</option>
+              </Field>
           </div>
 
           <Label for="zip" style={ styles.searchLabel }>Zip:</Label>
@@ -163,6 +171,10 @@ const SearchForm = props => {
      borderStyle: 'solid',
      borderWidth: 2,
      borderColor: '#ced4da'
+   },
+   stateDropdown: {
+     paddingTop: 6,
+     marginLeft: -10
    }
  };
 

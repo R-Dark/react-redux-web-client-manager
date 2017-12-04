@@ -8,7 +8,7 @@ import TableRow from './TableRow';
 import SearchForm from './SearchForm';
 import SelectedClient from './SelectedClient';
 import BatchAndReportButtons from './BatchAndReportButtons';
-import { searchClient, selectClient, noneSelected } from '../actions'
+import { searchClient, selectClient, searchByState, searchByStatus, searchByZip, noneSelected } from '../actions'
 
 
 class Home extends Component {
@@ -24,16 +24,19 @@ class Home extends Component {
     return this.keyCount++;
   }
 
-  handleFormSubmit = ({ ownername, state }) => {
+  handleFormSubmit = ({ ownername, state, statusDropdown, zip }) => {
     if (ownername) {
       this.props.searchClient(ownername)
     } else if (state) {
-        this.props.searchClient(state)
-    } else {
+        this.props.searchByState(state)
+    } else if (statusDropdown) {
+        this.props.searchByStatus(statusDropdown)
+    } else if (zip) {
+        this.props.searchByZip(zip)
+    }else {
       this.props.noneSelected()
     }
   }
-
 
 
 
@@ -50,8 +53,30 @@ class Home extends Component {
         itemData={itemData}
         onClick={this.onRowPress.bind(this, itemData)}/>
       )
+    } else if ( this.props.clientItemByState ) {
+      return this.props.clientItemByState.map(
+        itemData => <TableRow key={this.getKey()}
+        itemData={itemData}
+        onClick={this.onRowPress.bind(this, itemData)}/>
+      )
+    } else if ( this.props.clientItemByStatus ) {
+      return this.props.clientItemByStatus.map(
+        itemData => <TableRow key={this.getKey()}
+        itemData={itemData}
+        onClick={this.onRowPress.bind(this, itemData)}/>
+      )
+    } else if ( this.props.clientItemByZip ) {
+      return this.props.clientItemByZip.map(
+        itemData => <TableRow key={this.getKey()}
+        itemData={itemData}
+        onClick={this.onRowPress.bind(this, itemData)}/>
+      )
     }
   }
+
+
+
+
 
   onRowPress = (clientInfo) => {
     this.props.selectClient(clientInfo)
@@ -130,11 +155,14 @@ const mapStateToProps = state => {
   return {
     clients: state.clients.items,
     selectedclient: state.selectedclient.clientInfo,
-    client: state.clients.clientItem
+    client: state.clients.clientItem,
+    clientItemByState: state.clients.clientItemByState,
+    clientItemByStatus: state.clients.clientItemByStatus,
+    clientItemByZip: state.clients.clientItemByZip
   }
 }
 
-export default connect(mapStateToProps, { searchClient, selectClient, noneSelected } )(Home)
+export default connect(mapStateToProps, { searchClient, selectClient, noneSelected, searchByState, searchByStatus, searchByZip } )(Home)
 
 // <div style={ styles.outterDivStyles }>
 //   <Jumbotron style={styles.jumboStyles} id='home-button-jumbotron'>
