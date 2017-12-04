@@ -7,8 +7,10 @@ import { Jumbotron } from 'reactstrap';
 import TableRow from './TableRow';
 import SearchForm from './SearchForm';
 import SelectedClient from './SelectedClient';
-import BatchAndReportButtons from './BatchAndReportButtons';
-import { searchClient, selectClient, searchByState, searchByStatus, searchByZip, noneSelected } from '../actions'
+import BatchButton from './BatchButton';
+import ReportButton from './ReportButton';
+import PackageButton from './PackageButton';
+import { searchClient, selectClient, searchByState, searchByStatus, searchByZip, noneSelected, runBatch, runReport, runPackage } from '../actions'
 
 
 class Home extends Component {
@@ -38,12 +40,6 @@ class Home extends Component {
     }
   }
 
-
-
-
-  // handleFormSubmit = ({ ownername, state }) => {
-  //   this.props.searchClient(ownername, state)
-  // }
 
   renderClientRow () {
     if (this.props.client) {
@@ -76,8 +72,6 @@ class Home extends Component {
 
 
 
-
-
   onRowPress = (clientInfo) => {
     this.props.selectClient(clientInfo)
 }
@@ -93,6 +87,21 @@ class Home extends Component {
   }
 
 
+    handleBatchClick = () => {
+      console.log('batch-on-page')
+      this.props.runBatch()
+    }
+
+    handleReportClick = () => {
+      console.log('report-on-page')
+      this.props.runReport()
+    }
+
+    handlePackageClick = () => {
+      console.log('package-on-page')
+      this.props.runPackage()
+    }
+
 
   render() {
     return(
@@ -103,7 +112,11 @@ class Home extends Component {
             <div style={styles.outterDivStyles}>
               <Jumbotron style={styles.jumboStyles2} id='main-div-styles'>
                 <SearchForm onSubmit={this.handleFormSubmit}/>
-                <BatchAndReportButtons/>
+                <div style={styles.BatchAndReportButtons}>
+                <BatchButton onClick={this.handleBatchClick.bind(this)}/>
+                <ReportButton onClick={this.handleReportClick.bind(this)}/>
+                <PackageButton onClick={this.handlePackageClick.bind(this)}/>
+                </div>
               </Jumbotron>
             </div>
                 <TableItem>
@@ -148,7 +161,14 @@ const styles = {
     borderStyle: 'solid',
     borderWidth: 2,
     borderColor: '#ced4da'
-  }
+  },
+  BatchAndReportButtons: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    marginLeft: 100,
+    paddingRight: 50
+  },
 };
 
 const mapStateToProps = state => {
@@ -162,7 +182,7 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { searchClient, selectClient, noneSelected, searchByState, searchByStatus, searchByZip } )(Home)
+export default connect(mapStateToProps, { searchClient, selectClient, noneSelected, searchByState, searchByStatus, searchByZip, runBatch, runReport, runPackage } )(Home)
 
 // <div style={ styles.outterDivStyles }>
 //   <Jumbotron style={styles.jumboStyles} id='home-button-jumbotron'>
@@ -172,6 +192,10 @@ export default connect(mapStateToProps, { searchClient, selectClient, noneSelect
 //   </Jumbotron>
 // </div>
 
+
+// handleFormSubmit = ({ ownername, state }) => {
+//   this.props.searchClient(ownername, state)
+// }
 
 // this will load and display all database objects at page loading
 // componentWillMount() {

@@ -3,24 +3,12 @@ import { reduxForm } from 'redux-form'
 import * as actions from '../actions'
 import { Button } from 'reactstrap';
 
-const BatchAndReportButtons = props => {
+const BatchButton = props => {
     return (
       <div style={ styles.BatchAndReportButtons}>
         <div >
-          <Button color="primary" id='run-batch' action="submit" block style={ styles.Buttons}  >
+          <Button onClick={props.onClick} color="primary" id='run-batch' action="submit" block style={ styles.Buttons}  >
             Run Batch
-          </Button>
-        </div>
-
-        <div>
-          <Button color="primary" id='run-button' action="submit" block style={ styles.Buttons} >
-            Run Report
-          </Button>
-        </div>
-
-        <div>
-          <Button color="primary" id='package-button' action="submit" block style={ styles.Buttons} >
-            Run Package
           </Button>
         </div>
 
@@ -46,5 +34,5 @@ const BatchAndReportButtons = props => {
   };
 
  export default reduxForm({
-   form: 'batchandreportbuttons' // a unique identifier for this form
- }, null, actions)(BatchAndReportButtons)
+   form: 'batchbutton' // a unique identifier for this form
+ }, null, actions)(BatchButton)
