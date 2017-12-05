@@ -8,7 +8,7 @@ const PackageButton = props => {
       <div style={ styles.BatchAndReportButtons}>
 
           <Button onClick={props.onClick} color="primary" id='run-button' action="submit" block style={ styles.Buttons} >
-            Run Report
+            Run Package
           </Button>
 
       </div>

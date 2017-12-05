@@ -122,6 +122,18 @@ class SelectedClient extends Component {
     }
   }
 
+  renderPricePerAcre = () => {
+    if (this.props.offerUpdate) {
+      return (
+        this.props.offerUpdate.offerUpdate / 11.8
+      )
+    } else {
+      return (
+        this.props.selectedclient.offerUpdate / 11.8
+      )
+    }
+  }
+
 
 
   render(){
@@ -259,7 +271,7 @@ class SelectedClient extends Component {
         <Jumbotron style={ styles.offerJumboStyles }>
           <div style={ styles.offerTitleStyles }>
             <h5>Offer History</h5>
-            <div style={ styles.statusOfferNumbersStyles }>Price Per Acre:<div style={ styles.redOfferStatusStyles }>$3,000</div></div>
+            <div style={ styles.statusOfferNumbersStyles }>Price Per Acre:<div style={ styles.redOfferStatusStyles }>{this.renderPricePerAcre().toFixed(2)}</div></div>
             {this.renderOfferStatus()}
           </div>
           <div style={ styles.clientDivStyles } >

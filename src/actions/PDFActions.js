@@ -1,13 +1,12 @@
 import * as jsPDF  from 'jspdf'
 
-export const runBatch = () => {
+export const runBatch = (...props) => {
   return () => {
       var doc = new jsPDF();
-      doc.text(20,20,'TEST Message!!');
+      doc.text(20,20, `My email is: ${localStorage.token}`);
       doc.addPage();
-      doc.text(20,20,'TEST Page 2!');
-      doc.save('Test.pdf');
-      console.log('runBatch-test')
+      doc.text(20,20, `My email is: ${localStorage.token}`);
+      doc.save('ClientLetters.pdf');
      }
   }
 
