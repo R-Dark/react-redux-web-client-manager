@@ -7,11 +7,9 @@ const ReportButton = props => {
     return (
       <div style={ styles.BatchAndReportButtons}>
 
-        <div>
           <Button onClick={props.onClick} color="primary" id='run-button' action="submit" block style={ styles.Buttons} >
             Run Report
           </Button>
-        </div>
 
       </div>
     )
@@ -22,8 +20,7 @@ const ReportButton = props => {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-around',
-      marginLeft: 100,
-      paddingRight: 50
+      marginLeft: 100
     },
     Buttons: {
       paddingLeft: 50,

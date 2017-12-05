@@ -6,11 +6,10 @@ import { Button } from 'reactstrap';
 const BatchButton = props => {
     return (
       <div style={ styles.BatchAndReportButtons}>
-        <div >
+
           <Button onClick={props.onClick} color="primary" id='run-batch' action="submit" block style={ styles.Buttons}  >
             Run Batch
           </Button>
-        </div>
 
       </div>
     )
@@ -21,8 +20,7 @@ const BatchButton = props => {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-around',
-      marginLeft: 100,
-      paddingRight: 50
+      marginLeft: 100
     },
     Buttons: {
       paddingLeft: 50,

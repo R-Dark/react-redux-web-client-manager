@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Helmet } from "react-helmet";
 import { connect } from 'react-redux'
+import * as jsPDF  from 'jspdf'
 import '../styles/home.css';
 import TableItem from './TableItem'
 import { Jumbotron } from 'reactstrap';
@@ -161,6 +162,7 @@ const styles = {
     borderStyle: 'solid',
     borderWidth: 2,
     borderColor: '#ced4da'
+
   },
   BatchAndReportButtons: {
     display: 'flex',

@@ -139,7 +139,8 @@ const SearchForm = props => {
 
  const styles = {
    allButtons: {
-     padding: 10
+     padding: 10,
+     marginLeft: 20
    },
    TopRowButtons: {
      display: 'flex',
