@@ -3,7 +3,6 @@ import { Field, reduxForm } from 'redux-form'
 import * as actions from '../actions'
 import { Label, Button } from 'reactstrap';
 
-
 const SearchForm = props => {
     const { handleSubmit } = props
     return (
@@ -120,8 +119,8 @@ const SearchForm = props => {
               <Label for="assignedTo" style={ styles.searchLabel }>Assignment:</Label>
               <Field name="assignedTo" component="select">
                 <option>All</option>
-                <option value="Chris">100</option>
-                <option value="Isack">50</option>
+                <option value="Chris">Chris</option>
+                <option value="Isack">Isack</option>
                 <option value="Joe">Joe</option>
                 <option value="Bill">Bill</option>
               </Field>

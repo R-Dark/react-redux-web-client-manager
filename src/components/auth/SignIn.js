@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Helmet } from "react-helmet";
 import { signinUser } from '../../actions'
-import BellatorumLogo from '../images/Bellatorum_Login_Logo.png'
+import BellatorumLogo from '../images/bellatorum-login-logo-2.png'
 import '../../styles/signin.css';
 import SignInForm from './SignInForm'
 

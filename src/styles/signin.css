@@ -10,7 +10,7 @@
   min-height: 500px;
   background-size: 100%;
   padding: 10px;
-  background-image: url('../components/images/houston-skyline.png')
+  background-image: url('../components/images/login-form-background.png')
 }
 
 #login-jumbotron .btn {
@@ -46,6 +46,9 @@
   font-size: 1.75em;
   margin-bottom: 0.5em;
 }
+
+
+
 
 /*.jumbotron .btn {
   padding: 5px 5%;

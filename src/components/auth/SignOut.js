@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { signoutUser } from '../../actions'
-import BellatorumLogo from '../images/Bellatorum_Login_Logo.png'
+import BellatorumLogo from '../images/bellatorum-login-logo-2.png'
 import { Helmet } from "react-helmet";
 import { Button } from 'reactstrap';
 

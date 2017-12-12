@@ -32,7 +32,7 @@ export const searchClient = (ownername) => {
         .equalTo(ownername)
           .on('value', snapshot => {
             dispatch({ type: SEARCH_CLIENT_BY_NAME, payload: snapshot.val() })
-            console.log(snapshot.val())
+            // console.log(snapshot.val())
             dispatch(reset('searchform'));
             dispatch({ type: SEARCH_RESET })
 

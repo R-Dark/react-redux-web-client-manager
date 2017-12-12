@@ -56,7 +56,7 @@ export default connect(mapStateToProps, {})(NavBar);
 
 // constructor(props) {
 //   super(props);
-//
+//  #e9ecef
 //   this.toggle = this.toggle.bind(this);
 //   this.state = {
 //     isOpen: false

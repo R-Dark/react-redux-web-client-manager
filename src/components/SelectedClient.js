@@ -482,15 +482,3 @@ const styles = {
 };
 
 export default connect(mapStateToProps, { selectClient, updateOffer, updateStatus, updateAssignment, updateContactName, updatePhoneNumber, updateContactEmail, updateContactNote, updateClientNote })(SelectedClient);
-
-
-// <h4 className="title">{this.props.clientInfo.OWNER}</h4>
-// <h4 className="title">{this.props.selectedClient.OWNER}</h4>
-// <div>{this.props.book.pages} pages</div>
-// <div>Author: {this.props.book.author}</div>
-// <div>Price: ${this.props.book.price} USD</div>
-// <div>
-//   Published: {this.props.book.published_date} by{" "}
-//   {this.props.book.publisher}
-// </div>
-// <div>Genre: {this.props.book.category.join(", ")} </div>
