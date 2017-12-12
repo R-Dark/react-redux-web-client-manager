@@ -23,6 +23,170 @@ export const clientsFetch = () => {
   }
 }
 
+export const queryDbByFilters = ( ownername, state, statusDropdown, zip ) => {
+  console.log(ownername, state, zip, statusDropdown)
+
+  if (ownername) {
+    console.log('name')
+    return (dispatch) => {
+      firebase.database()
+      .ref("/")
+        .orderByChild("Owner")
+          .equalTo(ownername)
+                .on('value', snapshot => {
+                  console.log(snapshot.val())
+                  let item = snapshot.val()
+                  let itemArr = []
+                  let length = Object.keys(snapshot.val()).length
+
+                  for (let i = 0; i < length; i++) {
+
+                    if (state) {
+                      if (snapshot.val()[Object.keys(snapshot.val())[i]].State !== state) {
+                        console.log('deleting state')
+                        let key = Object.keys(snapshot.val())[i]
+                        delete item[key]
+                      } else {
+                        itemArr.push(snapshot.val()[Object.keys(snapshot.val())[i]])
+                      }
+                    }
+
+                    if (statusDropdown) {
+                      if (snapshot.val()[Object.keys(snapshot.val())[i]].statusUpdate !== statusDropdown) {
+                        console.log('deleting status')
+                        let key = Object.keys(snapshot.val())[i]
+                        delete item[key]
+                      } else {
+                        itemArr.push(snapshot.val()[Object.keys(snapshot.val())[i]])
+                      }
+                    }
+
+                    if (zip) {
+                      if (snapshot.val()[Object.keys(snapshot.val())[i]].Zip !== zip) {
+                        console.log('deleting zip')
+                        let key = Object.keys(snapshot.val())[i]
+                        delete item[key]
+                      } else {
+                        itemArr.push(snapshot.val()[Object.keys(snapshot.val())[i]])
+                      }
+                    }
+
+                  }
+                  if (itemArr.length == 0) {
+                    itemArr = item
+                  }
+                  dispatch({ type: SEARCH_CLIENT_BY_NAME, payload: itemArr })
+                  // console.log(snapshot.val())
+                  dispatch(reset('searchform'));
+                  dispatch({ type: SEARCH_RESET })
+
+              })
+       }
+  } else if (state) {
+    console.log('state')
+    return (dispatch) => {
+      firebase.database()
+      .ref("/")
+        .orderByChild("State")
+          .equalTo(state)
+                .on('value', snapshot => {
+                  console.log(snapshot.val())
+                  let item = snapshot.val()
+                  let itemArr = []
+                  let length = Object.keys(snapshot.val()).length
+
+                  for (let i = 0; i < length; i++) {
+
+
+                    if (statusDropdown) {
+                      if (snapshot.val()[Object.keys(snapshot.val())[i]].statusUpdate !== statusDropdown) {
+                        console.log('deleting status')
+                        let key = Object.keys(snapshot.val())[i]
+                        // console.log(item[key])
+                        delete item[key]
+                      } else {
+                        itemArr.push(snapshot.val()[Object.keys(snapshot.val())[i]])
+                      }
+                    }
+
+                    if (zip) {
+                      if (snapshot.val()[Object.keys(snapshot.val())[i]].Zip !== zip) {
+                        console.log('deleting zip')
+                        let key = Object.keys(snapshot.val())[i]
+                        delete item[key]
+                      } else {
+                        itemArr.push(snapshot.val()[Object.keys(snapshot.val())[i]])
+                      }
+                    }
+
+                  }
+                  if (itemArr.length == 0) {
+                    itemArr = item
+                  }
+                  dispatch({ type: SEARCH_CLIENT_BY_NAME, payload: itemArr })
+                  // console.log(snapshot.val())
+                  dispatch(reset('searchform'));
+                  dispatch({ type: SEARCH_RESET })
+
+              })
+       }
+   } else if (statusDropdown) {
+     console.log('status')
+     return (dispatch) => {
+       firebase.database()
+       .ref("/")
+         .orderByChild("statusUpdate")
+           .equalTo(statusDropdown)
+                 .on('value', snapshot => {
+                   let item = snapshot.val()
+                   let itemArr = []
+                   let length = Object.keys(snapshot.val()).length
+
+                   for (let i = 0; i < length; i++) {
+
+
+                     if (zip) {
+                       if (snapshot.val()[Object.keys(snapshot.val())[i]].Zip !== zip) {
+                         console.log('deleting zip')
+                         let key = Object.keys(snapshot.val())[i]
+                         delete item[key]
+                       } else {
+                         itemArr.push(snapshot.val()[Object.keys(snapshot.val())[i]])
+                       }
+                     }
+
+                   }
+                   if (itemArr.length == 0) {
+                     itemArr = item
+                   }
+                   dispatch({ type: SEARCH_CLIENT_BY_NAME, payload: itemArr })
+                   // console.log(snapshot.val())
+                   dispatch(reset('searchform'));
+                   dispatch({ type: SEARCH_RESET })
+
+               })
+        }
+    } else if (zip) {
+      console.log('zip')
+      return (dispatch) => {
+        firebase.database()
+        .ref("/")
+          .orderByChild("Zip")
+            .equalTo(zip)
+                  .on('value', snapshot => {
+                    let item = snapshot.val()
+
+                    dispatch({ type: SEARCH_CLIENT_BY_NAME, payload: item })
+                    // console.log(snapshot.val())
+                    dispatch(reset('searchform'));
+                    dispatch({ type: SEARCH_RESET })
+
+                })
+         }
+    }
+
+  }
+
 export const searchClient = (ownername) => {
   // console.log(ownername, state, zip)
   return (dispatch) => {

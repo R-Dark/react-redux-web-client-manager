@@ -10,7 +10,7 @@ import SelectedClient from './SelectedClient';
 import BatchButton from './BatchButton';
 import ReportButton from './ReportButton';
 import PackageButton from './PackageButton';
-import { searchClient, selectClient, searchByState, searchByStatus, searchByZip, noneSelected, runBatch, runReport, runPackage } from '../actions'
+import { queryDbByFilters, searchClient, selectClient, searchByState, searchByStatus, searchByZip, noneSelected, runBatch, runReport, runPackage } from '../actions'
 
 
 class Home extends Component {
@@ -27,17 +27,18 @@ class Home extends Component {
   }
 
   handleFormSubmit = ({ ownername, state, statusDropdown, zip }) => {
-    if (ownername) {
-      this.props.searchClient(ownername)
-    } else if (state) {
-        this.props.searchByState(state)
-    } else if (statusDropdown) {
-        this.props.searchByStatus(statusDropdown)
-    } else if (zip) {
-        this.props.searchByZip(zip)
-    }else {
-      this.props.noneSelected()
-    }
+    this.props.queryDbByFilters(ownername, state, statusDropdown, zip)
+    // if (ownername) {
+    //   this.props.searchClient(ownername)
+    // } else if (state) {
+    //     this.props.searchByState(state)
+    // } else if (statusDropdown) {
+    //     this.props.searchByStatus(statusDropdown)
+    // } else if (zip) {
+    //     this.props.searchByZip(zip)
+    // }else {
+    //   this.props.noneSelected()
+    // }
   }
 
 
@@ -183,7 +184,7 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { searchClient, selectClient, noneSelected, searchByState, searchByStatus, searchByZip, runBatch, runReport, runPackage } )(Home)
+export default connect(mapStateToProps, { queryDbByFilters, searchClient, selectClient, noneSelected, searchByState, searchByStatus, searchByZip, runBatch, runReport, runPackage } )(Home)
 
 // <div style={ styles.outterDivStyles }>
 //   <Jumbotron style={styles.jumboStyles} id='home-button-jumbotron'>
