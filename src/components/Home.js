@@ -27,18 +27,9 @@ class Home extends Component {
   }
 
   handleFormSubmit = ({ ownername, state, statusDropdown, zip }) => {
-    this.props.queryDbByFilters(ownername, state, statusDropdown, zip)
-    // if (ownername) {
-    //   this.props.searchClient(ownername)
-    // } else if (state) {
-    //     this.props.searchByState(state)
-    // } else if (statusDropdown) {
-    //     this.props.searchByStatus(statusDropdown)
-    // } else if (zip) {
-    //     this.props.searchByZip(zip)
-    // }else {
-    //   this.props.noneSelected()
-    // }
+    if (ownername || state || statusDropdown || zip) {
+      this.props.queryDbByFilters(ownername, state, statusDropdown, zip)
+    }
   }
 
 
@@ -174,6 +165,7 @@ const styles = {
 };
 
 const mapStateToProps = state => {
+  console.log(state.clients.clientItem)
   return {
     clients: state.clients.items,
     selectedclient: state.selectedclient.clientInfo,

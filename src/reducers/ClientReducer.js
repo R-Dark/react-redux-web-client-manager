@@ -11,26 +11,45 @@ export default (state = INITIAL_STATE, action) => {
     })
     // console.log(clients)
     return { ...state, items };
+
     case SEARCH_CLIENT_BY_NAME:
-    const clientItem = _.map(action.payload, (val, uid) => {
-      return { ...val, uid }
-    })
+    console.log(action.payload)
+    let clientItem
+    if (action.payload.constructor === Array) {
+
+      clientItem = []
+      for (let i = 0; i < action.payload.length; i++) {
+        if (action.payload[i]) {
+          clientItem.push(action.payload[i])
+        }
+      }
+    } else {
+
+      clientItem = _.map(action.payload, (val, uid) => {
+          return { ...val, uid }
+      })
+    }
+    console.log(clientItem)
       return { ...state, clientItem };
+
     case SEARCH_CLIENT_BY_STATE:
     const clientItemByState = _.map(action.payload, (val, uid) => {
       return { ...val, uid }
     })
       return { ...state, clientItemByState };
+
       case SEARCH_CLIENT_BY_STATUS:
       const clientItemByStatus = _.map(action.payload, (val, uid) => {
         return { ...val, uid }
       })
         return { ...state, clientItemByStatus };
+
       case SEARCH_CLIENT_BY_ZIP:
       const clientItemByZip = _.map(action.payload, (val, uid) => {
         return { ...val, uid }
       })
         return { ...state, clientItemByZip };
+
     case NONE_SELECTED:
       return { ...state };
     default:

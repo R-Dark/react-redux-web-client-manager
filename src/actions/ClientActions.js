@@ -39,6 +39,13 @@ export const queryDbByFilters = ( ownername, state, statusDropdown, zip ) => {
                   let itemArr = []
                   let length = Object.keys(snapshot.val()).length
 
+                  // console.log(item)
+                  // console.log(snapshot.val())
+
+                  // filters below dont work because
+                  // items dont check against each other.
+                  // they recheck against snapshot.
+
                   for (let i = 0; i < length; i++) {
 
                     if (state) {
@@ -49,7 +56,9 @@ export const queryDbByFilters = ( ownername, state, statusDropdown, zip ) => {
                       } else {
                         itemArr.push(snapshot.val()[Object.keys(snapshot.val())[i]])
                       }
+                      console.log(itemArr)
                     }
+
 
                     if (statusDropdown) {
                       if (snapshot.val()[Object.keys(snapshot.val())[i]].statusUpdate !== statusDropdown) {
@@ -75,8 +84,8 @@ export const queryDbByFilters = ( ownername, state, statusDropdown, zip ) => {
                   if (itemArr.length == 0) {
                     itemArr = item
                   }
+                  console.log(itemArr)
                   dispatch({ type: SEARCH_CLIENT_BY_NAME, payload: itemArr })
-                  // console.log(snapshot.val())
                   dispatch(reset('searchform'));
                   dispatch({ type: SEARCH_RESET })
 
@@ -91,42 +100,46 @@ export const queryDbByFilters = ( ownername, state, statusDropdown, zip ) => {
           .equalTo(state)
                 .on('value', snapshot => {
                   console.log(snapshot.val())
-                  let item = snapshot.val()
-                  let itemArr = []
-                  let length = Object.keys(snapshot.val()).length
+                  if (snapshot.val() !== null) {
 
-                  for (let i = 0; i < length; i++) {
+                    let item = snapshot.val()
+                    console.log(item)
+                    let itemArr = []
+                    let length = Object.keys(snapshot.val()).length
+
+                    for (let i = 0; i < length; i++) {
 
 
-                    if (statusDropdown) {
-                      if (snapshot.val()[Object.keys(snapshot.val())[i]].statusUpdate !== statusDropdown) {
-                        console.log('deleting status')
-                        let key = Object.keys(snapshot.val())[i]
-                        // console.log(item[key])
-                        delete item[key]
-                      } else {
-                        itemArr.push(snapshot.val()[Object.keys(snapshot.val())[i]])
+                      if (statusDropdown) {
+                        if (snapshot.val()[Object.keys(snapshot.val())[i]].statusUpdate !== statusDropdown) {
+                          console.log('deleting status')
+                          let key = Object.keys(snapshot.val())[i]
+                          // console.log(item[key])
+                          delete item[key]
+                        } else {
+                          itemArr.push(snapshot.val()[Object.keys(snapshot.val())[i]])
+                        }
                       }
-                    }
 
-                    if (zip) {
-                      if (snapshot.val()[Object.keys(snapshot.val())[i]].Zip !== zip) {
-                        console.log('deleting zip')
-                        let key = Object.keys(snapshot.val())[i]
-                        delete item[key]
-                      } else {
-                        itemArr.push(snapshot.val()[Object.keys(snapshot.val())[i]])
+                      if (zip) {
+                        if (snapshot.val()[Object.keys(snapshot.val())[i]].Zip !== zip) {
+                          console.log('deleting zip')
+                          let key = Object.keys(snapshot.val())[i]
+                          delete item[key]
+                        } else {
+                          itemArr.push(snapshot.val()[Object.keys(snapshot.val())[i]])
+                        }
                       }
-                    }
 
+                    }
+                    if (itemArr.length == 0) {
+                      itemArr = item
+                    }
+                    console.log(itemArr)
+                    dispatch({ type: SEARCH_CLIENT_BY_NAME, payload: itemArr })
+                    dispatch(reset('searchform'));
+                    dispatch({ type: SEARCH_RESET })
                   }
-                  if (itemArr.length == 0) {
-                    itemArr = item
-                  }
-                  dispatch({ type: SEARCH_CLIENT_BY_NAME, payload: itemArr })
-                  // console.log(snapshot.val())
-                  dispatch(reset('searchform'));
-                  dispatch({ type: SEARCH_RESET })
 
               })
        }
@@ -160,7 +173,6 @@ export const queryDbByFilters = ( ownername, state, statusDropdown, zip ) => {
                      itemArr = item
                    }
                    dispatch({ type: SEARCH_CLIENT_BY_NAME, payload: itemArr })
-                   // console.log(snapshot.val())
                    dispatch(reset('searchform'));
                    dispatch({ type: SEARCH_RESET })
 
@@ -177,7 +189,6 @@ export const queryDbByFilters = ( ownername, state, statusDropdown, zip ) => {
                     let item = snapshot.val()
 
                     dispatch({ type: SEARCH_CLIENT_BY_NAME, payload: item })
-                    // console.log(snapshot.val())
                     dispatch(reset('searchform'));
                     dispatch({ type: SEARCH_RESET })
 
