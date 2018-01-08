@@ -1,12 +1,18 @@
 import * as jsPDF  from 'jspdf'
 
-export const runBatch = (...props) => {
+export const runBatch = (data) => {
+  console.log(data)
+  var doc = new jsPDF();
   return () => {
-      var doc = new jsPDF();
-      doc.text(20,20, `My email is: ${localStorage.token}`);
-      doc.addPage();
-      doc.text(20,20, `My email is: ${localStorage.token}`);
-      doc.save('ClientLetters.pdf');
+    for (var i = 0; i < data.length; i++) {
+      doc.text(20,20, `My name is: ${data[i].Owner}`);
+
+      if (i != data.length-1) {
+        doc.addPage();
+      }
+    }
+    doc.save('ClientLetters.pdf');
+
      }
   }
 

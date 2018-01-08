@@ -65,6 +65,7 @@ class Home extends Component {
 
 
   onRowPress = (clientInfo) => {
+    console.log(clientInfo)
     this.props.selectClient(clientInfo)
 }
 
@@ -79,9 +80,9 @@ class Home extends Component {
   }
 
 
-    handleBatchClick = () => {
-      console.log('batch-on-page')
-      this.props.runBatch()
+    handleBatchClick = (data) => {
+      // console.log('batch-on-page', data)
+      this.props.runBatch(this.props.client)
     }
 
     handleReportClick = () => {
@@ -165,7 +166,7 @@ const styles = {
 };
 
 const mapStateToProps = state => {
-  console.log(state.clients.clientItem)
+  // console.log(state.clients.clientItem)
   return {
     clients: state.clients.items,
     selectedclient: state.selectedclient.clientInfo,

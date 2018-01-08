@@ -368,7 +368,7 @@ class SelectedClient extends Component {
 }
 
 const mapStateToProps = (state) => {
-  // console.log(state)
+  console.log(state.selectedclient.status)
   return {
     currentStatus: state.selectedclient.status,
     offerUpdate: state.selectedclient.offer,

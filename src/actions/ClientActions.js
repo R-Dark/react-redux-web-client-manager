@@ -24,10 +24,10 @@ export const clientsFetch = () => {
 }
 
 export const queryDbByFilters = ( ownername, state, statusDropdown, zip ) => {
-  console.log(ownername, state, zip, statusDropdown)
+  // console.log(ownername, state, zip, statusDropdown)
 
   if (ownername) {
-    console.log('name')
+    // console.log('name')
     return (dispatch) => {
       firebase.database()
       .ref("/")
@@ -36,58 +36,65 @@ export const queryDbByFilters = ( ownername, state, statusDropdown, zip ) => {
                 .on('value', snapshot => {
                   console.log(snapshot.val())
                   let item = snapshot.val()
-                  let itemArr = []
-                  let length = Object.keys(snapshot.val()).length
+                  if (item != null) {
+                    let itemArr = []
+                    let length = Object.keys(snapshot.val()).length
 
-                  // console.log(item)
-                  // console.log(snapshot.val())
+                    // console.log(item)
+                    // console.log(snapshot.val())
 
-                  // filters below dont work because
-                  // items dont check against each other.
-                  // they recheck against snapshot.
+                    // filters below dont work because
+                    // items dont check against each other.
+                    // they recheck against snapshot.
 
-                  for (let i = 0; i < length; i++) {
+                    for (let i = 0; i < length; i++) {
 
-                    if (state) {
-                      if (snapshot.val()[Object.keys(snapshot.val())[i]].State !== state) {
-                        console.log('deleting state')
-                        let key = Object.keys(snapshot.val())[i]
-                        delete item[key]
-                      } else {
-                        itemArr.push(snapshot.val()[Object.keys(snapshot.val())[i]])
+                      if (state) {
+                        if (snapshot.val()[Object.keys(snapshot.val())[i]].State !== state) {
+                          console.log('deleting state')
+                          let key = Object.keys(snapshot.val())[i]
+                          delete item[key]
+                        } else {
+                          itemArr.push(snapshot.val()[Object.keys(snapshot.val())[i]])
+                        }
+                        console.log(itemArr)
                       }
-                      console.log(itemArr)
+
+
+                      if (statusDropdown) {
+                        if (snapshot.val()[Object.keys(snapshot.val())[i]].statusUpdate !== statusDropdown) {
+                          console.log('deleting status')
+                          let key = Object.keys(snapshot.val())[i]
+                          delete item[key]
+                        } else {
+                          itemArr.push(snapshot.val()[Object.keys(snapshot.val())[i]])
+                        }
+                      }
+
+                      if (zip) {
+                        if (snapshot.val()[Object.keys(snapshot.val())[i]].Zip !== zip) {
+                          console.log('deleting zip')
+                          let key = Object.keys(snapshot.val())[i]
+                          delete item[key]
+                        } else {
+                          itemArr.push(snapshot.val()[Object.keys(snapshot.val())[i]])
+                        }
+                      }
+
                     }
 
-
-                    if (statusDropdown) {
-                      if (snapshot.val()[Object.keys(snapshot.val())[i]].statusUpdate !== statusDropdown) {
-                        console.log('deleting status')
-                        let key = Object.keys(snapshot.val())[i]
-                        delete item[key]
-                      } else {
-                        itemArr.push(snapshot.val()[Object.keys(snapshot.val())[i]])
-                      }
+                    if (itemArr.length == 0) {
+                      itemArr = item
                     }
-
-                    if (zip) {
-                      if (snapshot.val()[Object.keys(snapshot.val())[i]].Zip !== zip) {
-                        console.log('deleting zip')
-                        let key = Object.keys(snapshot.val())[i]
-                        delete item[key]
-                      } else {
-                        itemArr.push(snapshot.val()[Object.keys(snapshot.val())[i]])
-                      }
-                    }
-
+                    // console.log(itemArr)
+                    dispatch({ type: SEARCH_CLIENT_BY_NAME, payload: itemArr })
+                    dispatch(reset('searchform'));
+                    dispatch({ type: SEARCH_RESET })
+                  } else {
+                    alert('No matching identifier')
                   }
-                  if (itemArr.length == 0) {
-                    itemArr = item
-                  }
-                  console.log(itemArr)
-                  dispatch({ type: SEARCH_CLIENT_BY_NAME, payload: itemArr })
-                  dispatch(reset('searchform'));
-                  dispatch({ type: SEARCH_RESET })
+
+
 
               })
        }

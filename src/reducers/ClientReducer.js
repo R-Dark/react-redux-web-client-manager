@@ -13,7 +13,7 @@ export default (state = INITIAL_STATE, action) => {
     return { ...state, items };
 
     case SEARCH_CLIENT_BY_NAME:
-    console.log(action.payload)
+    // console.log(action.payload)
     let clientItem
     if (action.payload.constructor === Array) {
 
@@ -29,7 +29,7 @@ export default (state = INITIAL_STATE, action) => {
           return { ...val, uid }
       })
     }
-    console.log(clientItem)
+    // console.log(clientItem)
       return { ...state, clientItem };
 
     case SEARCH_CLIENT_BY_STATE:
