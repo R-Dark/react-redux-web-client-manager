@@ -1,7 +1,7 @@
 import * as jsPDF  from 'jspdf'
 
 export const runBatch = (data) => {
-  console.log(data)
+  // console.log(data)
   var doc = new jsPDF();
   return () => {
     for (var i = 0; i < data.length; i++) {

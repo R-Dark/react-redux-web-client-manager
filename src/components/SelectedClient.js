@@ -41,6 +41,7 @@ class SelectedClient extends Component {
 
 
   renderCurrentStatus = () => {
+    // console.log(this.props)
     if (this.props.currentStatus) {
       return <div style={ styles.statusOfferNumbersStyles }>Current Status:<div style={ styles.redOfferStatusStyles }>{this.props.currentStatus.statusUpdate}</div></div>
     } else {
@@ -75,6 +76,7 @@ class SelectedClient extends Component {
   }
 
   renderAssignTo = () => {
+    // console.log(this.props.currentAssignment)
     if (this.props.currentAssignment) {
       return <div style={ styles.statusOfferNumbersStyles }>Assignment:<div style={ styles.redOfferStatusStyles }>{this.props.currentAssignment.assignTo}</div></div>
     } else {
@@ -368,7 +370,7 @@ class SelectedClient extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.selectedclient.status)
+  // console.log(state.selectedclient)
   return {
     currentStatus: state.selectedclient.status,
     offerUpdate: state.selectedclient.offer,

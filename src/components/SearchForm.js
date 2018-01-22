@@ -12,7 +12,7 @@ const SearchForm = props => {
           <div>
             <Label for="runNumber" style={ styles.firstSearchLabel }>Run:</Label>
             <Field name="runNumber" component="select">
-              <option>All</option>
+              <option>--</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -23,7 +23,7 @@ const SearchForm = props => {
           <div>
             <Label for="buyerName" style={ styles.searchLabel }>Buyer:</Label>
             <Field name="buyerName" component="select">
-              <option>All</option>
+              <option>--</option>
               <option value="Chris">Chris</option>
               <option value="Isack">Isack</option>
             </Field>
@@ -32,7 +32,7 @@ const SearchForm = props => {
           <div>
             <Label for="statusDropdown" style={ styles.searchLabel }>Status:</Label>
             <Field name="statusDropdown" component="select">
-              <option>All</option>
+              <option>--</option>
               <option value="DIP">DIP</option>
               <option value="No Deal">No Deal</option>
               <option value="Bad Address">Bad Address</option>
@@ -67,8 +67,7 @@ const SearchForm = props => {
           <Label for="state" style={ styles.searchLabel }>State:</Label>
           <div className="form-group" style={ styles.stateDropdown }>
               <Field name="state" component="select">
-                <option>All</option>
-                <option value="TX">TX</option>
+                <option>--</option>
                 <option value="AL">AL</option>
                 <option value="AK">AK</option>
                 <option value="AZ">AZ</option>
@@ -80,6 +79,45 @@ const SearchForm = props => {
                 <option value="FL">FL</option>
                 <option value="GA">GA</option>
                 <option value="HI">HI</option>
+                <option value="ID">ID</option>
+                <option value="IL">IL</option>
+                <option value="IN">IN</option>
+                <option value="IA">IA</option>
+                <option value="KS">KS</option>
+                <option value="KY">KY</option>
+                <option value="LA">LA</option>
+                <option value="ME">ME</option>
+                <option value="MD">MD</option>
+                <option value="MA">MA</option>
+                <option value="MI">MI</option>
+                <option value="MN">MN</option>
+                <option value="MS">MS</option>
+                <option value="MO">MO</option>
+                <option value="MT">MT</option>
+                <option value="NE">NE</option>
+                <option value="NJ">NJ</option>
+                <option value="NH">NH</option>
+                <option value="NJ">NJ</option>
+                <option value="NM">NM</option>
+                <option value="NY">NY</option>
+                <option value="NC">NC</option>
+                <option value="ND">ND</option>
+                <option value="OH">OH</option>
+                <option value="OK">OK</option>
+                <option value="OR">OR</option>
+                <option value="PA">PA</option>
+                <option value="RI">RI</option>
+                <option value="SC">SC</option>
+                <option value="SD">SD</option>
+                <option value="TN">TN</option>
+                <option value="TX">TX</option>
+                <option value="UT">UT</option>
+                <option value="VT">VT</option>
+                <option value="VA">VA</option>
+                <option value="WA">WA</option>
+                <option value="WV">WV</option>
+                <option value="WI">WI</option>
+                <option value="WY">WY</option>
               </Field>
           </div>
 
@@ -99,7 +137,7 @@ const SearchForm = props => {
           <div>
               <Label for="orderBy" style={ styles.firstSearchLabel }>Order:</Label>
               <Field name="orderBy" component="select">
-                <option>All</option>
+                <option>--</option>
                 <option value="Last Modified">Last Modified</option>
                 <option value="Highest to Lowest">Highest to Lowest</option>
                 <option value="Lowest to Highest">Lowest to Highest</option>
@@ -109,7 +147,7 @@ const SearchForm = props => {
           <div>
               <Label for="maxResults" style={ styles.searchLabel }>Max:</Label>
               <Field name="maxResults" component="select">
-                <option>All</option>
+                <option>--</option>
                 <option value="100">100</option>
                 <option value="50">50</option>
                 <option value="25">25</option>
@@ -118,7 +156,7 @@ const SearchForm = props => {
           <div>
               <Label for="assignedTo" style={ styles.searchLabel }>Assignment:</Label>
               <Field name="assignedTo" component="select">
-                <option>All</option>
+                <option>--</option>
                 <option value="Chris">Chris</option>
                 <option value="Isack">Isack</option>
                 <option value="Joe">Joe</option>

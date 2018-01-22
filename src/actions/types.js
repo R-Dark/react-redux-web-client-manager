@@ -4,6 +4,7 @@ export const SIGNIN_USER = 'signin_user'
 export const AUTH_ERROR = 'auth_error'
 
 export const CLIENTS_FETCH_SUCCESS = 'clients_fetch_success'
+export const SEARCH_CLIENT = 'search_client'
 export const SEARCH_CLIENT_BY_NAME = 'search_client_by_name'
 export const SEARCH_CLIENT_BY_STATE = 'search_client_by_state'
 export const SEARCH_CLIENT_BY_STATUS = 'search-client_by_status'

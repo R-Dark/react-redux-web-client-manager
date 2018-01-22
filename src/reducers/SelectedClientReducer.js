@@ -5,7 +5,18 @@ const INITIAL_STATE = {};
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
       case CLIENT_SELECTED:
-        return { ...state, clientInfo: action.payload }
+        return { 
+          ...state, 
+          clientInfo: action.payload,  
+          status: undefined, 
+          offer: undefined, 
+          assignment: undefined, 
+          phone: undefined,
+          name: undefined,
+          contactNote: undefined,
+          clientNote: undefined,
+          email: undefined
+        }
       case UPDATE_OFFER_SUCCESS:
         return { ...state, offer: action.payload };
       case UPDATE_STATUS_SUCCESS:

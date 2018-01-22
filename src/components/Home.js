@@ -10,7 +10,7 @@ import SelectedClient from './SelectedClient';
 import BatchButton from './BatchButton';
 import ReportButton from './ReportButton';
 import PackageButton from './PackageButton';
-import { queryDbByFilters, searchClient, selectClient, searchByState, searchByStatus, searchByZip, noneSelected, runBatch, runReport, runPackage } from '../actions'
+import { queryDbByFilters, selectClient, noneSelected, runBatch, runReport, runPackage } from '../actions'
 
 
 class Home extends Component {
@@ -65,7 +65,7 @@ class Home extends Component {
 
 
   onRowPress = (clientInfo) => {
-    console.log(clientInfo)
+    // console.log(clientInfo)
     this.props.selectClient(clientInfo)
 }
 
@@ -177,7 +177,7 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { queryDbByFilters, searchClient, selectClient, noneSelected, searchByState, searchByStatus, searchByZip, runBatch, runReport, runPackage } )(Home)
+export default connect(mapStateToProps, { queryDbByFilters, selectClient, noneSelected, runBatch, runReport, runPackage } )(Home)
 
 // <div style={ styles.outterDivStyles }>
 //   <Jumbotron style={styles.jumboStyles} id='home-button-jumbotron'>
