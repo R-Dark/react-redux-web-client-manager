@@ -1,11 +1,16 @@
 import * as jsPDF  from 'jspdf'
+import letter_header from '../components/images/letter-2lines.png'
+import letter_footer from '../components/images/letter-footer4.png'
 
 export const runBatch = (data) => {
   // console.log(data)
   var doc = new jsPDF();
   return () => {
     for (var i = 0; i < data.length; i++) {
-      doc.text(20,20, `My name is: ${data[i].Owner}`);
+      doc.addImage(letter_header, 'PNG',0,0);
+      doc.text(20,60, `Hello ${data[i].Owner}`);
+      doc.text(20,70, `We would like to offer you: ${data[i].offerUpdate}`);
+      doc.addImage(letter_footer, 'PNG',0,260);
 
       if (i != data.length-1) {
         doc.addPage();
