@@ -13,6 +13,7 @@ const StatusUpdate = props => {
     <div style={ styles.dropdownUpdate }>
     <Field name="assignTo" component="select">
       <option>Select Closer</option>
+      <option value="Chris">Chris</option>
       <option value="Isack">Isack</option>
       <option value="Seth">Seth</option>
       <option value="Joe">Joe</option>

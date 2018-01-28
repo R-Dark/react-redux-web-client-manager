@@ -39,13 +39,13 @@ const SearchForm = props => {
             </Field>
           </div>
 
-          <Label for="sequenceid" style={ styles.searchLabel }>Sequence ID:</Label>
+          <Label for="County" style={ styles.searchLabel }>County:</Label>
           <div className="form-group">
             <Field
-              name="sequenceid"
+              name="County"
               component="input"
               type="text"
-              placeholder="Enter Id #"
+              placeholder="Enter County Name"
               className= "form-control"
             />
            </div>
@@ -158,6 +158,7 @@ const SearchForm = props => {
               <Field name="assignedTo" component="select">
                 <option>--</option>
                 <option value="Chris">Chris</option>
+                <option value="Seth">Seth</option>
                 <option value="Isack">Isack</option>
                 <option value="Joe">Joe</option>
                 <option value="Bill">Bill</option>

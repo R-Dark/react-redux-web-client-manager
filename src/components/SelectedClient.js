@@ -35,7 +35,9 @@ class SelectedClient extends Component {
     }else if (contactNote) {
         this.props.updateContactNote({contactNote}, id)
     }else if (clientNote) {
-        this.props.updateClientNote({clientNote}, id)
+        let dateTime = new Date()
+        // console.log(dateTime)
+        this.props.updateClientNote({clientNote}, dateTime, id)
     }
   }
 
@@ -118,8 +120,10 @@ class SelectedClient extends Component {
 
   renderClientNote = () => {
     if (this.props.clientNote) {
+      console.log(this.props.clientNote)
       return <div style={ styles.statusOfferNumbersStyles }>{this.props.clientNote.clientNote}</div>
     } else {
+      console.log(this.props.selectedclient.clientNote)
       return <div style={ styles.statusOfferNumbersStyles }>{this.props.selectedclient.clientNote}</div>
     }
   }
@@ -134,6 +138,24 @@ class SelectedClient extends Component {
         this.props.selectedclient.offerUpdate / 11.8
       )
     }
+  }
+  
+  renderClientNoteRows = () => {
+    // console.log(this.props.clientNote)
+    if (this.props.clientNote) {
+      return(
+        this.props.clientNote.map(note => {
+          return (
+                  <tr key = {`${note.id}`}>
+                    <td>{note.dateTime}</td>
+                    <td>{note.clientNote}</td>
+                    <td>undefined</td>
+                  </tr>
+                )
+        })
+      )
+    }
+    
   }
 
 
@@ -352,11 +374,7 @@ class SelectedClient extends Component {
             </tr>
           </thead>
           <tbody style={ styles.tbodyStyles }>
-            <tr>
-                <td>{this.props.selectedclient.noteCreateTimeStamp}</td>
-                <td>{this.renderClientNote()}</td>
-                <td>{this.props.selectedclient.modifiedBy}</td>
-            </tr>
+            {this.renderClientNoteRows()}
           </tbody>
           </Table>
         </div>

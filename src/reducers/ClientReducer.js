@@ -14,8 +14,8 @@ export default (state = INITIAL_STATE, action) => {
       
     case SEARCH_CLIENT:
       let clientItem
+      // console.log(action.payload)
       if (action.payload.constructor === Array) {
-
         clientItem = []
         for (let i = 0; i < action.payload.length; i++) {
           if (action.payload[i]) {
@@ -29,24 +29,6 @@ export default (state = INITIAL_STATE, action) => {
         })
       }
       return { ...state, clientItem };
-
-    // case SEARCH_CLIENT_BY_NAME:
-    //   let clientItem
-    //   if (action.payload.constructor === Array) {
-    // 
-    //     clientItem = []
-    //     for (let i = 0; i < action.payload.length; i++) {
-    //       if (action.payload[i]) {
-    //         clientItem.push(action.payload[i])
-    //       }
-    //     }
-    //   } else {
-    // 
-    //     clientItem = _.map(action.payload, (val, uid) => {
-    //         return { ...val, uid }
-    //     })
-    //   }
-    //   return { ...state, clientItem };
 
     case SEARCH_CLIENT_BY_STATE:
       const clientItemByState = _.map(action.payload, (val, uid) => {

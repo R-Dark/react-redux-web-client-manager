@@ -5,6 +5,8 @@ const INITIAL_STATE = {};
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
       case CLIENT_SELECTED:
+      // console.log(action.payload)
+      let clientNotes = action.payload.clientNote == undefined ? null : convertToArray(action.payload.clientNote)
         return { 
           ...state, 
           clientInfo: action.payload,  
@@ -14,7 +16,7 @@ export default (state = INITIAL_STATE, action) => {
           phone: undefined,
           name: undefined,
           contactNote: undefined,
-          clientNote: undefined,
+          clientNote: clientNotes,
           email: undefined
         }
       case UPDATE_OFFER_SUCCESS:
@@ -32,10 +34,25 @@ export default (state = INITIAL_STATE, action) => {
       case UPDATE_CONTACTNOTE_SUCCESS:
         return { ...state, contactNote: action.payload };
       case UPDATE_CLIENTNOTE_SUCCESS:
-        return { ...state, clientNote: action.payload };
+      let updatedClientNotes = action.payload.clientNote == undefined ? null : convertToArray(action.payload.clientNote)
+        return { ...state, clientNote: updatedClientNotes };
       // case SEARCH_RESET:
       //   return INITIAL_STATE;
     default:
       return state;
   }
 }
+
+
+let convertToArray = function(obj) {
+  // console.log(obj)
+  let arr = []
+  let keys = Object.keys(obj)
+  for (let i = 0; i < keys.length; i++) {
+    obj[keys[i]].id = keys[i]
+    arr.push(obj[keys[i]])
+  }
+  // console.log(arr)
+  return arr
+}
+

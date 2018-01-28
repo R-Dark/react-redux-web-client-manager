@@ -13,8 +13,10 @@ import {
   UPDATE_CLIENTNOTE_SUCCESS
 } from './types';
 
-
+let clientData
+let index = 0
 export function selectClient(clientInfo) {
+  clientData = clientInfo
   return {
     type: CLIENT_SELECTED,
     payload: clientInfo
@@ -99,12 +101,18 @@ export const updateContactNote = ( contactNote, id ) => {
 }
 
 
-export const updateClientNote = ( clientNote, id ) => {
+export const updateClientNote = ( clientNote, dateTime, id ) => {
+  // console.log(clientData)
+  let dt = dateTime.toString()
+  // console.log(clientNote, dt, id)
+  let item = { clientNote: clientNote.clientNote, dateTime: dt, id:id}
+  clientData.clientNote['zzz' + id + index] = item
+  index = index + 1
   return (dispatch) => {
     firebase.database().ref(id)
-      .update( clientNote )
+      .child( 'clientNote' ).push(item)
       .then(() => {
-        dispatch({ type: UPDATE_CLIENTNOTE_SUCCESS, payload: clientNote })
+        dispatch({ type: UPDATE_CLIENTNOTE_SUCCESS, payload: clientData })
         dispatch(reset('addclientnote'));
     })
   }
