@@ -139,7 +139,7 @@ class SelectedClient extends Component {
       )
     }
   }
-  
+
   renderClientNoteRows = () => {
     // console.log(this.props.clientNote)
     if (this.props.clientNote) {
@@ -149,13 +149,13 @@ class SelectedClient extends Component {
                   <tr key = {`${note.id}`}>
                     <td>{note.dateTime}</td>
                     <td>{note.clientNote}</td>
-                    <td>undefined</td>
+                    <td>{note.userID}</td>
                   </tr>
                 )
         })
       )
     }
-    
+
   }
 
 
