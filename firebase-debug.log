@@ -1,0 +1,65 @@
+[debug] [2018-02-04T19:35:24.024Z] ----------------------------------------------------------------------
+[debug] [2018-02-04T19:35:24.026Z] Command:       /usr/local/Cellar/node/8.5.0/bin/node /usr/local/bin/firebase init
+[debug] [2018-02-04T19:35:24.026Z] CLI Version:   3.17.4
+[debug] [2018-02-04T19:35:24.026Z] Platform:      darwin
+[debug] [2018-02-04T19:35:24.026Z] Node Version:  v8.5.0
+[debug] [2018-02-04T19:35:24.026Z] Time:          Sun Feb 04 2018 13:35:24 GMT-0600 (CST)
+[debug] [2018-02-04T19:35:24.026Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-02-04T19:35:24.035Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2018-02-04T19:35:24.036Z] > authorizing via signed-in user
+[info] 
+     🔥🔥🔥🔥🔥🔥🔥🔥 🔥🔥🔥🔥 🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥 🔥🔥🔥🔥🔥🔥🔥🔥     🔥🔥🔥     🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥
+     🔥🔥        🔥🔥  🔥🔥     🔥🔥 🔥🔥       🔥🔥     🔥🔥  🔥🔥   🔥🔥  🔥🔥       🔥🔥
+     🔥🔥🔥🔥🔥🔥    🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥   🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥
+     🔥🔥        🔥🔥  🔥🔥    🔥🔥  🔥🔥       🔥🔥     🔥🔥 🔥🔥     🔥🔥       🔥🔥 🔥🔥
+     🔥🔥       🔥🔥🔥🔥 🔥🔥     🔥🔥 🔥🔥🔥🔥🔥🔥🔥🔥 🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥     🔥🔥  🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/robdark/Downloads/bellatorum-web
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2018-02-04T19:36:06.587Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-02-04T19:36:06.588Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/Qpf1gc2_VErFhvwWiHRWyU2oLol02gklS5g0KQk-nNY',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sun Feb 04 2018 13:36:06 GMT-0600 (CST)
+[debug] [2018-02-04T19:36:06.817Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-04T19:36:06.834Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects  
+  
+ Sun Feb 04 2018 13:36:06 GMT-0600 (CST)
+[debug] [2018-02-04T19:36:07.483Z] <<< HTTP RESPONSE 200
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2018-02-04T19:36:42.719Z] >>> HTTP REQUEST GET https://bellatorum-app.firebaseio.com/.settings/rules.json  
+  
+ Sun Feb 04 2018 13:36:42 GMT-0600 (CST)
+[debug] [2018-02-04T19:36:43.078Z] <<< HTTP RESPONSE 200
+[info] ✔  Database Rules for bellatorum-app have been downloaded to database.rules.json.
+[info] Future modifications to database.rules.json will update Database Rules when you run
+[info] firebase deploy.
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2018-02-04T19:36:52.628Z] >>> HTTP REQUEST GET https://www.gstatic.com/firebasejs/releases.json  
+  
+ Sun Feb 04 2018 13:36:52 GMT-0600 (CST)
+[debug] [2018-02-04T19:36:52.797Z] <<< HTTP RESPONSE 200

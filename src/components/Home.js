@@ -34,26 +34,32 @@ class Home extends Component {
 
 
   renderClientRow () {
+    console.log(this.props)
     if (this.props.client) {
-      // console.log(this.props.client)
+      // selectedClient = this.props.selectedClient
+      console.log(this.props)
       return this.props.client.map(
         itemData => <TableRow key={this.getKey()}
+        // console.log(itemData, this)
         itemData={itemData}
         onClick={this.onRowPress.bind(this, itemData)}/>
       )
     } else if ( this.props.clientItemByState ) {
+      // selectedClient = this.props.selectedClient
       return this.props.clientItemByState.map(
         itemData => <TableRow key={this.getKey()}
         itemData={itemData}
         onClick={this.onRowPress.bind(this, itemData)}/>
       )
     } else if ( this.props.clientItemByStatus ) {
+      // selectedClient = this.props.selectedClient
       return this.props.clientItemByStatus.map(
         itemData => <TableRow key={this.getKey()}
         itemData={itemData}
         onClick={this.onRowPress.bind(this, itemData)}/>
       )
     } else if ( this.props.clientItemByZip ) {
+      // selectedClient = this.props.selectedClient
       return this.props.clientItemByZip.map(
         itemData => <TableRow key={this.getKey()}
         itemData={itemData}
@@ -65,7 +71,6 @@ class Home extends Component {
 
 
   onRowPress = (clientInfo) => {
-    // console.log(clientInfo)
     this.props.selectClient(clientInfo)
 }
 

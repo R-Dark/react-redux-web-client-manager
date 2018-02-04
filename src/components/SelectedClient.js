@@ -19,7 +19,7 @@ class SelectedClient extends Component {
 
   handleFormSubmit = ({offerUpdate, statusUpdate, assignTo, contactName, phoneNumber, contactEmail, contactNote, clientNote}) => {
     // console.log(this.props.selectedclient)
-    let id = this.props.selectedclient.uid
+    let id = this.props.selectedclient.uid.toString()
       if (offerUpdate) {
         this.props.updateOffer({offerUpdate}, id)
     } else if (statusUpdate) {
@@ -37,6 +37,7 @@ class SelectedClient extends Component {
     }else if (clientNote) {
         let dateTime = new Date()
         // console.log(dateTime)
+        // console.log(id)
         this.props.updateClientNote({clientNote}, dateTime, id)
     }
   }

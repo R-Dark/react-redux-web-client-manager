@@ -101,15 +101,20 @@ export const updateContactNote = ( contactNote, id ) => {
 }
 
 
-export const updateClientNote = ( clientNote, dateTime, userID ) => {
+export const updateClientNote = ( clientNote, dateTime, id ) => {
   // console.log(clientData)
   let dt = dateTime.toString()
   // console.log(clientNote, dt, id)
-  let item = { clientNote: clientNote.clientNote, dateTime: dt, userID: localStorage.token}
-  clientData.clientNote['zzz' + userID + index] = item
-  index = index + 1
+  let item = { clientNote: clientNote.clientNote, dateTime: dt, userID: localStorage.token, id:id}
+  // console.log(item)
+  if (clientData.clientNote) {
+    clientData.clientNote['zzz' + index] = item
+    index = index + 1
+  } else {
+    clientData.clientNote = [item]
+  }
   return (dispatch) => {
-    firebase.database().ref(userID)
+    firebase.database().ref(id)
       .child( 'clientNote' ).push(item)
       .then(() => {
         dispatch({ type: UPDATE_CLIENTNOTE_SUCCESS, payload: clientData })
