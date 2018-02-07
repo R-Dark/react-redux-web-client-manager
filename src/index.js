@@ -29,6 +29,7 @@ if (localStorage.token) {
   store.dispatch({ type: AUTH_USER })
 }
 
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

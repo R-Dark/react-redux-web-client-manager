@@ -178,9 +178,9 @@ class SelectedClient extends Component {
               <th>Sequence ID</th>
               <th>Grouped Owner ID</th>
               <th>Creation Date</th>
-              <th>Buyer</th>
-              <th>Owner Name</th>
+              <th>Owner</th>
               <th>Address</th>
+              <th>Owner ID</th>
               <th>Leases</th>
               <th>Operators</th>
               <th>Blended Avg (NRA)</th>
@@ -227,10 +227,6 @@ class SelectedClient extends Component {
               <th>Tax Value</th>
               <th>Acreage Estimate</th>
               <th>NRA</th>
-              <th>Acreage Source</th>
-              <th>Production BO/M</th>
-              <th>Active Permit</th>
-              <th>Active HZ Permit</th>
               <th>rrc_id_raw</th>
             </tr>
           </thead>
@@ -249,9 +245,6 @@ class SelectedClient extends Component {
                 <td>{this.props.selectedclient.taxValue}</td>
                 <td>{this.props.selectedclient.acreageFinal}</td>
                 <td>{this.props.selectedclient.NRA}</td>
-                <td>{this.props.selectedclient.acreageSource}</td>
-                <td>{this.props.selectedclient.productionBOM}</td>
-                <td>{this.props.selectedclient.activePermit}</td>
                 <td>{this.props.selectedclient.rrcID}</td>
             </tr>
           </tbody>
@@ -337,8 +330,6 @@ class SelectedClient extends Component {
           <Table bordered size="sm" responsive>
           <thead>
             <tr>
-              <th>Date/Time</th>
-              <th>Modified By</th>
               <th>Contact Name</th>
               <th>Phone Number</th>
               <th>Email Address</th>
@@ -347,8 +338,6 @@ class SelectedClient extends Component {
           </thead>
           <tbody style={ styles.tbodyStyles }>
             <tr>
-                <td>{this.props.selectedclient.ownerID}</td>
-                <td>{this.props.selectedclient.modifiedBy}</td>
                 <td>{this.renderContactName()}</td>
                 <td>{this.renderPhoneNumber()}</td>
                 <td>{this.renderContactEmail()}</td>
