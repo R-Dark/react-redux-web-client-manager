@@ -16,6 +16,7 @@ const StatusUpdate = props => {
       <option value="DIP">DIP</option>
       <option value="No Deal">No Deal</option>
       <option value="Bad Address">Bad Address</option>
+      <option value="Reviewed">Reviewed</option>
     </Field>
   </div>
 

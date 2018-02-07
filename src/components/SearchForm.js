@@ -13,10 +13,7 @@ const SearchForm = props => {
             <Label for="runNumber" style={ styles.firstSearchLabel }>Run:</Label>
             <Field name="runNumber" component="select">
               <option>--</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
+              <option value="EF1">EF1</option>
             </Field>
           </div>
 
@@ -36,6 +33,7 @@ const SearchForm = props => {
               <option value="DIP">DIP</option>
               <option value="No Deal">No Deal</option>
               <option value="Bad Address">Bad Address</option>
+              <option value="Reviewed">Reviewed</option>
             </Field>
           </div>
 
