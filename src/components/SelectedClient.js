@@ -63,18 +63,18 @@ class SelectedClient extends Component {
 
   renderOfferStatus = () => {
     if (this.props.offerUpdate) {
-      return <div style={ styles.statusOfferNumbersStyles }>Current Offer:<div style={ styles.redOfferStatusStyles }>{this.props.offerUpdate.offerUpdate}</div></div>
+      return <div style={ styles.statusOfferNumbersStyles }>Current Offer:<div style={ styles.redOfferStatusStyles }>${this.props.offerUpdate.offerUpdate}</div></div>
     } else {
-      return <div style={ styles.statusOfferNumbersStyles }>Current Offer:<div style={ styles.redOfferStatusStyles }>{this.props.selectedclient.offerUpdate}</div></div>
+      return <div style={ styles.statusOfferNumbersStyles }>Current Offer:<div style={ styles.redOfferStatusStyles }>${this.props.selectedclient.offerUpdate}</div></div>
     }
   }
 
 
   renderOfferStatus2 = () => {
     if (this.props.offerUpdate) {
-      return <div style={ styles.statusOfferNumbersStyles }>{this.props.offerUpdate.offerUpdate}</div>
+      return <div style={ styles.statusOfferNumbersStyles }>${this.props.offerUpdate.offerUpdate}</div>
     } else {
-      return <div style={ styles.statusOfferNumbersStyles }>{this.props.selectedclient.offerUpdate}</div>
+      return <div style={ styles.statusOfferNumbersStyles }>${this.props.selectedclient.offerUpdate}</div>
     }
   }
 
@@ -175,7 +175,7 @@ class SelectedClient extends Component {
           <thead>
             <tr>
               <th>Run ID</th>
-              <th>Sequence ID</th>
+              <th>Abstract</th>
               <th>Grouped Owner ID</th>
               <th>Creation Date</th>
               <th>Owner</th>
@@ -190,9 +190,9 @@ class SelectedClient extends Component {
           <tbody style={ styles.tbodyStyles }>
             <tr>
                 <td>{this.props.selectedclient.runID}</td>
-                <td>{this.props.selectedclient.sequenceID}</td>
+                <td>{this.props.selectedclient.ABSTRACT}</td>
                 <td>{this.props.selectedclient.ownerID}</td>
-                <td>{this.props.selectedclient.createdAt}</td>
+                <td>{this.props.selectedclient.addDate}</td>
                 <td>{this.props.selectedclient.Owner}</td>
                 <td>{this.props.selectedclient.Address}</td>
                 <td>{this.props.selectedclient.ownerID}</td>
@@ -205,7 +205,6 @@ class SelectedClient extends Component {
           </Table>
         </div>
       </Jumbotron>
-
       <Jumbotron style={ styles.clientJumboStyles }>
         <div style={ styles.clientTitleStyles }>
           <h5>Exhibit Detail</h5>
@@ -289,7 +288,7 @@ class SelectedClient extends Component {
         <Jumbotron style={ styles.offerJumboStyles }>
           <div style={ styles.offerTitleStyles }>
             <h5>Offer History</h5>
-            <div style={ styles.statusOfferNumbersStyles }>Price Per Acre:<div style={ styles.redOfferStatusStyles }>{this.renderPricePerAcre().toFixed(2)}</div></div>
+            <div style={ styles.statusOfferNumbersStyles }>Price Per Acre:<div style={ styles.redOfferStatusStyles }>${this.renderPricePerAcre().toFixed(2)}</div></div>
             {this.renderOfferStatus()}
           </div>
           <div style={ styles.clientDivStyles } >
@@ -309,7 +308,7 @@ class SelectedClient extends Component {
               </tr>
               <tr>
                   <td>Original</td>
-                  <td>{this.props.selectedclient.originalOffer}</td>
+                  <td>${this.props.selectedclient.originalOffer}</td>
                   <td> </td>
               </tr>
             </tbody>

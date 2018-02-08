@@ -17,13 +17,13 @@ const TableRow = (props) => {
           <td>{props.itemData.Owner}</td>
           <td>{props.itemData.Address}</td>
           <td>{props.itemData.offerUpdate}</td>
-          <td>$47,700</td>
+          <td>{props.itemData.originalOffer}</td>
       </tr>
     )
 }
 const styles={
   SelectedItem: {
-    backgroundColor: 'rgba(22, 232, 173, 0.8)'
+    backgroundColor: 'rgba(14, 214, 88, 0.8)'
   }
 }
 

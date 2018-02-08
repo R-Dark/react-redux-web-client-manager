@@ -15,7 +15,6 @@ const StatusUpdate = props => {
       <option>Select Closer</option>
       <option value="Chris">Chris</option>
       <option value="Isack">Isack</option>
-      <option value="Seth">Seth</option>
       <option value="Joe">Joe</option>
       <option value="Bill">Bill</option>
     </Field>

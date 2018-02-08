@@ -156,7 +156,6 @@ const SearchForm = props => {
               <Field name="assignedTo" component="select">
                 <option>--</option>
                 <option value="Chris">Chris</option>
-                <option value="Seth">Seth</option>
                 <option value="Isack">Isack</option>
                 <option value="Joe">Joe</option>
                 <option value="Bill">Bill</option>
