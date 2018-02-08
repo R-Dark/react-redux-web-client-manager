@@ -9,7 +9,7 @@ const TableRow = (props) => {
   let styleVar = props.selected == props.itemData ? styles.SelectedItem : {}
     return(
       <tr onClick={props.onClick} style={styleVar}>
-          <td>1</td>
+          <td>{props.itemData.runNumber}</td>
           <td>1653</td>
           <td>Chris Bentley</td>
           <td>{props.itemData.statusUpdate}</td>

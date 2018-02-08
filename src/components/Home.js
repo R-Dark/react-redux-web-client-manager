@@ -26,9 +26,9 @@ class Home extends Component {
     return this.keyCount++;
   }
 
-  handleFormSubmit = ({ ownername, state, statusDropdown, zip, assignedTo, County }) => {
-    if (ownername || state || statusDropdown || zip || assignedTo || County) {
-      this.props.queryDbByFilters(ownername, state, statusDropdown, zip, assignedTo, County)
+  handleFormSubmit = ({ ownername, state, statusDropdown, zip, assignedTo, County, runNumber }) => {
+    if ( ownername || state || statusDropdown || zip || assignedTo || County || runNumber ) {
+      this.props.queryDbByFilters(ownername, state, statusDropdown, zip, assignedTo, County, runNumber)
     }
   }
 

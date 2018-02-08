@@ -24,7 +24,7 @@ export const clientsFetch = () => {
   }
 }
 
-export const queryDbByFilters = ( ownername, state, statusDropdown, zip, assignedTo, County ) => {
+export const queryDbByFilters = ( ownername, state, statusDropdown, zip, assignedTo, County, runNumber ) => {
   // console.log(ownername, state, zip, statusDropdown, assignedTo)
 
   if (ownername) {
@@ -41,50 +41,57 @@ export const queryDbByFilters = ( ownername, state, statusDropdown, zip, assigne
                     let length = Object.keys(snapshot.val()).length
 
                     for (let i = 0; i < length; i++) {
-                    
-                    
+
+
                       if (state) {
                         if (snapshot.val()[Object.keys(snapshot.val())[i]].State !== state) {
                           let key = Object.keys(snapshot.val())[i]
                           delete item[key]
                         }
                       }
-                      
+
                       if (County) {
                         if (snapshot.val()[Object.keys(snapshot.val())[i]].COUNTY !== County) {
                           let key = Object.keys(snapshot.val())[i]
                           delete item[key]
                         }
                       }
-                    
+
                       if (statusDropdown) {
                         if (snapshot.val()[Object.keys(snapshot.val())[i]].statusUpdate !== statusDropdown) {
                           let key = Object.keys(snapshot.val())[i]
                           delete item[key]
                         }
                       }
-                    
+
                       if (zip) {
                         if (snapshot.val()[Object.keys(snapshot.val())[i]].Zip !== zip) {
                           let key = Object.keys(snapshot.val())[i]
                           delete item[key]
                         }
                       }
-                    
+
                       if (assignedTo) {
                         if (snapshot.val()[Object.keys(snapshot.val())[i]].assignTo !== assignedTo) {
                           let key = Object.keys(snapshot.val())[i]
                           delete item[key]
                         }
                       }
-                      
+
+                      if (runNumber) {
+                        if (snapshot.val()[Object.keys(snapshot.val())[i]].runNumber !== runNumber) {
+                          let key = Object.keys(snapshot.val())[i]
+                          delete item[key]
+                        }
+                      }
+
                     }
                     // console.log(item)
                     dispatch({ type: SEARCH_CLIENT, payload: item })
                     dispatch(reset('searchform'));
                     dispatch({ type: SEARCH_RESET })
-                    
-                    
+
+
                   } else {
                     alert('No matching identifier')
                   }
@@ -106,7 +113,7 @@ export const queryDbByFilters = ( ownername, state, statusDropdown, zip, assigne
                     let length = Object.keys(snapshot.val()).length
 
                     for (let i = 0; i < length; i++) {
-                      
+
                       if (County) {
                         if (snapshot.val()[Object.keys(snapshot.val())[i]].COUNTY !== County) {
                           let key = Object.keys(snapshot.val())[i]
@@ -127,9 +134,16 @@ export const queryDbByFilters = ( ownername, state, statusDropdown, zip, assigne
                           delete item[key]
                         }
                       }
-                      
+
                       if (assignedTo) {
                         if (snapshot.val()[Object.keys(snapshot.val())[i]].assignTo !== assignedTo) {
+                          let key = Object.keys(snapshot.val())[i]
+                          delete item[key]
+                        }
+                      }
+
+                      if (runNumber) {
+                        if (snapshot.val()[Object.keys(snapshot.val())[i]].runNumber !== runNumber) {
                           let key = Object.keys(snapshot.val())[i]
                           delete item[key]
                         }
@@ -173,9 +187,16 @@ export const queryDbByFilters = ( ownername, state, statusDropdown, zip, assigne
                            delete item[key]
                          }
                        }
-                       
+
                        if (assignedTo) {
                          if (snapshot.val()[Object.keys(snapshot.val())[i]].assignTo !== assignedTo) {
+                           let key = Object.keys(snapshot.val())[i]
+                           delete item[key]
+                         }
+                       }
+
+                       if (runNumber) {
+                         if (snapshot.val()[Object.keys(snapshot.val())[i]].runNumber !== runNumber) {
                            let key = Object.keys(snapshot.val())[i]
                            delete item[key]
                          }
@@ -210,9 +231,16 @@ export const queryDbByFilters = ( ownername, state, statusDropdown, zip, assigne
                            delete item[key]
                          }
                        }
-                       
+
                        if (assignedTo) {
                          if (snapshot.val()[Object.keys(snapshot.val())[i]].assignTo !== assignedTo) {
+                           let key = Object.keys(snapshot.val())[i]
+                           delete item[key]
+                         }
+                       }
+
+                       if (runNumber) {
+                         if (snapshot.val()[Object.keys(snapshot.val())[i]].runNumber !== runNumber) {
                            let key = Object.keys(snapshot.val())[i]
                            delete item[key]
                          }
@@ -241,9 +269,16 @@ export const queryDbByFilters = ( ownername, state, statusDropdown, zip, assigne
                       let length = Object.keys(snapshot.val()).length
 
                       for (let i = 0; i < length; i++) {
-                        
+
                         if (assignedTo) {
                           if (snapshot.val()[Object.keys(snapshot.val())[i]].assignTo !== assignedTo) {
+                            let key = Object.keys(snapshot.val())[i]
+                            delete item[key]
+                          }
+                        }
+
+                        if (runNumber) {
+                          if (snapshot.val()[Object.keys(snapshot.val())[i]].runNumber !== runNumber) {
                             let key = Object.keys(snapshot.val())[i]
                             delete item[key]
                           }
@@ -266,6 +301,36 @@ export const queryDbByFilters = ( ownername, state, statusDropdown, zip, assigne
           .orderByChild("assignTo")
           .startAt(assignedTo)
             .endAt(`${assignedTo}\uf8ff`)
+                  .on('value', snapshot => {
+                    if (snapshot.val() !== null) {
+                      let item = snapshot.val()
+                      let length = Object.keys(snapshot.val()).length
+
+                      for (let i = 0; i < length; i++) {
+
+                        if (runNumber) {
+                          if (snapshot.val()[Object.keys(snapshot.val())[i]].runNumber !== runNumber) {
+                            let key = Object.keys(snapshot.val())[i]
+                            delete item[key]
+                          }
+                        }
+
+                      }
+                      dispatch({ type: SEARCH_CLIENT, payload: item })
+                      dispatch(reset('searchform'));
+                      dispatch({ type: SEARCH_RESET })
+                    } else {
+                      alert('No matching identifier')
+                    }
+                })
+         }
+    } else if (runNumber) {
+      return (dispatch) => {
+        firebase.database()
+        .ref("/")
+          .orderByChild("runNumber")
+          .startAt(runNumber)
+            .endAt(`${runNumber}\uf8ff`)
                   .on('value', snapshot => {
                     if (snapshot.val() !== null) {
                       let item = snapshot.val()
@@ -294,12 +359,12 @@ export const queryDbByFilters = ( ownername, state, statusDropdown, zip, assigne
 //             // console.log(snapshot.val())
 //             dispatch(reset('searchform'));
 //             dispatch({ type: SEARCH_RESET })
-// 
+//
 //         })
 //      }
 //   }
-// 
-// 
+//
+//
 //   export const searchByState = (state) => {
 //     return (dispatch) => {
 //       firebase.database()
@@ -315,8 +380,8 @@ export const queryDbByFilters = ( ownername, state, statusDropdown, zip, assigne
 //           })
 //        }
 //     }
-// 
-// 
+//
+//
 //     export const searchByStatus = (statusDropdown) => {
 //       // console.log(ownername, state, zip)
 //       return (dispatch) => {
@@ -331,8 +396,8 @@ export const queryDbByFilters = ( ownername, state, statusDropdown, zip, assigne
 //             })
 //          }
 //       }
-// 
-// 
+//
+//
 //       export const searchByZip = (zip) => {
 //         // console.log(ownername, state, zip)
 //         return (dispatch) => {
