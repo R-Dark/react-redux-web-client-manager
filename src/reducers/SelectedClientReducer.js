@@ -17,7 +17,8 @@ export default (state = INITIAL_STATE, action) => {
           name: undefined,
           contactNote: undefined,
           clientNote: clientNotes,
-          email: undefined
+          email: undefined,
+          selectedItem: action.payload.listID
         }
       case UPDATE_OFFER_SUCCESS:
         return { ...state, offer: action.payload };

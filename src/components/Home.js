@@ -34,13 +34,18 @@ class Home extends Component {
 
 
   renderClientRow () {
-    console.log(this.props)
+    // console.log(this.props)
+    if (this.props.client)
+    for (let i = 0; i < this.props.client.length; i++) {
+      this.props.client[i].listID = i
+    }
     if (this.props.client) {
       // selectedClient = this.props.selectedClient
-      console.log(this.props)
+      // console.log(this.props)
       return this.props.client.map(
         itemData => <TableRow key={this.getKey()}
         // console.log(itemData, this)
+        selected={this.props.selectedclient}
         itemData={itemData}
         onClick={this.onRowPress.bind(this, itemData)}/>
       )
@@ -48,6 +53,7 @@ class Home extends Component {
       // selectedClient = this.props.selectedClient
       return this.props.clientItemByState.map(
         itemData => <TableRow key={this.getKey()}
+        selected={this.props.selectedclient}
         itemData={itemData}
         onClick={this.onRowPress.bind(this, itemData)}/>
       )
@@ -55,6 +61,7 @@ class Home extends Component {
       // selectedClient = this.props.selectedClient
       return this.props.clientItemByStatus.map(
         itemData => <TableRow key={this.getKey()}
+        selected={this.props.selectedclient}
         itemData={itemData}
         onClick={this.onRowPress.bind(this, itemData)}/>
       )
@@ -62,6 +69,7 @@ class Home extends Component {
       // selectedClient = this.props.selectedClient
       return this.props.clientItemByZip.map(
         itemData => <TableRow key={this.getKey()}
+        selected={this.props.selectedclient}
         itemData={itemData}
         onClick={this.onRowPress.bind(this, itemData)}/>
       )
@@ -71,6 +79,7 @@ class Home extends Component {
 
 
   onRowPress = (clientInfo) => {
+    // console.log(clientInfo)
     this.props.selectClient(clientInfo)
 }
 
@@ -171,14 +180,14 @@ const styles = {
 };
 
 const mapStateToProps = state => {
-  // console.log(state.clients.clientItem)
+  // console.log(state)
   return {
     clients: state.clients.items,
     selectedclient: state.selectedclient.clientInfo,
     client: state.clients.clientItem,
     clientItemByState: state.clients.clientItemByState,
     clientItemByStatus: state.clients.clientItemByStatus,
-    clientItemByZip: state.clients.clientItemByZip
+    clientItemByZip: state.clients.clientItemByZip,
   }
 }
 

@@ -3,11 +3,12 @@ import React from 'react'
 
 
 const TableRow = (props) => {
-  console.log(props)
-  console.log(this.props)
+  // console.log(props)
+  // console.log(this.props)
   // if (this.props.itemData.uid == )
+  let styleVar = props.selected == props.itemData ? styles.SelectedItem : {}
     return(
-      <tr onClick={props.onClick}>
+      <tr onClick={props.onClick} style={styleVar}>
           <td>1</td>
           <td>1653</td>
           <td>Chris Bentley</td>
@@ -20,10 +21,10 @@ const TableRow = (props) => {
       </tr>
     )
 }
-// const styles={
-//   SelectedItem: {
-//     backgroundColor: 'rgba(22, 232, 173, 0.8)'
-//   }
-// }
+const styles={
+  SelectedItem: {
+    backgroundColor: 'rgba(22, 232, 173, 0.8)'
+  }
+}
 
 export default TableRow
